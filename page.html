@@ -1,13 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Addis Alemayehu | Graphic designer &amp; front end developer</title>
-<meta name="description" content="Graphic and web designer: branding, social media, packaging, UI/UX, 3D and motion graphics.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio | Addis Alemayehu</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"><style>
 /* IMAGES: drop files into an /images folder using the names shown in each grey placeholder.
    Until a file exists, the placeholder shows its file name and pixel size. */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -106,8 +98,21 @@ footer nav{display:flex;gap:24px}
   footer .wrap{flex-direction:column;align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
-</style>
-<script>
+
+.cs{background:#fff;padding:36px 0 90px}
+.crumb{font-size:15px;color:var(--mute);margin-bottom:26px}.crumb a{text-decoration:underline}
+.cs h1{font-size:clamp(30px,5vw,48px);font-weight:500;letter-spacing:-.02em;line-height:1.15}
+.meta{color:var(--mute);margin:8px 0 22px}
+.lead{font-size:20px;max-width:720px;margin-bottom:34px}
+.cs .txt{max-width:720px;margin:44px auto 0}
+.cs .txt h2{font-size:28px;font-weight:500;margin-bottom:14px;letter-spacing:-.01em}
+.cs .txt p{margin-bottom:14px}
+.shot{margin:34px 0}.shot img,.shot .ph,.video{border-radius:8px;box-shadow:0 1px 8px rgba(0,0,0,.18)}
+.video{position:relative;aspect-ratio:16/9;overflow:hidden;margin:34px 0}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.more{margin-top:70px}
+.pn{display:flex;justify-content:space-between;gap:16px;margin-top:50px}.pn a{text-decoration:underline}
+</style><script>
 /* Swap a missing image for a labelled placeholder showing the size to export */
 function ph(img){
   var d=document.createElement('div');
@@ -116,17 +121,13 @@ function ph(img){
   d.innerHTML='<b>'+img.getAttribute('width')+' × '+img.getAttribute('height')+' px</b><span>'+img.getAttribute('alt')+'</span><small>'+img.getAttribute('src')+'</small>';
   img.onerror=null;img.replaceWith(d);
 }
-</script>
-</head>
-<body id="top">
-
-<header>
+</script></head><body id="top"><header>
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
+    <a class="logo" href="index.html" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
     <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <div id="menu">
       <nav aria-label="Main">
-        <a href="#top">home</a><a href="#previous">portfolio</a><a href="#about">about</a><a href="#contact">contact</a>
+        <a href="index.html">home</a><a href="index.html#previous">portfolio</a><a href="index.html#about">about</a><a href="index.html#contact">contact</a>
       </nav>
       <div class="social">
         <a href="https://web.facebook.com/sikettc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.8v8z"/></svg></a>
@@ -136,89 +137,47 @@ function ph(img){
       </div>
     </div>
   </div>
-</header>
-
-<section class="hero" id="about">
-  <div class="hero-in">
-    <img src="images/hero.png" width="1040" height="600" alt="Hero portrait (transparent PNG)" onerror="ph(this)">
-    <div class="side l">
-      <h2>designer</h2>
-      <p>Experienced in graphic &amp; web design, creating websites, user interfaces, brands, logos and print media.</p>
-    </div>
-    <div class="side r">
-      <h2>&lt;coder&gt;</h2>
-      <p>Skilled in front-end web development: HTML, CSS, JavaScript, WordPress, PHP and SEO.</p>
-    </div>
-  </div>
-</section>
-
-<section class="work" id="previous">
-  <div class="wrap">
-    <div class="title"><h2>Previous work</h2></div>
-    <ul class="grid">
-      <li><a class="card" href="#"><div class="thumb"><img src="images/work-branding.jpg" width="960" height="540" alt="Branding &amp; logo design" onerror="ph(this)"></div><h3>Branding &amp; logo design</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/work-social-media.jpg" width="960" height="540" alt="Social media" onerror="ph(this)"></div><h3>Social media</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/work-packaging.jpg" width="960" height="540" alt="Packaging, print &amp; apparel" onerror="ph(this)"></div><h3>Packaging, print &amp; apparel</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/work-ui-ux.jpg" width="960" height="540" alt="UI/UX designs" onerror="ph(this)"></div><h3>UI/UX designs</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/work-3d.jpg" width="960" height="540" alt="3D designs &amp; animation" onerror="ph(this)"></div><h3>3D designs &amp; animation</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/work-motion.jpg" width="960" height="540" alt="Motion graphics" onerror="ph(this)"></div><h3>Motion graphics</h3></a></li>
-    </ul>
-  </div>
-</section>
-
-<section class="videos" aria-label="Motion graphics designs">
-  <div class="wrap">
-    <h2>Motion Graphics Designs</h2>
-    <div class="vwrap">
-      <button class="arrow p" aria-label="Previous videos">&#8249;</button>
-      <ul class="track" id="track">
-        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-1.jpg" width="640" height="360" alt="Aims healthcare draft" onerror="ph(this)"><span class="play"></span><span class="dur">00:59</span></div><p>Aims healthcare draft</p></a></li>
-        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-2.jpg" width="640" height="360" alt="International courses AI voice over" onerror="ph(this)"><span class="play"></span><span class="dur">00:46</span></div><p>International courses AI voice over</p></a></li>
-        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-3.jpg" width="640" height="360" alt="Meri Coffee 2" onerror="ph(this)"><span class="play"></span><span class="dur">00:32</span></div><p>Meri Coffee 2</p></a></li>
-        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-4.jpg" width="640" height="360" alt="Wave club advert" onerror="ph(this)"><span class="play"></span><span class="dur">01:12</span></div><p>Wave club advert</p></a></li>
-        <li class="vid"><a href="https://www.youtube.com/watch?v=sIWo3DbTRPQ" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/sIWo3DbTRPQ/mqdefault.jpg" width="640" height="360" alt="Siket training center short term courses" onerror="ph(this)"><span class="play"></span><span class="dur">01:11</span></div><p>Siket training center short term courses</p></a></li>
-        <li class="vid"><a href="https://www.youtube.com/watch?v=RB1PprnVM3Q" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/RB1PprnVM3Q/mqdefault.jpg" width="640" height="360" alt="Siket training center WAs" onerror="ph(this)"><span class="play"></span><span class="dur">01:05</span></div><p>Siket training center WAs</p></a></li>
-        <li class="vid"><a href="https://www.youtube.com/watch?v=5MlL8NSkM10" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/5MlL8NSkM10/mqdefault.jpg" width="640" height="360" alt="Siket training center safety courses" onerror="ph(this)"><span class="play"></span><span class="dur">00:46</span></div><p>Siket training center safety courses</p></a></li>
-        <li class="vid"><a href="https://www.youtube.com/watch?v=_LYk2-1UnnM" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/_LYk2-1UnnM/mqdefault.jpg" width="640" height="360" alt="Siket training center degree courses WA" onerror="ph(this)"><span class="play"></span><span class="dur">01:01</span></div><p>Siket training center degree courses WA</p></a></li>
-      </ul>
-      <button class="arrow n" aria-label="Next videos">&#8250;</button>
-    </div>
-  </div>
-</section>
-
-<section class="work" id="industries" style="background:#fff">
-  <div class="wrap">
-    <div class="title"><h2>Sample work by industries</h2></div>
-    <ul class="grid">
-      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-real-estate.jpg" width="960" height="540" alt="Real estate" onerror="ph(this)"></div><h3>Real estate</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-restaurants.jpg" width="960" height="540" alt="Restaurants" onerror="ph(this)"></div><h3>Restaurants</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-medical.jpg" width="960" height="540" alt="Medical" onerror="ph(this)"></div><h3>Medical</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-jewelry.jpg" width="960" height="540" alt="Jewelry" onerror="ph(this)"></div><h3>Jewelry</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-social-media-companies.jpg" width="960" height="540" alt="Social media companies" onerror="ph(this)"></div><h3>Social media companies</h3></a></li>
-      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-schools.jpg" width="960" height="540" alt="Schools" onerror="ph(this)"></div><h3>Schools</h3></a></li>
-    </ul>
-  </div>
-</section>
-
-<footer id="contact">
+</header><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
   <a class="top" href="#top" aria-label="Back to top"></a>
   <div class="wrap">
     <span>&copy; 2026 Addis Alemayehu</span>
-    <nav aria-label="Footer"><a href="#top">home</a><a href="#previous">portfolio</a><a href="#about">about</a><a href="#contact">contact</a></nav>
+    <nav aria-label="Footer"><a href="index.html">home</a><a href="index.html#previous">portfolio</a><a href="index.html#about">about</a><a href="index.html#contact">contact</a></nav>
   </div>
-</footer>
-
-<script>
+</footer><script>
 var b=document.getElementById('burger'),m=document.getElementById('menu');
 b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
 var t=document.getElementById('track');
 document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
 document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
-</script>
-<script>
-(function(){var P=['branding','social-media','packaging','ui-ux','3d','motion'],I=['real-estate','restaurants','medical','jewelry','social-media-companies','schools'];
-[['#previous',P],['#industries',I]].forEach(function(x){document.querySelectorAll(x[0]+' .card').forEach(function(a,i){a.href='page.html?c='+x[1][i]})})})();
-</script>
-</body>
-</html>
+</script><script>
+var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
+var IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+h+'" alt="'+E(alt)+'" onerror="ph(this)">'};
+var SEC=[{heading:'The challenge',text:'Describe the brief, the client and the problem you were solving.'},{heading:'The process',text:'Explain your approach, sketches, research and key decisions.'},{heading:'The result',text:'Show the final outcome and what it achieved.'}];
+var main=document.getElementById('main');
+fetch('data.json').then(function(r){return r.json()}).then(function(D){
+  var q=new URLSearchParams(location.search),cat=D.categories.find(function(c){return c.id===q.get('c')}),n=+q.get('p')||0;
+  if(!cat){main.innerHTML='<h1>Page not found</h1><p><a href="index.html">Back to home</a></p>';return}
+  var base=function(i){return 'images/'+cat.id+'/'+i+'-'};
+  var card=function(p,i){return '<li><a class="card" href="page.html?c='+cat.id+'&amp;p='+(i+1)+'"><div class="thumb">'+IMG(base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
+  var h='';
+  if(!n||!cat.projects[n-1]){
+    document.title=cat.title+' | Addis Alemayehu';
+    h='<p class="crumb"><a href="index.html">Home</a> / '+E(cat.title)+'</p><h1>'+E(cat.title)+'</h1><p class="lead" style="margin-top:14px">'+E(cat.description)+'</p><ul class="grid">'+cat.projects.map(card).join('')+'</ul>';
+  }else{
+    var p=cat.projects[n-1],b=base(n),g=p.gallery==null?3:p.gallery,s=p.sections||SEC,L=Math.max(s.length,g);
+    document.title=p.title+' | Addis Alemayehu';
+    h='<p class="crumb"><a href="index.html">Home</a> / <a href="page.html?c='+cat.id+'">'+E(cat.title)+'</a></p><h1>'+E(p.title)+'</h1><p class="meta">'+E(p.client||'Client name')+' &middot; '+E(p.date||'Month Year')+'</p><p class="lead">'+E(p.summary||'A short summary of this project: the goal, your role and the result.')+'</p>';
+    h+=p.video?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(p.video)+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(b+'cover.jpg',1600,900,p.title+' cover')+'</div>';
+    for(var i=0;i<L;i++){
+      if(s[i])h+='<div class="txt"><h2>'+E(s[i].heading)+'</h2><p>'+E(s[i].text)+'</p></div>';
+      if(i<g)h+='<div class="shot">'+IMG(b+(i+1)+'.jpg',1600,900,p.title+' image '+(i+1))+'</div>';
+    }
+    var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1}).slice(0,3);
+    if(o.length)h+='<div class="more"><div class="title"><h2>More from '+E(cat.title)+'</h2></div><ul class="grid">'+o.join('')+'</ul></div>';
+    var pv=cat.projects[n-2],nx=cat.projects[n];
+    h+='<div class="pn"><span>'+(pv?'<a href="page.html?c='+cat.id+'&amp;p='+(n-1)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="page.html?c='+cat.id+'&amp;p='+(n+1)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
+  }
+  main.innerHTML=h;
+}).catch(function(){main.innerHTML='<h1>Could not load data.json</h1><p>Open the site through a web server (or the live Cloudflare address), not by double-clicking the file.</p>'});
+</script></body></html>

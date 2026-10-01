@@ -1,0 +1,425 @@
+{
+  "_help": "Edit text here. Each project needs a title; client, date, summary, gallery (number of images), video (YouTube ID) and sections [{heading,text}] are optional. Add or remove projects freely: images are read from images/<category-id>/<project-number>-cover.jpg and <project-number>-1.jpg, -2.jpg ...",
+  "categories": [
+    {
+      "id": "branding",
+      "group": "previous",
+      "title": "Branding & logo design",
+      "description": "Selected Branding & logo design projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Branding & logo design 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Branding & logo design 2"
+        },
+        {
+          "title": "Branding & logo design 3"
+        }
+      ]
+    },
+    {
+      "id": "social-media",
+      "group": "previous",
+      "title": "Social media",
+      "description": "Selected Social media projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Social media 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Social media 2"
+        },
+        {
+          "title": "Social media 3"
+        }
+      ]
+    },
+    {
+      "id": "packaging",
+      "group": "previous",
+      "title": "Packaging, print & apparel",
+      "description": "Selected Packaging, print & apparel projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Packaging, print & apparel 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Packaging, print & apparel 2"
+        },
+        {
+          "title": "Packaging, print & apparel 3"
+        }
+      ]
+    },
+    {
+      "id": "ui-ux",
+      "group": "previous",
+      "title": "UI/UX designs",
+      "description": "Selected UI/UX designs projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "UI/UX designs 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "UI/UX designs 2"
+        },
+        {
+          "title": "UI/UX designs 3"
+        }
+      ]
+    },
+    {
+      "id": "3d",
+      "group": "previous",
+      "title": "3D designs & animation",
+      "description": "Selected 3D designs & animation projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "3D designs & animation 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "3D designs & animation 2"
+        },
+        {
+          "title": "3D designs & animation 3"
+        }
+      ]
+    },
+    {
+      "id": "motion",
+      "group": "previous",
+      "title": "Motion graphics",
+      "description": "Selected Motion graphics projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Motion graphics 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Motion graphics 2"
+        },
+        {
+          "title": "Motion graphics 3"
+        }
+      ]
+    },
+    {
+      "id": "real-estate",
+      "group": "industry",
+      "title": "Real estate",
+      "description": "Selected Real estate projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Real estate 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Real estate 2"
+        },
+        {
+          "title": "Real estate 3"
+        }
+      ]
+    },
+    {
+      "id": "restaurants",
+      "group": "industry",
+      "title": "Restaurants",
+      "description": "Selected Restaurants projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Restaurants 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Restaurants 2"
+        },
+        {
+          "title": "Restaurants 3"
+        }
+      ]
+    },
+    {
+      "id": "medical",
+      "group": "industry",
+      "title": "Medical",
+      "description": "Selected Medical projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Medical 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Medical 2"
+        },
+        {
+          "title": "Medical 3"
+        }
+      ]
+    },
+    {
+      "id": "jewelry",
+      "group": "industry",
+      "title": "Jewelry",
+      "description": "Selected Jewelry projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Jewelry 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Jewelry 2"
+        },
+        {
+          "title": "Jewelry 3"
+        }
+      ]
+    },
+    {
+      "id": "social-media-companies",
+      "group": "industry",
+      "title": "Social media companies",
+      "description": "Selected Social media companies projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Social media companies 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Social media companies 2"
+        },
+        {
+          "title": "Social media companies 3"
+        }
+      ]
+    },
+    {
+      "id": "schools",
+      "group": "industry",
+      "title": "Schools",
+      "description": "Selected Schools projects. Edit this description in data.json.",
+      "projects": [
+        {
+          "title": "Schools 1",
+          "client": "Client name",
+          "date": "Month 2026",
+          "summary": "A short summary of this project: the goal, your role and the result.",
+          "gallery": 3,
+          "sections": [
+            {
+              "heading": "The challenge",
+              "text": "Describe the brief, the client and the problem you were solving."
+            },
+            {
+              "heading": "The process",
+              "text": "Explain your approach, sketches, research and key decisions."
+            },
+            {
+              "heading": "The result",
+              "text": "Show the final outcome and what it achieved."
+            }
+          ]
+        },
+        {
+          "title": "Schools 2"
+        },
+        {
+          "title": "Schools 3"
+        }
+      ]
+    }
+  ]
+}
