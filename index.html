@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Addis Alemayehu | Graphic designer &amp; front end developer</title>
+<meta name="description" content="Graphic and web designer: branding, social media, packaging, UI/UX, 3D and motion graphics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* IMAGES: drop files into an /images folder using the names shown in each grey placeholder.
+   Until a file exists, the placeholder shows its file name and pixel size. */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#333;--mute:#777;--line:#d9d9d9;--bg:#fafafa}
+html{scroll-behavior:smooth}
+body{font:300 17px/1.5 Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid #3b82f6;outline-offset:2px}
+.wrap{max-width:1050px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{background:#000;color:#fff;height:94px}
+header .wrap{max-width:1140px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo img,.logo .ph{width:64px;height:64px;border-radius:50%}
+#menu{display:flex;align-items:center;gap:60px}
+#menu nav{display:flex;gap:36px;font-size:16px}
+#menu nav a:hover{opacity:.7}
+.social{display:flex;gap:26px}
+.social svg{width:28px;height:28px;fill:#fff;display:block}
+.social a:hover{opacity:.7}
+#burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+#burger span{display:block;width:26px;height:2px;background:#fff;margin:6px auto}
+
+/* hero */
+.hero{background:#fff;border-bottom:1px solid #e5e5e5;overflow:hidden}
+.hero-in{max-width:1050px;margin:0 auto;position:relative}
+.hero-in>img,.hero-in>.ph{width:100%;aspect-ratio:1040/600}
+.hero h2{font-size:clamp(40px,6vw,66px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.hero p{font-size:18px;color:var(--mute);margin-top:14px}
+.hero .side{position:absolute;top:36%;max-width:300px;padding:0 20px}
+.hero .l{left:0}
+.hero .r{right:0;text-align:right}
+
+/* sections */
+.work{background:var(--bg);padding:70px 0 90px}
+.title{display:flex;align-items:center;gap:28px;margin-bottom:34px}
+.title::before,.title::after{content:"";flex:1;height:1px;background:#ccc}
+.title h2{font-size:15px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#444;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{display:block;background:#fff;border-radius:8px;padding:10px 10px 18px;box-shadow:0 1px 5px rgba(0,0,0,.22);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.thumb{background:#f1f3f6;border-radius:6px;overflow:hidden;margin-bottom:18px}
+.card h3{font-size:18px;font-weight:300;padding:0 14px}
+
+/* video slider */
+.videos{background:#0f1b1a;color:#fff;padding:22px 0 34px}
+.videos h2{font-size:15px;font-weight:500;margin-bottom:16px}
+.vwrap{position:relative}
+.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.vid{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start}
+.vthumb{position:relative;border-radius:4px;overflow:hidden;background:#1d2b2a}
+.vid p{font-size:14px;margin-top:8px;color:#d6dedd}
+.play{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.35)}
+.play::after{content:"";position:absolute;left:18px;top:13px;border:9px solid transparent;border-left:14px solid #fff}
+.dur{position:absolute;right:8px;bottom:6px;font-size:12px;background:rgba(0,0,0,.65);padding:1px 6px;border-radius:3px}
+.arrow{position:absolute;top:34%;width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#000;font-size:22px;cursor:pointer}
+.arrow.p{left:-10px}.arrow.n{right:-10px}
+
+/* footer */
+footer{background:#f5f5f5;border-top:1px solid #e3e3e3;position:relative;padding:34px 0;font-size:15px;color:var(--mute)}
+footer .wrap{max-width:1140px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer nav{display:flex;gap:24px}
+.top{position:absolute;left:50%;top:-60px;width:120px;height:60px;margin-left:-60px;background:#f5f5f5;border:1px solid #e3e3e3;border-bottom:0;border-radius:60px 60px 0 0}
+.top::after{content:"";position:absolute;left:50%;top:26px;width:20px;height:20px;margin-left:-10px;border-left:2px solid #bbb;border-top:2px solid #bbb;transform:rotate(45deg) scale(.8)}
+
+/* image placeholder */
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:100%;background:repeating-linear-gradient(45deg,#eceff3,#eceff3 12px,#e4e8ed 12px,#e4e8ed 24px);border:2px dashed #aab2bd;color:#4a5560;font:500 14px/1.3 Roboto,sans-serif;text-align:center;padding:10px}
+.ph b{font-size:18px}.ph small{font-size:12px;font-weight:400}
+.vthumb .ph{border:0}
+
+/* tablet + mobile */
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .vid{flex-basis:calc((100% - 20px)/2)}
+  #burger{display:block}
+  #menu{display:none;position:absolute;top:94px;left:0;right:0;z-index:5;background:#000;flex-direction:column;align-items:flex-start;gap:20px;padding:10px 24px 26px;border-top:1px solid #222}
+  #menu.open{display:flex}
+  #menu nav{flex-direction:column;gap:14px;font-size:18px}
+  header{position:relative}
+  .hero .side{position:static;max-width:none;padding:0 20px 28px}
+  .hero .r{text-align:left}
+  .hero-in>img,.hero-in>.ph{aspect-ratio:1040/600}
+  .hero h2{font-size:44px}
+}
+@media(max-width:600px){
+  header{height:76px}#menu{top:76px}
+  .logo img,.logo .ph{width:52px;height:52px}
+  .grid{grid-template-columns:1fr;gap:22px}
+  .vid{flex-basis:82%}
+  .arrow{display:none}
+  .work{padding:50px 0 70px}
+  .title{gap:14px}.title h2{font-size:13px;letter-spacing:.1em}
+  footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+</style>
+<script>
+/* Swap a missing image for a labelled placeholder showing the size to export */
+function ph(img){
+  var d=document.createElement('div');
+  d.className='ph';
+  d.style.aspectRatio=img.getAttribute('width')+'/'+img.getAttribute('height');
+  d.innerHTML='<b>'+img.getAttribute('width')+' × '+img.getAttribute('height')+' px</b><span>'+img.getAttribute('alt')+'</span><small>'+img.getAttribute('src')+'</small>';
+  img.onerror=null;img.replaceWith(d);
+}
+</script>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
+    <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <div id="menu">
+      <nav aria-label="Main">
+        <a href="#top">home</a><a href="#previous">portfolio</a><a href="#about">about</a><a href="#contact">contact</a>
+      </nav>
+      <div class="social">
+        <a href="https://web.facebook.com/sikettc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.8v8z"/></svg></a>
+        <a href="https://www.linkedin.com/in/aceaddiss/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.9 8.9H3.7V20h3.2zM5.3 3.5a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8zM20.3 20v-6.100c0-3-1.600-4.400-3.800-4.400-1.700 0-2.500.9-2.900 1.600V8.900h-3.200V20h3.200v-6.200c0-.3 0-.7.100-.9.300-.7.900-1.400 2-1.400 1.400 0 1.900 1 1.900 2.600V20z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17" cy="7" r="1.200"/></svg></a>
+        <a href="https://www.youtube.com/@addisinfolinked" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.600 7.200a2.500 2.500 0 00-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4A2.500 2.500 0 002.400 7.200C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 001.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 001.800-1.800C22 15.200 22 12 22 12s0-3.200-.4-4.800zM10 15V9l5.200 3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="hero-in">
+    <img src="images/hero.png" width="1040" height="600" alt="Hero portrait (transparent PNG)" onerror="ph(this)">
+    <div class="side l">
+      <h2>designer</h2>
+      <p>Experienced in graphic &amp; web design, creating websites, user interfaces, brands, logos and print media.</p>
+    </div>
+    <div class="side r">
+      <h2>&lt;coder&gt;</h2>
+      <p>Skilled in front-end web development: HTML, CSS, JavaScript, WordPress, PHP and SEO.</p>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="previous">
+  <div class="wrap">
+    <div class="title"><h2>Previous work</h2></div>
+    <ul class="grid">
+      <li><a class="card" href="#"><div class="thumb"><img src="images/work-branding.jpg" width="960" height="540" alt="Branding &amp; logo design" onerror="ph(this)"></div><h3>Branding &amp; logo design</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/work-social-media.jpg" width="960" height="540" alt="Social media" onerror="ph(this)"></div><h3>Social media</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/work-packaging.jpg" width="960" height="540" alt="Packaging, print &amp; apparel" onerror="ph(this)"></div><h3>Packaging, print &amp; apparel</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/work-ui-ux.jpg" width="960" height="540" alt="UI/UX designs" onerror="ph(this)"></div><h3>UI/UX designs</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/work-3d.jpg" width="960" height="540" alt="3D designs &amp; animation" onerror="ph(this)"></div><h3>3D designs &amp; animation</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/work-motion.jpg" width="960" height="540" alt="Motion graphics" onerror="ph(this)"></div><h3>Motion graphics</h3></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="videos" aria-label="Motion graphics designs">
+  <div class="wrap">
+    <h2>Motion Graphics Designs</h2>
+    <div class="vwrap">
+      <button class="arrow p" aria-label="Previous videos">&#8249;</button>
+      <ul class="track" id="track">
+        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-1.jpg" width="640" height="360" alt="Aims healthcare draft" onerror="ph(this)"><span class="play"></span><span class="dur">00:59</span></div><p>Aims healthcare draft</p></a></li>
+        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-2.jpg" width="640" height="360" alt="International courses AI voice over" onerror="ph(this)"><span class="play"></span><span class="dur">00:46</span></div><p>International courses AI voice over</p></a></li>
+        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-3.jpg" width="640" height="360" alt="Meri Coffee 2" onerror="ph(this)"><span class="play"></span><span class="dur">00:32</span></div><p>Meri Coffee 2</p></a></li>
+        <li class="vid"><a href="#"><div class="vthumb"><img src="images/video-4.jpg" width="640" height="360" alt="Wave club advert" onerror="ph(this)"><span class="play"></span><span class="dur">01:12</span></div><p>Wave club advert</p></a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=sIWo3DbTRPQ" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/sIWo3DbTRPQ/mqdefault.jpg" width="640" height="360" alt="Siket training center short term courses" onerror="ph(this)"><span class="play"></span><span class="dur">01:11</span></div><p>Siket training center short term courses</p></a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=RB1PprnVM3Q" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/RB1PprnVM3Q/mqdefault.jpg" width="640" height="360" alt="Siket training center WAs" onerror="ph(this)"><span class="play"></span><span class="dur">01:05</span></div><p>Siket training center WAs</p></a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=5MlL8NSkM10" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/5MlL8NSkM10/mqdefault.jpg" width="640" height="360" alt="Siket training center safety courses" onerror="ph(this)"><span class="play"></span><span class="dur">00:46</span></div><p>Siket training center safety courses</p></a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=_LYk2-1UnnM" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/_LYk2-1UnnM/mqdefault.jpg" width="640" height="360" alt="Siket training center degree courses WA" onerror="ph(this)"><span class="play"></span><span class="dur">01:01</span></div><p>Siket training center degree courses WA</p></a></li>
+      </ul>
+      <button class="arrow n" aria-label="Next videos">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="industries" style="background:#fff">
+  <div class="wrap">
+    <div class="title"><h2>Sample work by industries</h2></div>
+    <ul class="grid">
+      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-real-estate.jpg" width="960" height="540" alt="Real estate" onerror="ph(this)"></div><h3>Real estate</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-restaurants.jpg" width="960" height="540" alt="Restaurants" onerror="ph(this)"></div><h3>Restaurants</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-medical.jpg" width="960" height="540" alt="Medical" onerror="ph(this)"></div><h3>Medical</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-jewelry.jpg" width="960" height="540" alt="Jewelry" onerror="ph(this)"></div><h3>Jewelry</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-social-media-companies.jpg" width="960" height="540" alt="Social media companies" onerror="ph(this)"></div><h3>Social media companies</h3></a></li>
+      <li><a class="card" href="#"><div class="thumb"><img src="images/industry-schools.jpg" width="960" height="540" alt="Schools" onerror="ph(this)"></div><h3>Schools</h3></a></li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <a class="top" href="#top" aria-label="Back to top"></a>
+  <div class="wrap">
+    <span>&copy; 2026 Addis Alemayehu</span>
+    <nav aria-label="Footer"><a href="#top">home</a><a href="#previous">portfolio</a><a href="#about">about</a><a href="#contact">contact</a></nav>
+  </div>
+</footer>
+
+<script>
+var b=document.getElementById('burger'),m=document.getElementById('menu');
+b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+var t=document.getElementById('track');
+document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
+document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
+</script>
+</body>
+</html>
