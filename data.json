@@ -10,7 +10,7 @@
         {
           "title": "Branding & logo design 1",
           "client": "Client name",
-          "date": "Month 2026",
+          "date": "Month 2025",
           "summary": "A short summary of this project: the goal, your role and the result.",
           "gallery": 3,
           "sections": [
@@ -25,8 +25,13 @@
             {
               "heading": "The result",
               "text": "Show the final outcome and what it achieved."
+            },
+            {
+              "heading": "",
+              "text": ""
             }
-          ]
+          ],
+          "images": []
         },
         {
           "title": "Branding & logo design 2"
