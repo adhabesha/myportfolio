@@ -173,7 +173,7 @@ fetch('data.json').then(function(r){return r.json()}).then(function(D){
       if(s[i])h+='<div class="txt"><h2>'+E(s[i].heading)+'</h2><p>'+E(s[i].text)+'</p></div>';
       if(i<g)h+='<div class="shot">'+IMG(b+(i+1)+'.jpg',1600,900,p.title+' image '+(i+1))+'</div>';
     }
-    var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1}).slice(0,3);
+    var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1});
     if(o.length)h+='<div class="more"><div class="title"><h2>More from '+E(cat.title)+'</h2></div><ul class="grid">'+o.join('')+'</ul></div>';
     var pv=cat.projects[n-2],nx=cat.projects[n];
     h+='<div class="pn"><span>'+(pv?'<a href="page.html?c='+cat.id+'&amp;p='+(n-1)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="page.html?c='+cat.id+'&amp;p='+(n+1)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
