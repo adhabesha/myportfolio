@@ -1,0 +1,27 @@
+/* Shared look: fonts, motion, mobile polish. Loaded after each page's own CSS. */
+:root{--ease:cubic-bezier(.2,.7,.2,1)}
+body{font-family:'Lato',Helvetica,Arial,sans-serif;font-weight:300;letter-spacing:.01em;-webkit-font-smoothing:antialiased;color:#3a3a3a}
+h1,h2,h3{font-family:'Montserrat',Helvetica,Arial,sans-serif}
+.hero h2{font-weight:700;letter-spacing:-.05em}
+.hero p{font-weight:300;letter-spacing:.02em;line-height:1.65}
+#menu nav a,footer nav a{font-weight:400;position:relative;padding:4px 0}
+#menu nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+#menu nav a:hover::after{transform:scaleX(1)}#menu nav a:hover{opacity:1}
+.social a{transition:transform .3s var(--ease),opacity .3s}.social a:hover{transform:translateY(-3px);opacity:1}
+.logo{transition:transform .4s var(--ease)}.logo:hover{transform:rotate(-8deg) scale(1.07)}
+.title h2{font-weight:500;letter-spacing:.2em;font-size:14px}
+.card h3{font-family:'Lato',sans-serif;font-weight:400}
+.card{transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.card:hover{transform:translateY(-8px);box-shadow:0 16px 32px rgba(0,0,0,.18)}
+.thumb img,.vthumb img{transition:transform .8s var(--ease)}.card:hover .thumb img,.vid:hover .vthumb img{transform:scale(1.05)}
+.play{transition:transform .3s,background .3s}.vid:hover .play{background:rgba(255,255,255,.28);transform:scale(1.12)}
+.top::after{transition:transform .3s}.top:hover::after{transform:rotate(45deg) scale(.8) translate(3px,3px)}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.hero h2,.hero p{animation:up .9s var(--ease) both}.hero .l h2{animation-delay:.15s}.hero .l p,.hero .r h2{animation-delay:.3s}.hero .r p{animation-delay:.45s}
+.hero-in>img,.hero-in>.ph{animation:fade 1.2s var(--ease) both}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease),box-shadow .45s var(--ease)}
+.rv.in{opacity:1;transform:none}.card.rv.in:hover{transform:translateY(-8px)}
+@media(max-width:900px){.hero .side{padding:0 20px 6px}.hero .r{margin-bottom:26px}.hero h2{font-size:42px}.hero p{font-size:16px}}
+@media(max-width:600px){.title h2{font-size:12px}.card:hover{transform:none}.hero h2{font-size:38px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}

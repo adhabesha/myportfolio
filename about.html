@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio | Addis Alemayehu</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>About | Addis Alemayehu</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 /* IMAGES: drop files into an /images folder using the names shown in each grey placeholder.
    Until a file exists, the placeholder shows its file name and pixel size. */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -99,20 +99,29 @@ footer nav{display:flex;gap:24px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
 
-.cs{background:#fff;padding:36px 0 90px}
-.crumb{font-size:15px;color:var(--mute);margin-bottom:26px}.crumb a{text-decoration:underline}
-.cs h1{font-size:clamp(30px,5vw,48px);font-weight:500;letter-spacing:-.02em;line-height:1.15}
-.meta{color:var(--mute);margin:8px 0 22px}
-.lead{font-size:20px;max-width:720px;margin-bottom:34px}
-.cs .txt{max-width:720px;margin:44px auto 0}
-.cs .txt h2{font-size:28px;font-weight:500;margin-bottom:14px;letter-spacing:-.01em}
-.cs .txt p{margin-bottom:14px}
-.shot{margin:34px 0}.shot img,.shot .ph,.video{border-radius:8px;box-shadow:0 1px 8px rgba(0,0,0,.18)}
-.video{position:relative;aspect-ratio:16/9;overflow:hidden;margin:34px 0}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.more{margin-top:70px}
-.pn{display:flex;justify-content:space-between;gap:16px;margin-top:50px}.pn a{text-decoration:underline}
-</style><script>
+.ab section{padding:64px 0;background:#fff}.ab .alt{background:#fafafa;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6}
+.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:end;padding-top:40px}
+.ab h1{font-weight:700;font-size:clamp(48px,9vw,84px);letter-spacing:-.05em;line-height:1;color:#222}
+.ab .lead{font-size:22px;color:#888;margin:18px 0 14px}.ab p{margin-bottom:12px;color:#444}
+.photos{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;border-top:1px solid #ddd;padding-top:28px;margin-top:26px}
+.photos img,.photos .ph{aspect-ratio:4/3;object-fit:cover;border-radius:6px;box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.split{display:grid;grid-template-columns:1fr minmax(220px,380px) 1fr;gap:30px;align-items:center}.split .r{text-align:right}
+.ab h2{font-weight:400;font-size:28px;margin-bottom:14px;color:#333}.ab li{padding:4px 0;color:#555}
+.facts{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.sk{text-align:right}.bars{display:flex;gap:28px;align-items:flex-end;height:340px;border-bottom:1px solid #ddd;margin-top:10px}
+.bar2{flex:1;border-radius:6px 6px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:14px;color:#fff;transform-origin:bottom;transform:scaleY(0);transition:transform 1.2s var(--ease)}.in .bar2{transform:scaleY(1)}
+.bar2 b{font:600 clamp(22px,4vw,44px)/1 Montserrat,sans-serif}.bar2 span{font-size:13px;text-align:center}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.row.flip .rt{order:2}.row a{text-decoration:underline}
+.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.det li{padding:10px 0;border-bottom:1px solid #e3e3e3;list-style:none}.det b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#888;font-weight:500}.det a{text-decoration:underline}
+.fcard{background:#fff;border-radius:8px;padding:28px;box-shadow:0 1px 8px rgba(0,0,0,.22)}
+.fcard label{display:block;font-weight:400;margin-bottom:16px;color:#444}
+.fcard input,.fcard textarea{width:100%;margin-top:6px;padding:12px;font:inherit;border:1px solid #d4d7dc;border-radius:6px;transition:border-color .2s,box-shadow .2s}
+.fcard input:focus,.fcard textarea:focus{outline:0;border-color:#111;box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+.fcard button{font:500 15px Montserrat,sans-serif;background:#111;color:#fff;border:0;padding:14px 30px;border-radius:30px;cursor:pointer;transition:transform .3s,background .3s}
+.fcard button:hover{background:#333;transform:translateY(-2px)}#fm{margin:14px 0 0}
+@media(max-width:800px){.intro,.facts,.row,.cgrid{grid-template-columns:1fr;gap:24px}.photos{grid-template-columns:repeat(3,1fr);gap:12px}.split{grid-template-columns:1fr;gap:26px}.split .r,.sk{text-align:left}.row.flip .rt{order:0}.bars{gap:10px;height:280px}.ab section{padding:44px 0}}
+</style><link rel="stylesheet" href="theme.css"><script>
 /* Swap a missing image for a labelled placeholder showing the size to export */
 function ph(img){
   var d=document.createElement('div');
@@ -121,7 +130,7 @@ function ph(img){
   d.innerHTML='<b>'+img.getAttribute('width')+' × '+img.getAttribute('height')+' px</b><span>'+img.getAttribute('alt')+'</span><small>'+img.getAttribute('src')+'</small>';
   img.onerror=null;img.replaceWith(d);
 }
-</script><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script></head><body id="top"><header>
+</script><script src="defaults.js"></script><script src="theme.js" defer></script></head><body id="top"><header>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
     <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
@@ -137,46 +146,41 @@ function ph(img){
       </div>
     </div>
   </div>
-</header><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
+</header><main class="ab" id="app"></main><footer id="contact">
   <a class="top" href="#top" aria-label="Back to top"></a>
   <div class="wrap">
     <span>&copy; 2026 Addis Alemayehu</span>
     <nav aria-label="Footer"><a href="index.html">home</a><a href="index.html#previous">portfolio</a><a href="about.html">about</a><a href="contact.html">contact</a></nav>
   </div>
 </footer><script>
-var b=document.getElementById('burger'),m=document.getElementById('menu');
-b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
-m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
-var t=document.getElementById('track');
-document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
-document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
-</script><script>
-var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
-var IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+h+'" alt="'+E(alt)+'" onerror="ph(this)">'};
-var SEC=[{heading:'The challenge',text:'Describe the brief, the client and the problem you were solving.'},{heading:'The process',text:'Explain your approach, sketches, research and key decisions.'},{heading:'The result',text:'Show the final outcome and what it achieved.'}];
-var main=document.getElementById('main');
+(function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')},q=function(s){return document.querySelector(s)},
+mk=function(src,w,h,alt){var m=document.createElement('img');m.src=src;m.width=w;m.height=h;m.alt=alt;m.setAttribute('onerror','ph(this)');return m};
 fetch('data.json').then(function(r){return r.json()}).then(function(D){
-  var q=new URLSearchParams(location.search),cat=D.categories.find(function(c){return c.id===q.get('c')}),n=+q.get('p')||0;
-  if(!cat){main.innerHTML='<h1>Page not found</h1><p><a href="index.html">Back to home</a></p>';return}
-  var base=function(i){return 'images/'+cat.id+'/'+i+'-'};
-  var card=function(p,i){return '<li><a class="card" href="page.html?c='+cat.id+'&amp;p='+(i+1)+'"><div class="thumb">'+IMG(p.cover||base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
-  var h='';
-  if(!n||!cat.projects[n-1]){
-    document.title=cat.title+' | Addis Alemayehu';
-    h='<p class="crumb"><a href="index.html">Home</a> / '+E(cat.title)+'</p><h1>'+E(cat.title)+'</h1><p class="lead" style="margin-top:14px">'+E(cat.description)+'</p><ul class="grid">'+cat.projects.map(card).join('')+'</ul>';
-  }else{
-    var p=cat.projects[n-1],b=base(n),g=p.gallery==null?3:p.gallery,s=p.sections||SEC,G=p.images||Array.from({length:g},function(_,i){return b+(i+1)+'.jpg'}),L=Math.max(s.length,G.length);
-    document.title=p.title+' | Addis Alemayehu';
-    h='<p class="crumb"><a href="index.html">Home</a> / <a href="page.html?c='+cat.id+'">'+E(cat.title)+'</a></p><h1>'+E(p.title)+'</h1><p class="meta">'+E(p.client||'Client name')+' &middot; '+E(p.date||'Month Year')+'</p><p class="lead">'+E(p.summary||'A short summary of this project: the goal, your role and the result.')+'</p>';
-    h+=p.video?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(p.video)+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(p.cover||b+'cover.jpg',1600,900,p.title+' cover')+'</div>';
-    var M=function(x,k){return x.indexOf('yt:')==0?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(x.slice(3))+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(x,1600,900,p.title+' image '+(k+1))+'</div>'},T=function(x){return '<div class="txt"><h2>'+E(x.heading)+'</h2>'+E(x.text).split(/\n+/).map(function(t){return '<p>'+t+'</p>'}).join('')+'</div>'};
-    if(s.some(function(x){return x.media})){s.forEach(function(x){h+=T(x)+(x.media||[]).map(M).join('')});h+=(p.images||[]).map(M).join('')}
-    else for(var i=0;i<L;i++){if(s[i])h+=T(s[i]);if(G[i])h+=M(G[i],i)}
-    var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1});
-    if(o.length)h+='<div class="more"><div class="title"><h2>More from '+E(cat.title)+'</h2></div><ul class="grid">'+o.join('')+'</ul></div>';
-    var pv=cat.projects[n-2],nx=cat.projects[n];
-    h+='<div class="pn"><span>'+(pv?'<a href="page.html?c='+cat.id+'&amp;p='+(n-1)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="page.html?c='+cat.id+'&amp;p='+(n+1)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
-  }
-  main.innerHTML=h;
-}).catch(function(){main.innerHTML='<h1>Could not load data.json</h1><p>Open the site through a web server (or the live Cloudflare address), not by double-clicking the file.</p>'});
-</script></body></html>
+[['previous','#previous'],['industry','#industries']].forEach(function(x){
+var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
+ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
+var s=c.cover||'images/'+(x[0]==='industry'?'industry-':'work-')+c.id+'.jpg';
+return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')});
+var S=D.site;if(!S)return;
+if(S.hero){q('.hero .l h2').textContent=S.hero.left.title;q('.hero .l p').textContent=S.hero.left.text;q('.hero .r h2').textContent=S.hero.right.title;q('.hero .r p').textContent=S.hero.right.text;
+if(S.hero.image)q('.hero-in').firstElementChild.replaceWith(mk(S.hero.image,1040,600,'Hero'))}
+if(S.logo)q('.logo').firstElementChild.replaceWith(mk(S.logo,128,128,'Logo'));
+if(S.titles){q('#previous .title h2').textContent=S.titles.previous;q('#industries .title h2').textContent=S.titles.industry;q('.videos h2').textContent=S.titles.videos}
+if(S.social){var a=document.querySelectorAll('.social a');['facebook','linkedin','instagram','youtube'].forEach(function(n,k){if(S.social[n])a[k].href=S.social[n]})}
+if(S.footer)q('footer .wrap span').textContent=S.footer;
+if(S.videos)q('#track').innerHTML=S.videos.map(function(v,k){var t=v.image||(v.yt?'https://i.ytimg.com/vi/'+v.yt+'/mqdefault.jpg':'images/video-'+(k+1)+'.jpg'),l=v.yt?'https://www.youtube.com/watch?v='+v.yt:(v.link||'#');
+return '<li class="vid"><a href="'+E(l)+'"'+(l!=='#'?' target="_blank" rel="noopener"':'')+'><div class="vthumb"><img src="'+E(t)+'" width="640" height="360" alt="'+E(v.title)+'" onerror="ph(this)"><span class="play"></span>'+(v.duration?'<span class="dur">'+E(v.duration)+'</span>':'')+'</div><p>'+E(v.title)+'</p></a></li>'}).join('')
+}).catch(function(){})})();
+</script><script>var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')},
+IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+h+'" alt="'+E(alt)+'" onerror="ph(this)">'},
+P=function(t){return String(t||'').split(/\n+/).filter(Boolean).map(function(x){return '<p>'+E(x)+'</p>'}).join('')},
+L=function(a){return (a||[]).filter(Boolean).map(function(x){return '<li>'+E(x)+'</li>'}).join('')},app=document.getElementById('app');
+fetch('data.json').then(function(r){return r.json()}).then(function(D){
+var A=Object.assign({},DEF.about,(D.site||{}).about||{}),sp=A.split,fx=A.facts,sk=A.skills,ph=A.photos&&A.photos.length?A.photos:[1,2,3,4,5,6].map(function(i){return 'images/about-photo-'+i+'.jpg'});
+document.title='About | Addis Alemayehu';
+app.innerHTML='<section><div class="wrap intro"><div><h1>'+E(A.title)+'</h1><p class="lead">'+E(A.lead)+'</p>'+P(A.text)+'</div>'+IMG(A.image||'images/about-intro.png',540,400,'About portrait')+'</div><div class="wrap"><div class="photos rv">'+ph.map(function(s,i){return IMG(s,400,300,'Photo '+(i+1))}).join('')+'</div></div></section>'
++'<section class="alt"><div class="wrap split rv"><div><h2>'+E(sp.leftTitle)+'</h2><ul>'+L(sp.leftItems)+'</ul></div>'+IMG(sp.image||'images/about-split.png',380,380,'Centre graphic')+'<div class="r"><h2>'+E(sp.rightTitle)+'</h2><ul>'+L(sp.rightItems)+'</ul></div></div></section>'
++'<section><div class="wrap facts rv">'+IMG(fx.image||'images/about-facts.png',520,440,'Facts image')+'<div><h2>'+E(fx.title)+'</h2><ul>'+L(fx.items)+'</ul></div></div></section>'
++'<section class="alt"><div class="wrap"><h2 class="sk">'+E(sk.title)+'</h2><div class="bars rv">'+sk.items.map(function(k){var v=Math.max(0,Math.min(100,+k.value||0));return '<div class="bar2" style="height:'+v+'%;background:linear-gradient(180deg,'+E(k.color)+','+E(k.color)+'bb)"><b>'+v+'<small>%</small></b><span>'+E(k.label)+'</span></div>'}).join('')+'</div></div></section>'
++A.rows.map(function(r,i){return '<section><div class="wrap row'+(i%2?' flip':'')+' rv"><div class="rt"><h2>'+E(r.title)+'</h2>'+P(r.text)+(r.link?'<a href="'+E(r.url||'#')+'">'+E(r.link)+'</a>':'')+'</div>'+IMG(r.image||'images/about-row-'+(i+1)+'.png',560,400,r.title)+'</div></section>'}).join('')
+}).catch(function(){app.innerHTML='<div class="wrap"><h1>Could not load data.json</h1></div>'});</script></body></html>

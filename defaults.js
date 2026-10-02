@@ -1,0 +1,7 @@
+/* Starting text for the About and Contact pages. Edit the real text in admin.html. */
+window.DEF={about:{title:"about.",lead:"I'm a graphic designer and front end developer.",text:"Write a short introduction about yourself here: your experience, what you enjoy designing and how you like to work.",image:"",photos:[],
+split:{leftTitle:"Part designer",leftItems:["Branding & logo design","Social media design","Packaging & print","UI/UX design","3D & motion graphics"],rightTitle:"Part coder",rightItems:["Front-end development","HTML / CSS","JavaScript","WordPress & PHP","SEO"],image:""},
+facts:{title:"Random facts",items:["Add a fun fact about yourself","Add another fact"],image:""},
+skills:{title:"My skills",items:[{label:"Photoshop",value:90,color:"#41b8a8"},{label:"Illustrator",value:85,color:"#e8a6a0"},{label:"After Effects",value:75,color:"#f0c040"},{label:"HTML / CSS",value:70,color:"#c49a5a"},{label:"JavaScript",value:50,color:"#d9534f"}]},
+rows:[{title:"My story",text:"Tell visitors how you got into design and how your career has grown.",link:"",url:"",image:""},{title:"My services",text:"Describe the services you offer and who you like to work with.",link:"",url:"",image:""}]},
+contact:{title:"contact.",lead:"Let's work together.",text:"Tell me about your project and I will get back to you soon.",email:"",phone:"",address:"",image:"",endpoint:"",success:"Thank you! Your message has been sent."}};
