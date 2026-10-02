@@ -31,8 +31,11 @@
               "text": ""
             }
           ],
-          "images": [],
-          "cover": "images/branding/cover-muq0kz4yj2h.jpg"
+          "images": [
+            "images/branding/muq8c1kergs.jpg",
+            "images/branding/muq8c6a463i.jpg"
+          ],
+          "cover": "images/branding/cover-muq8bbv1kn0.jpg"
         },
         {
           "title": "Branding & logo design 2"
@@ -67,9 +70,7 @@
               "heading": "The result",
               "text": "Show the final outcome and what it achieved."
             }
-          ],
-          "images": [],
-          "cover": "images/social-media/cover-muq0n5ztfq7.jpg"
+          ]
         },
         {
           "title": "Social media 2"
