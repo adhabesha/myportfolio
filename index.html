@@ -217,13 +217,24 @@ document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientW
 document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
 </script>
 <script>
-(function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
+(function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')},q=function(s){return document.querySelector(s)},
+mk=function(src,w,h,alt){var m=document.createElement('img');m.src=src;m.width=w;m.height=h;m.alt=alt;m.setAttribute('onerror','ph(this)');return m};
 fetch('data.json').then(function(r){return r.json()}).then(function(D){
 [['previous','#previous'],['industry','#industries']].forEach(function(x){
 var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
 ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
 var s=c.cover||'images/'+(x[0]==='industry'?'industry-':'work-')+c.id+'.jpg';
-return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')})}).catch(function(){})})();
+return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')});
+var S=D.site;if(!S)return;
+if(S.hero){q('.hero .l h2').textContent=S.hero.left.title;q('.hero .l p').textContent=S.hero.left.text;q('.hero .r h2').textContent=S.hero.right.title;q('.hero .r p').textContent=S.hero.right.text;
+if(S.hero.image)q('.hero-in').firstElementChild.replaceWith(mk(S.hero.image,1040,600,'Hero'))}
+if(S.logo)q('.logo').firstElementChild.replaceWith(mk(S.logo,128,128,'Logo'));
+if(S.titles){q('#previous .title h2').textContent=S.titles.previous;q('#industries .title h2').textContent=S.titles.industry;q('.videos h2').textContent=S.titles.videos}
+if(S.social){var a=document.querySelectorAll('.social a');['facebook','linkedin','instagram','youtube'].forEach(function(n,k){if(S.social[n])a[k].href=S.social[n]})}
+if(S.footer)q('footer .wrap span').textContent=S.footer;
+if(S.videos)q('#track').innerHTML=S.videos.map(function(v,k){var t=v.image||(v.yt?'https://i.ytimg.com/vi/'+v.yt+'/mqdefault.jpg':'images/video-'+(k+1)+'.jpg'),l=v.yt?'https://www.youtube.com/watch?v='+v.yt:(v.link||'#');
+return '<li class="vid"><a href="'+E(l)+'"'+(l!=='#'?' target="_blank" rel="noopener"':'')+'><div class="vthumb"><img src="'+E(t)+'" width="640" height="360" alt="'+E(v.title)+'" onerror="ph(this)"><span class="play"></span>'+(v.duration?'<span class="dur">'+E(v.duration)+'</span>':'')+'</div><p>'+E(v.title)+'</p></a></li>'}).join('')
+}).catch(function(){})})();
 </script>
 </body>
 </html>
