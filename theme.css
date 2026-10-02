@@ -1,27 +1,43 @@
-/* Shared look: fonts, motion, mobile polish. Loaded after each page's own CSS. */
+/* Shared look: font, page-load and page-leave motion, scroll reveals. Loaded after each page's own CSS. */
 :root{--ease:cubic-bezier(.2,.7,.2,1)}
-body{font-family:'Lato',Helvetica,Arial,sans-serif;font-weight:300;letter-spacing:.01em;-webkit-font-smoothing:antialiased;color:#3a3a3a}
+body{font-family:'Montserrat',Helvetica,Arial,sans-serif;font-weight:300;font-size:15px;line-height:1.75;letter-spacing:.01em;color:#444;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:'Montserrat',Helvetica,Arial,sans-serif}
-.hero h2{font-weight:700;letter-spacing:-.05em}
-.hero p{font-weight:300;letter-spacing:.02em;line-height:1.65}
-#menu nav a,footer nav a{font-weight:400;position:relative;padding:4px 0}
-#menu nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
-#menu nav a:hover::after{transform:scaleX(1)}#menu nav a:hover{opacity:1}
-.social a{transition:transform .3s var(--ease),opacity .3s}.social a:hover{transform:translateY(-3px);opacity:1}
-.logo{transition:transform .4s var(--ease)}.logo:hover{transform:rotate(-8deg) scale(1.07)}
-.title h2{font-weight:500;letter-spacing:.2em;font-size:14px}
-.card h3{font-family:'Lato',sans-serif;font-weight:400}
+.hero h2{font-weight:700;letter-spacing:-.05em}.hero p{font-size:17px;line-height:1.65}
+/* 1. menu bar slides in from the top on every page load */
+@keyframes hdr{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+header{animation:hdr 1.2s var(--ease) both}
+/* menu hover: white turns light grey */
+#menu nav a{font-weight:400;font-size:15px;transition:color .3s}#menu nav a:hover{color:#bbb;opacity:1}
+.social svg,.social svg [stroke]{transition:fill .3s,stroke .3s}.social a:hover{opacity:1}.social a:hover svg{fill:#bbb}.social a:hover svg [stroke]{stroke:#bbb}
+.logo{transition:opacity .3s}.logo:hover{opacity:.8}
+/* 2. the rest of the page fades in after the menu; home hero is staged: image, then text */
+body>*:not(header):not(.hero):not(script){animation:fade 1s .7s both}
+.hero-in>img,.hero-in>.ph{animation:fade 1.3s .9s both}
+.hero h2,.hero p{animation:fade 1.1s both}.hero .l h2{animation-delay:1.9s}.hero .l p,.hero .r h2{animation-delay:2.1s}.hero .r p{animation-delay:2.3s}
+/* 3. leaving a page: menu slides up and fades, everything fades out */
+html.leaving header{animation:none;transform:translateY(-100%);opacity:0;transition:transform .55s var(--ease),opacity .55s}
+html.leaving body>*:not(header):not(script){animation:none;opacity:0;transition:opacity .45s}
+/* 4. scroll reveals: text from the left, images from the right (or the reverse) */
+.rv,.rl,.rr{opacity:0;transition:opacity .9s var(--ease),transform .9s var(--ease),box-shadow .45s var(--ease)}
+.rv{transform:translateY(26px)}.rl{transform:translateX(-70px)}.rr{transform:translateX(70px)}
+.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
+/* cards, titles, hovers */
+.title h2{font-weight:500;letter-spacing:.2em;font-size:13px}
+.card h3{font-weight:400;font-size:16px}
 .card{transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
-.card:hover{transform:translateY(-8px);box-shadow:0 16px 32px rgba(0,0,0,.18)}
+.card:hover,.card.rv.in:hover{transform:translateY(-8px);box-shadow:0 16px 32px rgba(0,0,0,.18)}
 .thumb img,.vthumb img{transition:transform .8s var(--ease)}.card:hover .thumb img,.vid:hover .vthumb img{transform:scale(1.05)}
 .play{transition:transform .3s,background .3s}.vid:hover .play{background:rgba(255,255,255,.28);transform:scale(1.12)}
 .top::after{transition:transform .3s}.top:hover::after{transform:rotate(45deg) scale(.8) translate(3px,3px)}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-@keyframes fade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
-.hero h2,.hero p{animation:up .9s var(--ease) both}.hero .l h2{animation-delay:.15s}.hero .l p,.hero .r h2{animation-delay:.3s}.hero .r p{animation-delay:.45s}
-.hero-in>img,.hero-in>.ph{animation:fade 1.2s var(--ease) both}
-.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease),box-shadow .45s var(--ease)}
-.rv.in{opacity:1;transform:none}.card.rv.in:hover{transform:translateY(-8px)}
-@media(max-width:900px){.hero .side{padding:0 20px 6px}.hero .r{margin-bottom:26px}.hero h2{font-size:42px}.hero p{font-size:16px}}
+/* project pages: text left, image right; optional side-by-side sections */
+.pintro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:20px}.pintro .shot,.pintro .video{margin:0}
+.cs h1{font-size:clamp(26px,4vw,36px);font-weight:500;letter-spacing:-.02em}.cs .meta{font-size:13px;color:#999}.cs .lead{font-size:15px;color:#555}
+.cs .txt{max-width:640px}.cs .txt h2{font-size:21px;font-weight:500}
+.sd{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:60px 0}.sd .txt{margin:0;max-width:none}.sd.flip>:first-child{order:2}.sd .shot,.sd .video{margin:0 0 20px}
+.sd .rv{opacity:1;transform:none;transition:none}
+.ab .lead{font-size:18px}.ab h2{font-size:24px}
+@media(max-width:900px){.hero .side{padding:0 20px 6px}.hero .r{margin-bottom:26px}.hero h2{font-size:42px}.hero p{font-size:15px}}
+@media(max-width:800px){.pintro,.sd{grid-template-columns:1fr;gap:24px}.sd.flip>:first-child{order:0}.rl{transform:translateX(-36px)}.rr{transform:translateX(36px)}}
 @media(max-width:600px){.title h2{font-size:12px}.card:hover{transform:none}.hero h2{font-size:38px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.rl,.rr{opacity:1;transform:none}}
