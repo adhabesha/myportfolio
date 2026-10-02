@@ -8,10 +8,10 @@
       "description": "Selected Branding & logo design projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Branding & logo design 1",
-          "client": "Client name",
-          "date": "Month 2025",
-          "summary": "A short summary of this project: the goal, your role and the result.A short summary of this project: the goal, your role and the result.A short summary of this project: the goal, your role and the result.A short summary of this project: the goal, your role and the result.A short summary of this project: the goal, your role and the result.A short summary of this project: the goal, your role and the result.",
+          "title": "Flintstone Real Estate: Brand Identity",
+          "client": "Flintstone Real Estate",
+          "date": "2025",
+          "summary": "A brand identity for Flintstone Real Estate, a builder of luxury custom homes. The identity is built around one idea: \"Building your vision, stone by stone. Est. 2025\"",
           "gallery": 3,
           "sections": [
             {
@@ -45,7 +45,7 @@
             }
           ],
           "images": [],
-          "cover": "images/branding/cover-muq8bbv1kn0.jpg"
+          "cover": "images/branding/p-muqxee3bf77.jpg"
         },
         {
           "title": "Branding & logo design 2"
