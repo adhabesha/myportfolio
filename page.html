@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio | Addis Alemayehu</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio | Addis Alemayehu</title><style>
 /* IMAGES: drop files into an /images folder using the names shown in each grey placeholder.
    Until a file exists, the placeholder shows its file name and pixel size. */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -121,7 +121,7 @@ function ph(img){
   d.innerHTML='<b>'+img.getAttribute('width')+' × '+img.getAttribute('height')+' px</b><span>'+img.getAttribute('alt')+'</span><small>'+img.getAttribute('src')+'</small>';
   img.onerror=null;img.replaceWith(d);
 }
-</script><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script></head><body id="top"><header>
+</script><link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script></head><body id="top"><header>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
     <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
@@ -163,11 +163,11 @@ fetch('data.json').then(function(r){return r.json()}).then(function(D){
   var h='';
   if(!n||!cat.projects[n-1]){
     document.title=cat.title+' | Addis Alemayehu';
-    h='<p class="crumb"><a href="index.html">Home</a> / '+E(cat.title)+'</p><h1>'+E(cat.title)+'</h1><p class="lead" style="margin-top:14px">'+E(cat.description)+'</p><ul class="grid">'+cat.projects.map(card).join('')+'</ul>';
+    h='<h1>'+E(cat.title)+'</h1><p class="lead" style="margin-top:14px">'+E(cat.description)+'</p><ul class="grid">'+cat.projects.map(card).join('')+'</ul>';
   }else{
     var p=cat.projects[n-1],b=base(n),g=p.gallery==null?3:p.gallery,s=p.sections||SEC,G=p.images||Array.from({length:g},function(_,i){return b+(i+1)+'.jpg'}),L=Math.max(s.length,G.length);
     document.title=p.title+' | Addis Alemayehu';
-    h='<p class="crumb"><a href="index.html">Home</a> / <a href="page.html?c='+cat.id+'">'+E(cat.title)+'</a></p><div class="pintro"><div class="rl"><h1>'+E(p.title)+'</h1><p class="meta">'+E(p.client||'Client name')+' &middot; '+E(p.date||'Month Year')+'</p><p class="lead">'+E(p.summary||'A short summary of this project: the goal, your role and the result.')+'</p></div>';
+    h='<div class="pintro"><div class="rl"><h1>'+E(p.title)+'</h1><p class="meta">'+E(p.client||'Client name')+' &middot; '+E(p.date||'Month Year')+'</p><p class="lead">'+E(p.summary||'A short summary of this project: the goal, your role and the result.')+'</p></div>';
     h+='<div class="rr">'+(p.video?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(p.video)+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(p.cover||b+'cover.jpg',1600,900,p.title+' cover')+'</div>')+'</div></div>';
     var M=function(x,k){return x.indexOf('yt:')==0?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(x.slice(3))+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(x,1600,900,p.title+' image '+(k+1))+'</div>'},T=function(x){return '<div class="txt"><h2>'+E(x.heading)+'</h2>'+E(x.text).split(/\n+/).map(function(t){return '<p>'+t+'</p>'}).join('')+'</div>'};
     if(s.some(function(x){return x.media})){s.forEach(function(x){var md=(x.media||[]).map(M).join('');if(x.layout==='l'||x.layout==='r'){var f=x.layout==='r';h+='<div class="sd'+(f?' flip':'')+'"><div class="'+(f?'rr':'rl')+'">'+T(x)+'</div><div class="'+(f?'rl':'rr')+'">'+md+'</div></div>'}else h+=T(x)+md});h+=(p.images||[]).map(M).join('')}

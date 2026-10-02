@@ -1,7 +1,11 @@
+@font-face{font-family:"Metropolis";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/metropolis-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Metropolis";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/metropolis-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Metropolis";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/metropolis-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Metropolis";font-weight:700;font-style:normal;font-display:swap;src:url(fonts/metropolis-latin-700-normal.woff2) format("woff2")}
 /* Shared look: font, page-load and page-leave motion, scroll reveals. Loaded after each page's own CSS. */
 :root{--ease:cubic-bezier(.2,.7,.2,1)}
-body{font-family:'Montserrat',Helvetica,Arial,sans-serif;font-weight:300;font-size:15px;line-height:1.75;letter-spacing:.01em;color:#444;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:'Montserrat',Helvetica,Arial,sans-serif}
+body{font-family:"Metropolis",Helvetica,Arial,sans-serif;font-weight:300;font-size:15px;line-height:1.75;letter-spacing:.01em;color:#444;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Metropolis",Helvetica,Arial,sans-serif}
 .hero h2{font-weight:700;letter-spacing:-.05em}.hero p{font-size:17px;line-height:1.65}
 /* 1. menu bar slides in from the top on every page load */
 @keyframes hdr{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
@@ -44,3 +48,20 @@ html.leaving body>*:not(header):not(script){animation:none;opacity:0;transition:
 @media(max-width:900px){.hero .side{padding:0 20px 6px}.hero .r{margin-bottom:26px}.hero h2{font-size:42px}.hero p{font-size:15px}}
 @media(max-width:800px){.pintro,.sd{grid-template-columns:1fr;gap:24px}.sd.flip>:first-child{order:0}.rl{transform:translateX(-36px)}.rr{transform:translateX(36px)}}
 @media(max-width:600px){.title h2{font-size:12px}.card:hover{transform:none}.hero h2{font-size:38px}}
+/* Typography and mobile layout matched to the reference site (Metropolis is a free look-alike for Proxima Nova) */
+:root{--f:"Metropolis","Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif}
+body,h1,h2,h3,button,input,textarea,select{font-family:var(--f)}
+#menu nav a,footer nav a{font-weight:300}
+.title h2{font-weight:600;letter-spacing:.14em;font-size:13px;color:#444}
+.card h3{font-weight:300;font-size:17px}
+.card .thumb{padding:14px}.thumb img,.thumb .ph{border-radius:4px}
+.cs h1{font-weight:300;font-size:clamp(28px,4vw,38px);line-height:1.2;letter-spacing:-.01em}
+.cs .txt h2{font-weight:300;font-size:24px}
+.cs .lead,.cs .txt p{font-weight:300;font-size:16px;line-height:1.8;color:#555}
+.ab h2{font-weight:300}
+@media(max-width:900px){
+header{height:62px}#menu{top:62px}.logo img,.logo .ph{width:36px;height:36px}
+.hero .side{position:absolute;top:36%;left:0;max-width:none;padding:0 16px;margin:0}
+.hero .r{left:auto;right:0;text-align:right}.hero p{display:none}
+.hero h2{font-size:clamp(20px,5.8vw,34px)}.work{padding:40px 0 70px}}
+.logo .ph{overflow:hidden;padding:0}.logo .ph *{display:none}
