@@ -13,8 +13,12 @@ header{animation:hdr 1.2s var(--ease) both}
 .logo{transition:opacity .3s}.logo:hover{opacity:.8}
 /* 2. the rest of the page fades in after the menu; home hero is staged: image, then text */
 body>*:not(header):not(.hero):not(script){animation:fade 1s .7s both}
-.hero-in>img,.hero-in>.ph{animation:fade 1.3s .9s both}
-.hero h2,.hero p{animation:fade 1.1s both}.hero .l h2{animation-delay:1.9s}.hero .l p,.hero .r h2{animation-delay:2.1s}.hero .r p{animation-delay:2.3s}
+/* home hero is staged by theme.js: menu, then image (once loaded), then text. The slow 'show' animation is only a safety net. */
+@keyframes show{to{opacity:1}}
+.hero-in>:first-child,.hero h2,.hero p{opacity:0;animation:show 0s 7s forwards}
+.hero.s1 .hero-in>:first-child{opacity:1;animation:none;transition:opacity 1.3s ease}
+.hero.s2 h2,.hero.s2 p{opacity:1;animation:none;transition:opacity 1.1s ease}
+.hero.s2 .l p,.hero.s2 .r h2{transition-delay:.25s}.hero.s2 .r p{transition-delay:.5s}
 /* 3. leaving a page: menu slides up and fades, everything fades out */
 html.leaving header{animation:none;transform:translateY(-100%);opacity:0;transition:transform .55s var(--ease),opacity .55s}
 html.leaving body>*:not(header):not(script){animation:none;opacity:0;transition:opacity .45s}
