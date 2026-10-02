@@ -15,6 +15,14 @@
           "gallery": 3,
           "sections": [
             {
+              "heading": "The brief",
+              "text": "Flintstone builds luxurious, custom homes that blend timeless design with modern innovation. The brand needed to feel as solid as the buildings: premium, durable and trustworthy.",
+              "media": [
+                "images/branding/sm-muqxu1c3yn4.jpg"
+              ],
+              "layout": "l"
+            },
+            {
               "heading": "The challenge",
               "text": "Describe the brief, the client and the problem you were solving.",
               "media": [
@@ -42,6 +50,11 @@
                 "images/branding/muq8ge547vs.jpg",
                 "images/branding/muq8ghlos63.jpg"
               ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": []
             }
           ],
           "images": [],
