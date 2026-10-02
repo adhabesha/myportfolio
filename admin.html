@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Portfolio admin</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px/1.4 system-ui,Segoe UI,Roboto,sans-serif;color:#222;background:#f4f5f7}
+button,.btn{font:inherit;padding:6px 11px;border:1px solid #c8ccd2;background:#fff;border-radius:6px;cursor:pointer;color:#222}
+button:hover,.btn:hover{background:#eef0f3}.pri{background:#111;color:#fff;border-color:#111}.pri:hover{background:#333}.dng{color:#b00020}
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#fff;border-bottom:1px solid #ddd;padding:10px 16px}
+.bar b{margin-right:8px}#st{flex:1;font-size:13px;color:#555;min-width:120px}
+input,textarea,select{width:100%;font:inherit;padding:8px 10px;border:1px solid #c8ccd2;border-radius:6px;background:#fff}
+.bar input{width:150px}
+.app{display:grid;grid-template-columns:300px 1fr;min-height:calc(100vh - 56px)}
+aside{background:#fff;border-right:1px solid #ddd;padding:12px;overflow:auto}
+aside h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;display:flex;justify-content:space-between;align-items:center;margin:16px 0 6px}
+aside h3 button{font-size:12px;padding:2px 8px}
+.cat,.prj{padding:6px 10px;border-radius:6px;cursor:pointer}.cat{font-weight:600;margin-top:6px}.prj{margin-left:14px;font-size:14px}
+.cat:hover,.prj:hover{background:#eef0f3}.on{background:#e3ecff!important}
+main{padding:20px;max-width:900px;width:100%}
+label{display:block;font-weight:500;margin:14px 0 0}label>*{margin-top:5px;font-weight:400}
+.tb{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.sp{flex:1}.tb a{margin-left:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0;display:grid;gap:6px}
+.box div{display:flex;gap:6px}
+.cov{display:flex;gap:14px;align-items:center}.cov img{width:200px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:#ddd}.cov span{width:200px;aspect-ratio:16/9;display:grid;place-items:center;background:#e4e7eb;color:#777;border-radius:6px}.cov div{display:grid;gap:6px}
+.media{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:10px 0}
+figure{margin:0;background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px;position:relative}figure img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px}
+figure div{display:flex;gap:4px;margin-top:6px}figure button{padding:2px 8px}figure i{position:absolute;left:10px;top:10px;background:#000a;color:#fff;font-size:11px;padding:1px 6px;border-radius:4px;font-style:normal}
+#drop{border:2px dashed #aab2bd;border-radius:8px;padding:18px;text-align:center;color:#555;background:#fff}#drop.over{background:#e3ecff}
+h4{margin:24px 0 6px;display:flex;justify-content:space-between;align-items:center}.hint{color:#666}
+dialog{border:0;border-radius:10px;padding:22px;width:min(480px,92vw);box-shadow:0 10px 40px #0005}
+@media(max-width:800px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid #ddd;max-height:40vh}.two{grid-template-columns:1fr}}
+</style></head><body>
+<div class="bar"><b>Portfolio admin</b><input id="flt" placeholder="Filter projects…"><span id="st"></span>
+<button id="ex">Export</button><label class="btn" style="margin:0">Import<input type="file" id="im" accept=".json" hidden></label>
+<button id="cfgb">Settings</button><button id="pb" class="pri">Publish</button></div>
+<div class="app"><aside id="tree"></aside><main id="ed"></main></div>
+<dialog id="dlg"><h3 style="margin-top:0">Connect to GitHub</h3>
+<p class="hint">Create a token at github.com/settings/personal-access-tokens/new : pick only the <b>myportfolio</b> repository and set <b>Contents: Read and write</b>. It is stored only in this browser.</p>
+<label>Repository<input id="rp"></label><label>Branch<input id="br"></label><label>Token<input id="tk" type="password" placeholder="github_pat_…"></label>
+<p class="tb"><span class="sp"></span><button id="cx">Cancel</button><button id="cs" class="pri">Save &amp; load</button></p></dialog>
+<input type="file" id="fm" multiple accept="image/*" hidden><input type="file" id="fc" accept="image/*" hidden>
+<script>
+const $=s=>document.querySelector(s),E=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+let D={categories:[]},sel={c:-1,p:-1},pend={},dirty=0,covT='c',cfg=JSON.parse(localStorage.cfg||'{"repo":"adhabesha/myportfolio","branch":"main","token":""}');
+const G=[['previous','Previous work'],['industry','Sample work by industry']],C=()=>D.categories[sel.c],P=()=>C()&&C().projects[sel.p];
+const msg=(t,bad)=>{$('#st').textContent=t;$('#st').style.color=bad?'#c00':'#555'};
+const touch=()=>{dirty=1;localStorage.draft=JSON.stringify(D);msg('Unpublished changes (draft saved in this browser)')};
+const slug=(t,ex)=>{let b=t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'item',s=b,i=2;while(D.categories.some(c=>c.id===s&&c!==ex))s=b+'-'+i++;return s};
+const ytid=u=>{const m=String(u||'').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/)||String(u||'').match(/^([\w-]{11})$/);return m&&m[1]};
+const src=p=>pend[p]?pend[p].url:p;
+const rd=b=>new Promise(r=>{const x=new FileReader();x.onload=()=>r(x.result.split(',')[1]);x.readAsDataURL(b)});
+const mv=(a,i,d,ok=()=>1)=>{let j=i+d;while(a[j]&&!ok(a[j]))j+=d;if(a[j]){[a[i],a[j]]=[a[j],a[i]];return j}return i};
+const NP=t=>({title:t,client:'',date:'',summary:'',sections:[],images:[]});
+const done=()=>{touch();tree();edit()};
+
+function tree(){const f=$('#flt').value.toLowerCase();
+$('#tree').innerHTML=G.map(([g,n])=>`<h3>${n}<button data-a="addc" data-g="${g}">+ Category</button></h3>`+D.categories.map((c,ci)=>[c,ci]).filter(([c])=>c.group===g).map(([c,ci])=>{
+const ps=c.projects.map((p,pi)=>[p,pi]).filter(([p])=>!f||(p.title+c.title).toLowerCase().includes(f));if(f&&!ps.length)return'';
+return `<div class="cat${sel.c===ci&&sel.p<0?' on':''}" data-a="go" data-c="${ci}" data-p="-1">${E(c.title)}</div>`+ps.map(([p,pi])=>`<div class="prj${sel.c===ci&&sel.p===pi?' on':''}" data-a="go" data-c="${ci}" data-p="${pi}">${E(p.title)}</div>`).join('')}).join('')).join('')}
+
+function edit(){const c=C(),p=P(),ed=$('#ed');
+if(!c){ed.innerHTML='<p class="hint">Pick a category on the left, or add one with “+ Category”.</p>';return}
+const L=(t,x)=>`<label>${t}${x}</label>`,I=(k,v,ph='')=>`<input data-b="${k}" value="${E(v)}" placeholder="${ph}">`,T=(k,v,r=3)=>`<textarea data-b="${k}" rows="${r}">${E(v)}</textarea>`,
+cov=(path,t)=>`<div class="cov">${path?`<img src="${E(src(path))}">`:'<span>No image yet</span>'}<div><button data-a="cov" data-t="${t}">Upload image (auto-cropped to 16:9)</button>${path?`<button data-a="covx" data-t="${t}">Remove</button>`:''}</div></div>`;
+if(!p){ed.innerHTML=`<div class="tb"><b>Category</b><span class="sp"></span><button data-a="mvc" data-d="-1">↑ Up</button><button data-a="mvc" data-d="1">↓ Down</button><a href="page.html?c=${c.id}&p=1" target="_blank">Preview live</a><button data-a="delc" class="dng">Delete</button></div>`
++L('Name',I('c.title',c.title))+L('Show under',`<select data-b="c.group">${G.map(([g,n])=>`<option value="${g}"${c.group===g?' selected':''}>${n}</option>`).join('')}</select>`)
++L('Description',T('c.description',c.description))+L('Home-page card image (16:9, e.g. 960×540)',cov(c.cover,'c'))
++`<h4>Projects (${c.projects.length})<button data-a="addp">+ Project</button></h4>`+c.projects.map((x,i)=>`<div class="prj" data-a="go" data-c="${sel.c}" data-p="${i}">${E(x.title)}</div>`).join('')
++L('Bulk add projects (one name per line)','<textarea id="bulk" rows="3"></textarea>')+'<p><button data-a="bulk">Add all</button></p>';return}
+p.sections=p.sections||[];p.images=p.images||[];
+ed.innerHTML=`<div class="tb"><b>${E(c.title)} ›</b><span class="sp"></span><button data-a="mvp" data-d="-1">↑</button><button data-a="mvp" data-d="1">↓</button><button data-a="dup">Duplicate</button><a href="page.html?c=${c.id}&p=${sel.p+1}" target="_blank">Preview live</a><button data-a="delp" class="dng">Delete</button></div>`
++L('Project title',I('p.title',p.title))+`<div class="two">${L('Client',I('p.client',p.client))}${L('Date',I('p.date',p.date,'e.g. March 2026'))}</div>`
++L('Summary',T('p.summary',p.summary))+L('Hero video, optional (YouTube link, shown instead of the cover)',`<input data-b="p.video" data-yt="1" value="${p.video?'https://youtu.be/'+p.video:''}" placeholder="https://youtu.be/…">`)
++L('Cover image (also the card image)',cov(p.cover,'p'))
++`<h4>Text sections<button data-a="sadd">+ Section</button></h4>`+p.sections.map((s,i)=>`<div class="box">${I(`p.sections.${i}.heading`,s.heading,'Heading')}${T(`p.sections.${i}.text`,s.text)}<div><button data-a="smv" data-i="${i}" data-d="-1">↑</button><button data-a="smv" data-i="${i}" data-d="1">↓</button><button data-a="sdel" data-i="${i}" class="dng">Delete</button></div></div>`).join('')
++`<h4>Images, GIFs and YouTube videos <small class="hint">(shown in order, after each text section)</small></h4><div class="media">${p.images.map((m,i)=>`<figure>${m.startsWith('yt:')?`<img src="https://i.ytimg.com/vi/${E(m.slice(3))}/mqdefault.jpg"><i>YouTube</i>`:`<img src="${E(src(m))}">`}<div><button data-a="mmv" data-i="${i}" data-d="-1">←</button><button data-a="mmv" data-i="${i}" data-d="1">→</button><button data-a="mdel" data-i="${i}" class="dng">✕</button></div></figure>`).join('')}</div>`
++`<div id="drop">Drop images or GIFs here, or <button data-a="addm">Choose files</button> <button data-a="yt">+ YouTube video</button></div>`;
+const d=$('#drop');d.ondragover=e=>{e.preventDefault();d.classList.add('over')};d.ondragleave=()=>d.classList.remove('over');d.ondrop=e=>{e.preventDefault();d.classList.remove('over');add(e.dataTransfer.files,'m')}}
+
+async function proc(f,cover,cid){let ext,b64,mime;
+if(/gif|svg/.test(f.type)){ext=f.type.includes('gif')?'gif':'svg';mime=f.type;b64=await rd(f)}
+else{const bm=await createImageBitmap(f);let sx=0,sy=0,sw=bm.width,sh=bm.height;if(cover){const r=16/9;if(sw/sh>r){sw=sh*r;sx=(bm.width-sw)/2}else{sh=sw/r;sy=(bm.height-sh)/2}}
+const tw=Math.round(Math.min(1600,sw)),th=Math.round(tw*sh/sw),cv=document.createElement('canvas');cv.width=tw;cv.height=th;cv.getContext('2d').drawImage(bm,sx,sy,sw,sh,0,0,tw,th);
+b64=await rd(await new Promise(r=>cv.toBlob(r,'image/jpeg',.82)));ext='jpg';mime='image/jpeg'}
+const path=`images/${cid}/${cover?'cover-':''}${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;
+pend[path]={b64,url:`data:${mime};base64,${b64}`};return path}
+async function add(files,mode){const c=C();if(!c)return;msg('Processing images…');
+for(const f of [...files]){if(!f.type.startsWith('image/'))continue;const path=await proc(f,mode!=='m',c.id);
+if(mode==='c')c.cover=path;else if(mode==='p')P().cover=path;else P().images.push(path);if(mode!=='m')break}
+done()}
+
+const A={go:d=>{sel={c:+d.c,p:+d.p};tree();edit()},
+addc:d=>{const t=prompt('Category name');if(!t)return;D.categories.push({id:slug(t),group:d.g,title:t,description:'',projects:[]});sel={c:D.categories.length-1,p:-1};done()},
+addp:()=>{const c=C(),t=prompt('Project name',c.title+' '+(c.projects.length+1));if(!t)return;c.projects.push(NP(t));sel.p=c.projects.length-1;done()},
+bulk:()=>{$('#bulk').value.split('\n').map(s=>s.trim()).filter(Boolean).forEach(t=>C().projects.push(NP(t)));done()},
+delc:()=>{if(confirm('Delete this category and all its projects?')){D.categories.splice(sel.c,1);sel={c:-1,p:-1};done()}},
+delp:()=>{if(confirm('Delete this project?')){C().projects.splice(sel.p,1);sel.p=-1;done()}},
+dup:()=>{const n=JSON.parse(JSON.stringify(P()));n.title+=' (copy)';C().projects.splice(sel.p+1,0,n);sel.p++;done()},
+mvc:d=>{const g=C().group;sel.c=mv(D.categories,sel.c,+d.d,x=>x.group===g);done()},
+mvp:d=>{sel.p=mv(C().projects,sel.p,+d.d);done()},
+sadd:()=>{P().sections.push({heading:'',text:''});done()},sdel:d=>{P().sections.splice(+d.i,1);done()},smv:d=>{mv(P().sections,+d.i,+d.d);done()},
+mdel:d=>{P().images.splice(+d.i,1);done()},mmv:d=>{mv(P().images,+d.i,+d.d);done()},
+yt:()=>{const i=ytid(prompt('Paste the YouTube link'));if(i){P().images.push('yt:'+i);done()}},
+addm:()=>$('#fm').click(),cov:d=>{covT=d.t;$('#fc').click()},covx:d=>{delete (d.t==='c'?C():P()).cover;done()}};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(t&&A[t.dataset.a])A[t.dataset.a](t.dataset)});
+$('#ed').addEventListener('input',e=>{const t=e.target,k=t.dataset.b;if(!k)return;const a=k.split('.'),key=a.pop();let o=a[0]==='c'?C():P();a.slice(1).forEach(x=>o=o[x]);o[key]=t.dataset.yt?(ytid(t.value)||''):t.value;touch();if(/title|group/.test(k))tree()});
+$('#fm').onchange=e=>{add(e.target.files,'m');e.target.value=''};$('#fc').onchange=e=>{add(e.target.files,covT);e.target.value=''};
+$('#flt').oninput=tree;
+
+async function gh(path,opt={}){const h={Accept:'application/vnd.github+json','Content-Type':'application/json'};if(cfg.token)h.Authorization='Bearer '+cfg.token;
+const r=await fetch(`https://api.github.com/repos/${cfg.repo}/${path}`,{...opt,headers:h});if(!r.ok)throw new Error(r.status+' '+(await r.text()).slice(0,140));return r.json()}
+async function load(){try{msg('Loading…');const f=await gh(`contents/data.json?ref=${cfg.branch}`);D=JSON.parse(decodeURIComponent(escape(atob(f.content.replace(/\n/g,'')))));
+if(localStorage.draft&&confirm('Restore your unpublished draft from last session?'))D=JSON.parse(localStorage.draft);sel={c:-1,p:-1};tree();edit();msg('Loaded from GitHub')}catch(e){msg('Load failed: '+e.message,1)}}
+async function publish(){if(!cfg.token)return $('#dlg').showModal();
+if(D.categories.some(c=>!c.title.trim()||c.projects.some(p=>!p.title.trim())))return alert('Every category and project needs a title.');
+try{msg('Publishing…');const js=JSON.stringify(D),use=Object.keys(pend).filter(k=>!pend[k].done&&js.includes(k)),ref=await gh(`git/ref/heads/${cfg.branch}`),cm=await gh(`git/commits/${ref.object.sha}`),tree=[];
+for(const k of use){const b=await gh('git/blobs',{method:'POST',body:JSON.stringify({content:pend[k].b64,encoding:'base64'})});tree.push({path:k,mode:'100644',type:'blob',sha:b.sha});msg(`Uploading ${tree.length}/${use.length}…`)}
+tree.push({path:'data.json',mode:'100644',type:'blob',content:JSON.stringify(D,null,2)});
+const t=await gh('git/trees',{method:'POST',body:JSON.stringify({base_tree:cm.tree.sha,tree})}),n=await gh('git/commits',{method:'POST',body:JSON.stringify({message:'Update portfolio via admin',tree:t.sha,parents:[ref.object.sha]})});
+await gh(`git/refs/heads/${cfg.branch}`,{method:'PATCH',body:JSON.stringify({sha:n.sha})});
+use.forEach(k=>pend[k].done=1);dirty=0;localStorage.removeItem('draft');msg('Published ✔ The live site updates in about a minute')}catch(e){msg('Publish failed: '+e.message,1)}}
+$('#pb').onclick=publish;
+$('#ex').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='data.json';a.click()};
+$('#im').onchange=async e=>{try{D=JSON.parse(await e.target.files[0].text());sel={c:-1,p:-1};touch();tree();edit()}catch{alert('That is not a valid data.json')}e.target.value=''};
+const dlg=()=>{$('#rp').value=cfg.repo;$('#br').value=cfg.branch;$('#tk').value=cfg.token;$('#dlg').showModal()};
+$('#cfgb').onclick=dlg;$('#cx').onclick=()=>$('#dlg').close();
+$('#cs').onclick=()=>{cfg={repo:$('#rp').value.trim(),branch:$('#br').value.trim()||'main',token:$('#tk').value.trim()};localStorage.cfg=JSON.stringify(cfg);$('#dlg').close();load()};
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();publish()}});
+addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+cfg.token?load():(load(),dlg());
+</script></body></html>

@@ -217,8 +217,13 @@ document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientW
 document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
 </script>
 <script>
-(function(){var P=['branding','social-media','packaging','ui-ux','3d','motion'],I=['real-estate','restaurants','medical','jewelry','social-media-companies','schools'];
-[['#previous',P],['#industries',I]].forEach(function(x){document.querySelectorAll(x[0]+' .card').forEach(function(a,i){a.href='page.html?c='+x[1][i]+'&p=1'})})})();
+(function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
+fetch('data.json').then(function(r){return r.json()}).then(function(D){
+[['previous','#previous'],['industry','#industries']].forEach(function(x){
+var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
+ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
+var s=c.cover||'images/'+(x[0]==='industry'?'industry-':'work-')+c.id+'.jpg';
+return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')})}).catch(function(){})})();
 </script>
 </body>
 </html>

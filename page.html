@@ -159,19 +159,19 @@ fetch('data.json').then(function(r){return r.json()}).then(function(D){
   var q=new URLSearchParams(location.search),cat=D.categories.find(function(c){return c.id===q.get('c')}),n=+q.get('p')||0;
   if(!cat){main.innerHTML='<h1>Page not found</h1><p><a href="index.html">Back to home</a></p>';return}
   var base=function(i){return 'images/'+cat.id+'/'+i+'-'};
-  var card=function(p,i){return '<li><a class="card" href="page.html?c='+cat.id+'&amp;p='+(i+1)+'"><div class="thumb">'+IMG(base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
+  var card=function(p,i){return '<li><a class="card" href="page.html?c='+cat.id+'&amp;p='+(i+1)+'"><div class="thumb">'+IMG(p.cover||base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
   var h='';
   if(!n||!cat.projects[n-1]){
     document.title=cat.title+' | Addis Alemayehu';
     h='<p class="crumb"><a href="index.html">Home</a> / '+E(cat.title)+'</p><h1>'+E(cat.title)+'</h1><p class="lead" style="margin-top:14px">'+E(cat.description)+'</p><ul class="grid">'+cat.projects.map(card).join('')+'</ul>';
   }else{
-    var p=cat.projects[n-1],b=base(n),g=p.gallery==null?3:p.gallery,s=p.sections||SEC,L=Math.max(s.length,g);
+    var p=cat.projects[n-1],b=base(n),g=p.gallery==null?3:p.gallery,s=p.sections||SEC,G=p.images||Array.from({length:g},function(_,i){return b+(i+1)+'.jpg'}),L=Math.max(s.length,G.length);
     document.title=p.title+' | Addis Alemayehu';
     h='<p class="crumb"><a href="index.html">Home</a> / <a href="page.html?c='+cat.id+'">'+E(cat.title)+'</a></p><h1>'+E(p.title)+'</h1><p class="meta">'+E(p.client||'Client name')+' &middot; '+E(p.date||'Month Year')+'</p><p class="lead">'+E(p.summary||'A short summary of this project: the goal, your role and the result.')+'</p>';
-    h+=p.video?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(p.video)+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(b+'cover.jpg',1600,900,p.title+' cover')+'</div>';
+    h+=p.video?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(p.video)+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(p.cover||b+'cover.jpg',1600,900,p.title+' cover')+'</div>';
     for(var i=0;i<L;i++){
       if(s[i])h+='<div class="txt"><h2>'+E(s[i].heading)+'</h2><p>'+E(s[i].text)+'</p></div>';
-      if(i<g)h+='<div class="shot">'+IMG(b+(i+1)+'.jpg',1600,900,p.title+' image '+(i+1))+'</div>';
+      if(G[i])h+=G[i].indexOf('yt:')==0?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(G[i].slice(3))+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(G[i],1600,900,p.title+' image '+(i+1))+'</div>';
     }
     var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1});
     if(o.length)h+='<div class="more"><div class="title"><h2>More from '+E(cat.title)+'</h2></div><ul class="grid">'+o.join('')+'</ul></div>';
