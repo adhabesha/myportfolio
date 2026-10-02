@@ -40,4 +40,3 @@ html.leaving body>*:not(header):not(script){animation:none;opacity:0;transition:
 @media(max-width:900px){.hero .side{padding:0 20px 6px}.hero .r{margin-bottom:26px}.hero h2{font-size:42px}.hero p{font-size:15px}}
 @media(max-width:800px){.pintro,.sd{grid-template-columns:1fr;gap:24px}.sd.flip>:first-child{order:0}.rl{transform:translateX(-36px)}.rr{transform:translateX(36px)}}
 @media(max-width:600px){.title h2{font-size:12px}.card:hover{transform:none}.hero h2{font-size:38px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.rl,.rr{opacity:1;transform:none}}
