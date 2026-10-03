@@ -60,9 +60,11 @@
               ]
             },
             {
-              "heading": "",
+              "heading": "Reels",
               "text": "",
-              "media": []
+              "media": [
+                "sl:slmus3qkgl4sn"
+              ]
             }
           ],
           "images": [],
@@ -700,6 +702,57 @@
       ],
       "auto": true,
       "delay": 2
+    },
+    {
+      "id": "slmus3qkgl4sn",
+      "name": "flintstone reals",
+      "title": "",
+      "bg": "none",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5vk442.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5wg3ej.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5ww7fo.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5xc3uf.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5xrtog.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5yg0m5.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5z2lc7.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus3r5zilqk.jpg",
+          "caption": ""
+        }
+      ],
+      "delay": 2,
+      "shape": "916",
+      "auto": true
     }
   ]
 }
