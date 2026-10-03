@@ -697,7 +697,8 @@
           "src": "images/site/sl-mus32qvkfgj.jpg",
           "caption": ""
         }
-      ]
+      ],
+      "auto": true
     }
   ]
 }
