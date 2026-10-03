@@ -665,7 +665,7 @@
       "id": "slmus2p795sbs",
       "name": "branding",
       "title": "",
-      "bg": "light",
+      "bg": "none",
       "slides": [
         {
           "type": "image",
