@@ -155,7 +155,7 @@ var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g
 var IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+h+'" alt="'+E(alt)+'" onerror="ph(this)">'};
 var SEC=[{heading:'The challenge',text:'Describe the brief, the client and the problem you were solving.'},{heading:'The process',text:'Explain your approach, sketches, research and key decisions.'},{heading:'The result',text:'Show the final outcome and what it achieved.'}];
 var main=document.getElementById('main');
-fetch('data.json').then(function(r){return r.json()}).then(function(D){
+fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
   var q=new URLSearchParams(location.search),cat=D.categories.find(function(c){return c.id===q.get('c')}),n=+q.get('p')||0;
   if(!cat){main.innerHTML='<h1>Page not found</h1><p><a href="index.html">Back to home</a></p>';return}
   var base=function(i){return 'images/'+cat.id+'/'+i+'-'};

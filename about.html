@@ -155,7 +155,7 @@ function ph(img){
 </footer><script>
 (function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')},q=function(s){return document.querySelector(s)},
 mk=function(src,w,h,alt){var m=document.createElement('img');m.src=src;m.width=w;m.height=h;m.alt=alt;m.setAttribute('onerror','ph(this)');return m};
-fetch('data.json').then(function(r){return r.json()}).then(function(D){
+fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
 [['previous','#previous'],['industry','#industries']].forEach(function(x){
 var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
 ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
@@ -175,7 +175,7 @@ return '<li class="vid"><a href="'+E(l)+'"'+(l!=='#'?' target="_blank" rel="noop
 IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+h+'" alt="'+E(alt)+'" onerror="ph(this)">'},
 P=function(t){return String(t||'').split(/\n+/).filter(Boolean).map(function(x){return '<p>'+E(x)+'</p>'}).join('')},
 L=function(a){return (a||[]).filter(Boolean).map(function(x){return '<li>'+E(x)+'</li>'}).join('')},app=document.getElementById('app');
-fetch('data.json').then(function(r){return r.json()}).then(function(D){
+fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
 var A=Object.assign({},DEF.about,(D.site||{}).about||{}),sp=A.split,fx=A.facts,sk=A.skills,ph=A.photos&&A.photos.length?A.photos:[1,2,3,4,5,6].map(function(i){return 'images/about-photo-'+i+'.jpg'});
 document.title='About | Addis Alemayehu';
 app.innerHTML='<div data-slot="about.top"></div>'+'<section><div class="wrap intro"><div class="rl"><h1>'+E(A.title)+'</h1><p class="lead">'+E(A.lead)+'</p>'+P(A.text)+'</div>'+'<div class="rr">'+IMG(A.image||'images/about-intro.png',540,400,'About portrait')+'</div>'+'</div><div class="wrap"><div class="photos rv">'+ph.map(function(s,i){return IMG(s,400,300,'Photo '+(i+1))}).join('')+'</div></div></section>'+'<div data-slot="about.afterIntro"></div>'

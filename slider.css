@@ -29,3 +29,7 @@
 .cfbox .ct{position:absolute;left:0;right:0;bottom:14px;text-align:center;color:#ddd;font-size:14px;padding:0 70px}
 .cfbox.v iframe{height:84vh;width:auto;aspect-ratio:9/16;max-width:94vw}
 .cf-full .cf-title{margin-top:4px}
+/* original proportions: fixed height, width follows each image, nothing is cropped */
+.cf-orig .swiper-slide{width:auto;height:var(--h,clamp(320px,44vw,500px));max-width:84%}
+.cf-orig .swiper-slide img,.cf-orig .swiper-slide video{object-fit:contain}
+@media(max-width:700px){.cf-orig .swiper-slide{width:auto;height:var(--h,clamp(280px,74vw,430px))}}

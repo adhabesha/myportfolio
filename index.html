@@ -219,7 +219,7 @@ var t=document.getElementById('track');
 <script>
 (function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')},q=function(s){return document.querySelector(s)},
 mk=function(src,w,h,alt){var m=document.createElement('img');m.src=src;m.width=w;m.height=h;m.alt=alt;m.setAttribute('onerror','ph(this)');return m};
-fetch('data.json').then(function(r){return r.json()}).then(function(D){
+fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
 [['previous','#previous'],['industry','#industries']].forEach(function(x){
 var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
 ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
