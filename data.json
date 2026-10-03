@@ -26,7 +26,8 @@
               "heading": "Concept: stone by stone",
               "text": "The tagline \"Building your vision, stone by stone\" shaped everything. The F monogram is built from solid blocks, like stones laid one on another, on a simple grid so it stays sharp from a hard hat to a billboard.",
               "media": [
-                "images/branding/sm-mur142003pm.jpg"
+                "images/branding/sm-mur142003pm.jpg",
+                "sl:slmus2p795sbs"
               ]
             },
             {
@@ -656,6 +657,57 @@
       "image": "",
       "endpoint": "",
       "success": "Thank you! Your message has been sent."
+    },
+    "slots": {}
+  },
+  "sliders": [
+    {
+      "id": "slmus2p795sbs",
+      "name": "branding",
+      "title": "",
+      "bg": "dark",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2sttmyr7.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2stuaw6v.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2stv4314.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2stw7m9k.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2su8e3tq.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2suchnfx.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2sue18eh.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mus2suer8kt.jpg",
+          "caption": ""
+        }
+      ]
     }
-  }
+  ]
 }
