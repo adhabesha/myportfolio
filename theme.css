@@ -10,25 +10,25 @@ h1,h2,h3{font-family:"Metropolis",Helvetica,Arial,sans-serif}
 /* 1. menu bar slides in from the top on every page load */
 @keyframes hdr{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
-header{animation:hdr 1.2s var(--ease) both}
+header{animation:hdr .9s var(--ease) both}
 /* menu hover: white turns light grey */
 #menu nav a{font-weight:400;font-size:15px;transition:color .3s}#menu nav a:hover{color:#bbb;opacity:1}
 .social svg,.social svg [stroke]{transition:fill .3s,stroke .3s}.social a:hover{opacity:1}.social a:hover svg{fill:#bbb}.social a:hover svg [stroke]{stroke:#bbb}
 .logo{transition:opacity .3s}.logo:hover{opacity:.8}
 /* 2. the rest of the page fades in after the menu; home hero is staged: image, then text */
-body>*:not(header):not(.hero):not(script){animation:fade 1s .7s both}
+body>*:not(header):not(.hero):not(script){animation:fade .8s .5s both}
 /* home hero is staged by theme.js: menu, then image (once loaded), then text. The slow 'show' animation is only a safety net. */
 @keyframes show{to{opacity:1}}
 .hero-in>:first-child,.hero h2,.hero p{opacity:0;animation:show 0s 7s forwards}
-.hero.s1 .hero-in>:first-child{opacity:1;animation:none;transition:opacity 1.3s ease}
-.hero.s2 h2,.hero.s2 p{opacity:1;animation:none;transition:opacity 1.1s ease}
-.hero.s2 .l p,.hero.s2 .r h2{transition-delay:.25s}.hero.s2 .r p{transition-delay:.5s}
+.hero.s1 .hero-in>:first-child{opacity:1;animation:none;transition:opacity 1s ease}
+.hero.s2 h2,.hero.s2 p{opacity:1;animation:none;transition:opacity .8s ease}
+.hero.s2 .l p,.hero.s2 .r h2{transition-delay:.15s}.hero.s2 .r p{transition-delay:.3s}
 /* 3. leaving a page: menu slides up and fades, everything fades out */
 html.leaving header{animation:none;transform:translateY(-100%);opacity:0;transition:transform .55s var(--ease),opacity .55s}
 html.leaving body>*:not(header):not(script){animation:none;opacity:0;transition:opacity .45s}
 /* 4. scroll reveals: text from the left, images from the right (or the reverse) */
-.rv,.rl,.rr{opacity:0;transition:opacity .9s var(--ease),transform .9s var(--ease),box-shadow .45s var(--ease)}
-.rv{transform:translateY(26px)}.rl{transform:translateX(-70px)}.rr{transform:translateX(70px)}
+.rv,.rl,.rr{opacity:0;transition:opacity .5s var(--ease),transform .55s var(--ease),box-shadow .45s var(--ease)}
+.rv{transform:translateY(18px)}.rl{transform:translateX(-44px)}.rr{transform:translateX(44px)}
 .rv.in,.rl.in,.rr.in{opacity:1;transform:none}
 /* cards, titles, hovers */
 .title h2{font-weight:500;letter-spacing:.2em;font-size:13px}
@@ -46,7 +46,7 @@ html.leaving body>*:not(header):not(script){animation:none;opacity:0;transition:
 .sd .rv{opacity:1;transform:none;transition:none}
 .ab .lead{font-size:18px}.ab h2{font-size:24px}
 @media(max-width:900px){.hero .side{padding:0 20px 6px}.hero .r{margin-bottom:26px}.hero h2{font-size:42px}.hero p{font-size:15px}}
-@media(max-width:800px){.pintro,.sd{grid-template-columns:1fr;gap:24px}.sd.flip>:first-child{order:0}.rl{transform:translateX(-36px)}.rr{transform:translateX(36px)}}
+@media(max-width:800px){.pintro,.sd{grid-template-columns:1fr;gap:24px}.sd.flip>:first-child{order:0}.rl{transform:translateX(-26px)}.rr{transform:translateX(26px)}}
 @media(max-width:600px){.title h2{font-size:12px}.card:hover{transform:none}.hero h2{font-size:38px}}
 /* Typography and mobile layout matched to the reference site (Metropolis is a free look-alike for Proxima Nova) */
 :root{--f:"Metropolis","Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif}
