@@ -137,7 +137,7 @@ function ph(img){
       </div>
     </div>
   </div>
-</header><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
+</header><div id="hs"></div><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
   <a class="top" href="#top" aria-label="Back to top"></a>
   <div class="wrap">
     <span>&copy; 2026 Addis Alemayehu</span>
@@ -177,6 +177,6 @@ fetch('data.json').then(function(r){return r.json()}).then(function(D){
     var pv=cat.projects[n-2],nx=cat.projects[n];
     h+='<div class="pn"><span>'+(pv?'<a href="page.html?c='+cat.id+'&amp;p='+(n-1)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="page.html?c='+cat.id+'&amp;p='+(n+1)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
   }
-  main.innerHTML=h;if(window.CF)CF.mount(D);
+  main.innerHTML=h;var hd=((n&&cat.projects[n-1])||{}).header||cat.header;document.getElementById('hs').innerHTML=hd?'<div data-slider="'+E(hd)+'" data-full="1"></div>':'';if(window.CF)CF.mount(D);
 }).catch(function(){main.innerHTML='<h1>Could not load data.json</h1><p>Open the site through a web server (or the live Cloudflare address), not by double-clicking the file.</p>'});
 </script></body></html>

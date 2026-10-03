@@ -5,7 +5,7 @@
 .cf.cf-full{border-radius:0}
 .cf-title{text-align:center;font-weight:300;font-size:22px;margin:0 0 18px;padding:0 20px}
 .cf .swiper{width:100%;padding:14px 0 54px;overflow:hidden}
-.cf .swiper-slide{width:min(62%,560px);aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#1d1f23;position:relative;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.cf .swiper-slide{width:var(--sw,min(62%,560px));aspect-ratio:var(--ar,4/3);border-radius:6px;overflow:hidden;background:#1d1f23;position:relative;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .cf .swiper-slide img,.cf .swiper-slide video{width:100%;height:100%;object-fit:cover;display:block}
 .cf .swiper-slide:focus-visible{outline:3px solid #3b82f6}
 .cf-play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid #fff;pointer-events:none}
@@ -16,7 +16,7 @@
 .cf .swiper-button-prev,.cf .swiper-button-next{width:44px;height:44px;margin-top:-34px;border-radius:50%;background:rgba(0,0,0,.28);--swiper-navigation-size:18px}
 .cf.cf-light .swiper-button-prev,.cf.cf-light .swiper-button-next,.cf.cf-none .swiper-button-prev,.cf.cf-none .swiper-button-next{background:rgba(255,255,255,.7)}
 .cfslot{margin:34px 0}
-@media(max-width:700px){.cf .swiper-slide{width:74%}.cf .swiper-button-prev,.cf .swiper-button-next{width:36px;height:36px}.cf-title{font-size:18px}}
+@media(max-width:700px){.cf .swiper-slide{width:var(--swm,74%)}.cf .swiper-button-prev,.cf .swiper-button-next{width:36px;height:36px}.cf-title{font-size:18px}}
 /* lightbox */
 .cfbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;animation:cfin .25s ease both}
 @keyframes cfin{from{opacity:0}to{opacity:1}}
@@ -27,3 +27,5 @@
 .cfbox button:hover{background:rgba(255,255,255,.3)}
 .cfbox .x{top:16px;right:16px}.cfbox .p{left:16px;top:50%;margin-top:-23px}.cfbox .n{right:16px;top:50%;margin-top:-23px}
 .cfbox .ct{position:absolute;left:0;right:0;bottom:14px;text-align:center;color:#ddd;font-size:14px;padding:0 70px}
+.cfbox.v iframe{height:84vh;width:auto;aspect-ratio:9/16;max-width:94vw}
+.cf-full .cf-title{margin-top:4px}
