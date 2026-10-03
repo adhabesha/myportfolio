@@ -65,3 +65,13 @@ header{height:62px}#menu{top:62px}.logo img,.logo .ph{width:36px;height:36px}
 .hero .r{left:auto;right:0;text-align:right}.hero p{display:none}
 .hero h2{font-size:clamp(20px,5.8vw,34px)}.work{padding:40px 0 70px}}
 .logo .ph{overflow:hidden;padding:0}.logo .ph *{display:none}
+/* Hero: text stays on the photo but sits low, in the bottom corners, clear of the face and the screen */
+.hero-in{display:block;padding:0;position:relative}
+.hero-in>:first-child{display:block;width:100%;height:auto;aspect-ratio:1040/600!important;object-fit:cover;object-position:50% 20%}
+.hero-in::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(to top,rgba(255,255,255,.88),rgba(255,255,255,0));pointer-events:none}
+.hero .side,.hero .side.l,.hero .side.r{position:absolute;top:auto;bottom:5%;margin:0;padding:0 24px;max-width:46%;z-index:2}
+.hero .side.l{left:0;text-align:left}.hero .side.r{right:0;text-align:right}
+.hero h2{font-size:clamp(28px,4.4vw,52px);color:#000;font-weight:700;line-height:1}
+.hero p{display:block;font-size:clamp(13px,1.35vw,16px);line-height:1.5;color:#000;font-weight:600;margin-top:8px;max-width:360px}.hero .r p{margin-left:auto}
+@media(max-width:900px){.hero .side,.hero .side.l,.hero .side.r{bottom:4%;padding:0 14px;max-width:none}.hero h2{font-size:clamp(20px,6.4vw,32px)}.hero p{display:none}.hero-in::after{height:26%}}
+.logo .ph{overflow:hidden;padding:0}.logo .ph *{display:none}
