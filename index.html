@@ -117,7 +117,7 @@ function ph(img){
   img.onerror=null;img.replaceWith(d);
 }
 </script>
-<link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script></head>
+<link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script><link rel="stylesheet" href="slider.css"><script src="slider.js" defer></script></head>
 <body id="top">
 
 <header>
@@ -150,7 +150,7 @@ function ph(img){
       <p>Skilled in front-end web development: HTML, CSS, JavaScript, WordPress, PHP and SEO.</p>
     </div>
   </div>
-</section>
+</section><div data-slot="home.afterHero"></div>
 
 <section class="work" id="previous">
   <div class="wrap">
@@ -164,7 +164,7 @@ function ph(img){
       <li><a class="card" href="#"><div class="thumb"><img src="images/work-motion.jpg" width="960" height="540" alt="Motion graphics" onerror="ph(this)"></div><h3>Motion graphics</h3></a></li>
     </ul>
   </div>
-</section>
+</section><div data-slot="home.afterPrevious"></div>
 
 <section class="videos" aria-label="Motion graphics designs">
   <div class="wrap">
@@ -184,7 +184,7 @@ function ph(img){
       <button class="arrow n" aria-label="Next videos">&#8250;</button>
     </div>
   </div>
-</section>
+</section><div data-slot="home.afterVideos"></div>
 
 <section class="work" id="industries" style="background:#fff">
   <div class="wrap">
@@ -198,7 +198,7 @@ function ph(img){
       <li><a class="card" href="#"><div class="thumb"><img src="images/industry-schools.jpg" width="960" height="540" alt="Schools" onerror="ph(this)"></div><h3>Schools</h3></a></li>
     </ul>
   </div>
-</section>
+</section><div data-slot="home.afterIndustries"></div>
 
 <footer id="contact">
   <a class="top" href="#top" aria-label="Back to top"></a>
@@ -213,8 +213,8 @@ var b=document.getElementById('burger'),m=document.getElementById('menu');
 b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
 var t=document.getElementById('track');
-document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
-document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
+(document.querySelector('.arrow.n')||{}).onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
+(document.querySelector('.arrow.p')||{}).onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
 </script>
 <script>
 (function(){var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')},q=function(s){return document.querySelector(s)},
@@ -225,7 +225,7 @@ var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
 ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
 var s=c.cover||'images/'+(x[0]==='industry'?'industry-':'work-')+c.id+'.jpg';
 return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')});
-var S=D.site;if(!S)return;
+if(window.CF)CF.mount(D);var S=D.site;if(!S)return;
 if(S.hero){q('.hero .l h2').textContent=S.hero.left.title;q('.hero .l p').textContent=S.hero.left.text;q('.hero .r h2').textContent=S.hero.right.title;q('.hero .r p').textContent=S.hero.right.text;
 if(S.hero.image)q('.hero-in').firstElementChild.replaceWith(mk(S.hero.image,1040,600,'Hero'))}
 if(S.logo)q('.logo').firstElementChild.replaceWith(mk(S.logo,128,128,'Logo'));

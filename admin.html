@@ -29,7 +29,7 @@ figure div{display:flex;gap:4px;margin-top:6px}figure button{padding:2px 8px}fig
 h4{margin:24px 0 6px;display:flex;justify-content:space-between;align-items:center}.hint{color:#666}
 dialog{border:0;border-radius:10px;padding:22px;width:min(480px,92vw);box-shadow:0 10px 40px #0005}
 @media(max-width:800px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid #ddd;max-height:40vh}.two{grid-template-columns:1fr}}
-</style></head><body>
+.slfig{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;background:#2b2e33;color:#fff;border-radius:4px;font-size:13px;padding:6px}figure input{padding:4px 6px;margin-top:6px}.slot{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}.chip{display:inline-flex;gap:6px;align-items:center;background:#e3ecff;border-radius:14px;padding:2px 4px 2px 10px;margin:2px 4px 2px 0}.chip button{padding:0 7px;border:0;background:none;font-size:15px}.slot .tb{margin-top:6px}</style></head><body>
 <div class="bar"><b>Portfolio admin</b><input id="flt" placeholder="Filter projects…"><span id="st"></span>
 <button id="ex">Export</button><label class="btn" style="margin:0">Import<input type="file" id="im" accept=".json" hidden></label>
 <button id="cfgb">Settings</button><button id="pb" class="pri">Publish</button></div>
@@ -39,7 +39,7 @@ dialog{border:0;border-radius:10px;padding:22px;width:min(480px,92vw);box-shadow
 <label>Repository<input id="rp"></label><label>Branch<input id="br"></label><label>Token<input id="tk" type="password" placeholder="github_pat_…"></label>
 <p class="tb"><span class="sp"></span><button id="cx">Cancel</button><button id="cs" class="pri">Save &amp; load</button></p></dialog>
 <input type="file" id="fm" multiple accept="image/*" hidden><input type="file" id="fc" accept="image/*" hidden>
-<script src="defaults.js"></script>
+<link rel="stylesheet" href="slider.css"><script src="slider.js"></script><script src="defaults.js"></script>
 <script>
 const $=s=>document.querySelector(s),E=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 let D={categories:[]},sel={c:-1,p:-1},pend={},dirty=0,covT='c',covI=0,fmMode='m',fmIdx=0,cfg=JSON.parse(localStorage.cfg||'{"repo":"adhabesha/myportfolio","branch":"main","token":""}');
@@ -59,10 +59,10 @@ const defSite=()=>({logo:'',social:{facebook:'https://web.facebook.com/sikettc',
 hero:{image:'',left:{title:'designer',text:'Experienced in graphic & web design, creating websites, user interfaces, brands, logos and print media.'},right:{title:'<coder>',text:'Skilled in front-end web development: HTML, CSS, JavaScript, WordPress, PHP and SEO.'}},
 titles:{previous:'Previous work',videos:'Motion Graphics Designs',industry:'Sample work by industries'},
 videos:[['Aims healthcare draft','00:59'],['International courses AI voice over','00:46'],['Meri Coffee 2','00:32'],['Wave club advert','01:12']].map((v,i)=>({title:v[0],duration:v[1],image:'images/video-'+(i+1)+'.jpg'})).concat([['Siket training center short term courses','01:11','sIWo3DbTRPQ'],['Siket training center WAs','01:05','RB1PprnVM3Q'],['Siket training center safety courses','00:46','5MlL8NSkM10'],['Siket training center degree courses WA','01:01','_LYk2-1UnnM']].map(v=>({title:v[0],duration:v[1],yt:v[2]})))});
-function mig(){D.site=D.site||defSite();D.site.about=D.site.about||JSON.parse(JSON.stringify(DEF.about));D.site.contact=D.site.contact||JSON.parse(JSON.stringify(DEF.contact));D.categories.forEach(c=>c.projects.forEach(p=>{if(!p.sections)return;
+function mig(){D.site=D.site||defSite();D.sliders=D.sliders||[];D.site.slots=D.site.slots||{};D.site.about=D.site.about||JSON.parse(JSON.stringify(DEF.about));D.site.contact=D.site.contact||JSON.parse(JSON.stringify(DEF.contact));D.categories.forEach(c=>c.projects.forEach(p=>{if(!p.sections)return;
 if(!p.sections.some(x=>x.media)&&p.images&&p.images.length&&p.sections.length){p.sections.forEach(x=>x.media=[]);p.images.forEach((m,i)=>p.sections[Math.min(i,p.sections.length-1)].media.push(m));p.images=[]}
 else p.sections.forEach(x=>x.media=x.media||[])}))}
-const mb=(l,mode,i)=>{const sm=mode==='sm',a=mode+'mv',d=mode+'del';return `<div class="media">${(l||[]).map((m,k)=>`<figure>${m.startsWith('yt:')?`<img src="https://i.ytimg.com/vi/${E(m.slice(3))}/mqdefault.jpg"><i>YouTube</i>`:`<img src="${E(src(m))}">`}<div><button data-a="${a}" data-s="${i}" data-i="${k}" data-d="-1">←</button><button data-a="${a}" data-s="${i}" data-i="${k}" data-d="1">→</button><button data-a="${d}" data-s="${i}" data-i="${k}" class="dng">✕</button></div></figure>`).join('')}</div><div class="drop" data-mode="${mode}" data-i="${i}">Drop images or GIFs here, or <button data-a="addmedia" data-mode="${mode}" data-i="${i}">Choose files</button> ${mode==='ap'?'':`<button data-a="ytadd" data-mode="${mode}" data-i="${i}">+ YouTube video</button>`}</div>`};
+const mb=(l,mode,i)=>{const sm=mode==='sm',a=mode+'mv',d=mode+'del';return `<div class="media">${(l||[]).map((m,k)=>`<figure>${m.startsWith('sl:')?`<div class="slfig">▦ Slider<br>${E(((D.sliders||[]).find(s=>s.id===m.slice(3))||{}).name||'(deleted)')}</div>`:m.startsWith('yt:')?`<img src="https://i.ytimg.com/vi/${E(m.slice(3))}/mqdefault.jpg"><i>YouTube</i>`:`<img src="${E(src(m))}">`}<div><button data-a="${a}" data-s="${i}" data-i="${k}" data-d="-1">←</button><button data-a="${a}" data-s="${i}" data-i="${k}" data-d="1">→</button><button data-a="${d}" data-s="${i}" data-i="${k}" class="dng">✕</button></div></figure>`).join('')}</div><div class="drop" data-mode="${mode}" data-i="${i}">Drop images or GIFs here, or <button data-a="addmedia" data-mode="${mode}" data-i="${i}">Choose files</button> ${mode==='ap'?'':`<button data-a="ytadd" data-mode="${mode}" data-i="${i}">+ YouTube video</button><button data-a="slpick" data-mode="${mode}" data-i="${i}">+ Slider</button>`}</div>`};
 const bindDrops=()=>document.querySelectorAll('.drop').forEach(d=>{d.ondragover=e=>{e.preventDefault();d.classList.add('over')};d.ondragleave=()=>d.classList.remove('over');d.ondrop=e=>{e.preventDefault();d.classList.remove('over');add(e.dataTransfer.files,d.dataset.mode,+d.dataset.i)}});
 function home(){if(!D.site)D.site=defSite();const s=D.site,I=(k,v,ph='')=>`<input data-b="${k}" value="${E(v)}" placeholder="${ph}">`,T=(k,v)=>`<textarea data-b="${k}" rows="3">${E(v)}</textarea>`,L=(t,x)=>`<label>${t}${x}</label>`,
 Lc=(t,x)=>`<div class="lc"><b>${t}</b>${x}</div>`,img=(path,t,i=0)=>`<div class="cov">${path?`<img src="${E(src(path))}" style="object-fit:contain">`:'<span>Default / none</span>'}<div><button data-a="cov" data-t="${t}" data-i="${i}">Upload image</button>${path?`<button data-a="covx" data-t="${t}" data-i="${i}">Remove</button>`:''}</div></div>`;
@@ -88,12 +88,12 @@ function contactEd(){const c=D.site.contact,s='s.contact.';$('#ed').innerHTML=`<
 +`<h4>Details shown on the page</h4><div class="two">`+FL('Email (also receives messages if no form service is set)',FI(s+'email',c.email))+FL('Phone',FI(s+'phone',c.phone))+`</div>`+FL('Address',FI(s+'address',c.address))
 +`<h4>Contact form</h4>`+FL('Form service address (optional)',FI(s+'endpoint',c.endpoint,'https://formspree.io/f/xxxxxxx'))+`<p class="hint">Create a free form at formspree.io (or a similar service) and paste its address. Leave empty to open the visitor's email app instead.</p>`+FL('Message after sending',FI(s+'success',c.success))+`<p class="hint">Social links come from the Home page settings.</p>`}
 function tree(){const f=$('#flt').value.toLowerCase();
-$('#tree').innerHTML=`<div class="cat${sel.c===-2?' on':''}" data-a="go" data-c="-2" data-p="-1">Home page</div><div class="cat${sel.c===-3?' on':''}" data-a="go" data-c="-3" data-p="-1">About page</div><div class="cat${sel.c===-4?' on':''}" data-a="go" data-c="-4" data-p="-1">Contact page</div>`+G.map(([g,n])=>`<h3>${n}<button data-a="addc" data-g="${g}">+ Category</button></h3>`+D.categories.map((c,ci)=>[c,ci]).filter(([c])=>c.group===g).map(([c,ci])=>{
+$('#tree').innerHTML=`<div class="cat${sel.c===-2?' on':''}" data-a="go" data-c="-2" data-p="-1">Home page</div><div class="cat${sel.c===-3?' on':''}" data-a="go" data-c="-3" data-p="-1">About page</div><div class="cat${sel.c===-4?' on':''}" data-a="go" data-c="-4" data-p="-1">Contact page</div><div class="cat${sel.c===-5?' on':''}" data-a="go" data-c="-5" data-p="-1">Sliders</div>`+G.map(([g,n])=>`<h3>${n}<button data-a="addc" data-g="${g}">+ Category</button></h3>`+D.categories.map((c,ci)=>[c,ci]).filter(([c])=>c.group===g).map(([c,ci])=>{
 const ps=c.projects.map((p,pi)=>[p,pi]).filter(([p])=>!f||(p.title+c.title).toLowerCase().includes(f));if(f&&!ps.length)return'';
 return `<div class="cat${sel.c===ci&&sel.p<0?' on':''}" data-a="go" data-c="${ci}" data-p="-1">${E(c.title)}</div>`+ps.map(([p,pi])=>`<div class="prj${sel.c===ci&&sel.p===pi?' on':''}" data-a="go" data-c="${ci}" data-p="${pi}">${E(p.title)}</div>`).join('')}).join('')).join('')}
 
 function edit(){const c=C(),p=P(),ed=$('#ed');
-if(sel.c<-1){sel.c===-2?home():sel.c===-3?aboutEd():contactEd();return}
+if(sel.c<-1){sel.c===-2?home():sel.c===-3?aboutEd():sel.c===-4?contactEd():sliderEd();if(sel.c>-5)$('#ed').insertAdjacentHTML('beforeend',slotsEd(sel.c));return}
 if(!c){ed.innerHTML='<p class="hint">Pick a category on the left, or add one with “+ Category”.</p>';return}
 const L=(t,x)=>`<label>${t}${x}</label>`,I=(k,v,ph='')=>`<input data-b="${k}" value="${E(v)}" placeholder="${ph}">`,T=(k,v,r=3)=>`<textarea data-b="${k}" rows="${r}">${E(v)}</textarea>`,
 cov=(path,t)=>`<div class="cov">${path?`<img src="${E(src(path))}">`:'<span>No image yet</span>'}<div><button data-a="cov" data-t="${t}">Upload image (auto-cropped to 16:9)</button>${path?`<button data-a="covx" data-t="${t}">Remove</button>`:''}</div></div>`;
@@ -117,12 +117,42 @@ else{const bm=await createImageBitmap(f);let sx=0,sy=0,sw=bm.width,sh=bm.height;
 const tw=Math.round(Math.min(png?2080:1600,sw)),th=Math.round(tw*sh/sw),cv=document.createElement('canvas');cv.width=tw;cv.height=th;const x=cv.getContext('2d');if(!png){x.fillStyle='#fff';x.fillRect(0,0,tw,th)}x.drawImage(bm,sx,sy,sw,sh,0,0,tw,th);
 mime=png?'image/png':'image/jpeg';ext=png?'png':'jpg';b64=await rd(await new Promise(r=>cv.toBlob(r,mime,.82)))}
 const path=`images/${cid}/${mode}-${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;pend[path]={b64,url:`data:${mime};base64,${b64}`};return path}
-async function add(files,mode,idx){const home=/^(logo|hero|vt|ap|k:.*)$/.test(mode),c=C();if(!home&&!c)return;msg('Processing images…');
-for(const f of [...files]){if(!f.type.startsWith('image/'))continue;const path=await proc(f,mode,home?'site':c.id);
-if(mode==='c')c.cover=path;else if(mode==='p')P().cover=path;else if(mode==='logo')D.site.logo=path;else if(mode==='hero')D.site.hero.image=path;else if(mode==='vt')D.site.videos[idx].image=path;else if(mode==='ap')D.site.about.photos.push(path);else if(mode.startsWith('k:'))setp(mode.slice(2),path);else if(mode==='sm')P().sections[idx].media.push(path);else P().images.push(path);
-if(!/^(m|sm|ap)$/.test(mode))break}done()}
+async function add(files,mode,idx){const home=/^(logo|hero|vt|ap|sl|k:.*)$/.test(mode),c=C();if(!home&&!c)return;msg('Processing images…');
+for(const f of [...files]){if(f.type.startsWith('video/')&&mode==='sl'){const v=await addVideo(f);if(v)SLD().slides.push(v);continue}if(!f.type.startsWith('image/'))continue;const path=await proc(f,mode,home?'site':c.id);
+if(mode==='c')c.cover=path;else if(mode==='p')P().cover=path;else if(mode==='logo')D.site.logo=path;else if(mode==='hero')D.site.hero.image=path;else if(mode==='vt')D.site.videos[idx].image=path;else if(mode==='ap')D.site.about.photos.push(path);else if(mode==='sl')SLD().slides.push({type:'image',src:path,caption:''});else if(mode.startsWith('k:'))setp(mode.slice(2),path);else if(mode==='sm')P().sections[idx].media.push(path);else P().images.push(path);
+if(!/^(m|sm|ap|sl)$/.test(mode))break}done()}
 
+let slI=0;const SLD=()=>D.sliders[slI],uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const SLOTS={'-2':['home',[['afterHero','Under the hero photo'],['afterPrevious','After the Previous work cards'],['afterVideos','After the video slider'],['afterIndustries','After the Industries cards']]],'-3':['about',[['top','Top of the page'],['afterIntro','After the intro and photo strip'],['afterSplit','After the two-column section'],['afterFacts','After the facts'],['afterSkills','After the skills chart'],['bottom','Bottom of the page']]],'-4':['contact',[['top','Top of the page'],['bottom','Bottom of the page']]]};
+const purge=id=>{Object.keys(D.site.slots).forEach(k=>D.site.slots[k]=D.site.slots[k].filter(x=>x!==id));D.categories.forEach(c=>c.projects.forEach(p=>{(p.images||[]).length&&(p.images=p.images.filter(m=>m!=='sl:'+id));(p.sections||[]).forEach(x=>x.media=(x.media||[]).filter(m=>m!=='sl:'+id))}))};
+const usedIn=id=>{const u=[];Object.entries(D.site.slots).forEach(([k,v])=>v.includes(id)&&u.push(k.replace('.',' › ')));D.categories.forEach(c=>c.projects.forEach(p=>{if((p.images||[]).includes('sl:'+id)||(p.sections||[]).some(x=>(x.media||[]).includes('sl:'+id)))u.push(p.title)}));return u};
+function slotsEd(c){const d=SLOTS[c];if(!d)return'';const[pg,list]=d,opt=(D.sliders||[]).map(s=>`<option value="${s.id}">${E(s.name)}</option>`).join('');
+return `<h4>Sliders on this page <small class="hint">(pick where each slider appears)</small></h4>`+list.map(([k,l])=>{const ids=D.site.slots[pg+'.'+k]||[];return `<div class="slot"><b>${l}</b><div>${ids.map((id,i)=>{const s=D.sliders.find(x=>x.id===id);return `<span class="chip">${E(s?s.name:'(deleted)')}<button data-a="slotdel" data-k="${pg}.${k}" data-i="${i}" aria-label="Remove">✕</button></span>`}).join('')}</div><div class="tb"><select data-sel="${pg}.${k}" style="width:auto;min-width:160px"><option value="">Choose a slider…</option>${opt}</select><button data-a="slotadd" data-k="${pg}.${k}">Add here</button></div></div>`}).join('')}
+async function addVideo(f){if(f.size>25e6){alert('Video is over 25 MB. Upload it to YouTube and use “+ YouTube video”, or compress it first.');return null}
+const id=uid(),ext=(f.name.split('.').pop()||'mp4').toLowerCase().replace(/[^a-z0-9]/g,''),vp=`images/sliders/v-${id}.${ext}`,pp=`images/sliders/v-${id}-poster.jpg`;pend[vp]={b64:await rd(f),url:URL.createObjectURL(f)};
+try{const v=document.createElement('video');v.muted=true;v.preload='auto';v.src=pend[vp].url;await new Promise(r=>{v.onloadeddata=r;v.onerror=r;setTimeout(r,4000)});v.currentTime=Math.min(1,(v.duration||2)/2);await new Promise(r=>{v.onseeked=r;setTimeout(r,2500)});
+const w=Math.min(1280,v.videoWidth||1280),h=Math.round(w*(v.videoHeight||720)/(v.videoWidth||1280)),cv=document.createElement('canvas');cv.width=w;cv.height=h;cv.getContext('2d').drawImage(v,0,0,w,h);
+const b64=await rd(await new Promise(r=>cv.toBlob(r,'image/jpeg',.8)));pend[pp]={b64,url:`data:image/jpeg;base64,${b64}`};return{type:'video',src:vp,poster:pp,caption:''}}catch(e){return{type:'video',src:vp,poster:'',caption:''}}}
+function preview(){const s=D.sliders[slI],n=$('#slprev');if(!n||!s)return;n.innerHTML='<div data-slot="pv"></div>';if(window.CF)CF.mount({sliders:[s],site:{slots:{pv:[s.id]}}},src)}
+function sliderEd(){const L=D.sliders;if(slI>=L.length)slI=Math.max(0,L.length-1);const s=L[slI];
+if(!s){$('#ed').innerHTML='<div class="tb"><b>Sliders</b></div><p class="hint">A slider is a 3D coverflow gallery of images, GIFs and videos. Create one here, then place it on any page.</p><p><button data-a="sladd" class="pri">+ New slider</button></p>';return}
+const used=usedIn(s.id),thumb=m=>m.type==='yt'?`https://i.ytimg.com/vi/${E(m.id)}/mqdefault.jpg`:m.type==='video'?(m.poster?E(src(m.poster)):''):E(src(m.src)),lab={image:'Image',yt:'YouTube',video:'Video'};
+$('#ed').innerHTML=`<div class="tb"><b>Sliders</b><select id="sls" style="width:auto;min-width:200px">${L.map((x,i)=>`<option value="${i}"${i===slI?' selected':''}>${E(x.name)}</option>`).join('')}</select><span class="sp"></span><button data-a="sladd">+ New</button><button data-a="sldup">Duplicate</button><button data-a="sldel" class="dng">Delete</button></div>`
++`<div class="two"><label>Name (only you see this)<input data-b="sl.name" value="${E(s.name)}"></label><label>Background<select data-b="sl.bg">${[['dark','Dark'],['light','Light grey'],['none','None (page colour)']].map(o=>`<option value="${o[0]}"${(s.bg||'dark')===o[0]?' selected':''}>${o[1]}</option>`).join('')}</select></label></div>`
++`<label>Title above the slider (optional)<input data-b="sl.title" value="${E(s.title||'')}"></label>`
++`<p class="hint">${used.length?'Used on: '+used.map(E).join(', '):'Not placed anywhere yet. Add it from the Home, About or Contact page editors, or inside a project section with “+ Slider”.'}</p>`
++`<h4>Slides (${s.slides.length})</h4><div class="media">${s.slides.map((m,i)=>`<figure>${thumb(m)?`<img src="${thumb(m)}">`:'<div class="slfig">Video</div>'}<i>${lab[m.type]}</i><input data-b="sl.slides.${i}.caption" value="${E(m.caption||'')}" placeholder="Caption (optional)"><div><button data-a="slmv" data-i="${i}" data-d="-1">←</button><button data-a="slmv" data-i="${i}" data-d="1">→</button><button data-a="slx" data-i="${i}" class="dng">✕</button></div></figure>`).join('')}</div>`
++`<div class="drop" data-mode="sl" data-i="0">Drop images, GIFs or MP4 videos here, or <button data-a="addmedia" data-mode="sl" data-i="0">Choose files</button> <button data-a="slyt">+ YouTube video</button></div>`
++`<h4>Preview <small class="hint">(click a side card to centre it, click the centre card to open it full screen)</small></h4><div id="slprev"></div>`;bindDrops();preview()}
 const A={go:d=>{sel={c:+d.c,p:+d.p};tree();edit()},
+sladd:()=>{const t=prompt('Slider name','Slider '+(D.sliders.length+1));if(!t)return;D.sliders.push({id:'sl'+uid(),name:t,title:'',bg:'dark',slides:[]});slI=D.sliders.length-1;done()},
+sldup:()=>{const n=JSON.parse(JSON.stringify(SLD()));n.id='sl'+uid();n.name+=' (copy)';D.sliders.push(n);slI=D.sliders.length-1;done()},
+sldel:()=>{if(confirm('Delete this slider and remove it from every page?')){purge(SLD().id);D.sliders.splice(slI,1);slI=0;done()}},
+slmv:d=>{mv(SLD().slides,+d.i,+d.d);done()},slx:d=>{SLD().slides.splice(+d.i,1);done()},
+slyt:()=>{const i=ytid(prompt('Paste the YouTube link'));if(i){SLD().slides.push({type:'yt',id:i,caption:''});done()}},
+slotadd:d=>{const v=document.querySelector(`select[data-sel="${d.k}"]`).value;if(!v)return;(D.site.slots[d.k]=D.site.slots[d.k]||[]).push(v);done()},
+slotdel:d=>{D.site.slots[d.k].splice(+d.i,1);done()},
+slpick:d=>{const L=D.sliders;if(!L.length)return alert('Create a slider first: open “Sliders” in the left list.');const n=prompt('Which slider? Type its number:\n'+L.map((x,i)=>(i+1)+') '+x.name).join('\n'),'1'),x=L[(+n||0)-1];if(!x)return;(d.mode==='sm'?P().sections[+d.i].media:P().images).push('sl:'+x.id);done()},
 addc:d=>{const t=prompt('Category name');if(!t)return;D.categories.push({id:slug(t),group:d.g,title:t,description:'',projects:[]});sel={c:D.categories.length-1,p:-1};done()},
 addp:()=>{const c=C(),t=prompt('Project name',c.title+' '+(c.projects.length+1));if(!t)return;c.projects.push(NP(t));sel.p=c.projects.length-1;done()},
 bulk:()=>{$('#bulk').value.split('\n').map(s=>s.trim()).filter(Boolean).forEach(t=>C().projects.push(NP(t)));done()},
@@ -135,7 +165,7 @@ sadd:()=>{P().sections.push({heading:'',text:'',media:[]});done()},sdel:d=>{P().
 mdel:d=>{P().images.splice(+d.i,1);done()},mmv:d=>{mv(P().images,+d.i,+d.d);done()},
 yt:()=>{const i=ytid(prompt('Paste the YouTube link'));if(i){P().images.push('yt:'+i);done()}},
 addm:()=>$('#fm').click(),cov:d=>{covT=d.t;covI=+d.i||0;$('#fc').click()},covx:d=>{if(d.t==='c')delete C().cover;else if(d.t==='p')delete P().cover;else if(d.t==='logo')D.site.logo='';else if(d.t==='hero')D.site.hero.image='';else if(d.t.startsWith('k:'))setp(d.t.slice(2),'');else delete D.site.videos[+d.i].image;done()},
-addmedia:d=>{fmMode=d.mode;fmIdx=+d.i;$('#fm').click()},
+addmedia:d=>{fmMode=d.mode;fmIdx=+d.i;$('#fm').accept=d.mode==='sl'?'image/*,video/mp4,video/webm':'image/*';$('#fm').click()},
 ytadd:d=>{const i=ytid(prompt('Paste the YouTube link'));if(i){(d.mode==='sm'?P().sections[+d.i].media:P().images).push('yt:'+i);done()}},
 smmv:d=>{mv(P().sections[+d.s].media,+d.i,+d.d);done()},smdel:d=>{P().sections[+d.s].media.splice(+d.i,1);done()},
 apmv:d=>{mv(D.site.about.photos,+d.i,+d.d);done()},apdel:d=>{D.site.about.photos.splice(+d.i,1);done()},
@@ -144,9 +174,10 @@ radd:()=>{D.site.about.rows.push({title:'New row',text:'',link:'',url:'',image:'
 vadd:()=>{D.site.videos.push({title:'New video',duration:'',yt:''});done()},
 vdel:d=>{if(confirm('Delete this video?')){D.site.videos.splice(+d.i,1);done()}},vmv:d=>{mv(D.site.videos,+d.i,+d.d);done()}};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(t&&A[t.dataset.a])A[t.dataset.a](t.dataset)});
-$('#ed').addEventListener('input',e=>{const t=e.target,k=t.dataset.b;if(!k)return;const a=k.split('.'),key=a.pop();let o=a[0]==='c'?C():a[0]==='s'?D.site:P();a.slice(1).forEach(x=>o=o[x]);o[key]=t.dataset.yt?(ytid(t.value)||''):t.dataset.l?t.value.split('\n'):t.value;touch();if(/title|group/.test(k))tree()});
+$('#ed').addEventListener('input',e=>{const t=e.target,k=t.dataset.b;if(!k)return;const a=k.split('.'),key=a.pop();let o=a[0]==='c'?C():a[0]==='s'?D.site:a[0]==='sl'?SLD():P();a.slice(1).forEach(x=>o=o[x]);o[key]=t.dataset.yt?(ytid(t.value)||''):t.dataset.l?t.value.split('\n'):t.value;touch();if(/title|group/.test(k))tree()});
 $('#fm').onchange=e=>{add(e.target.files,fmMode,fmIdx);e.target.value=''};$('#fc').onchange=e=>{add(e.target.files,covT,covI);e.target.value=''};
 $('#flt').oninput=tree;
+$('#ed').addEventListener('change',e=>{if(e.target.id==='sls'){slI=+e.target.value;edit()}else if(sel.c===-5&&e.target.dataset.b)preview()});
 
 async function gh(path,opt={}){const h={Accept:'application/vnd.github+json','Content-Type':'application/json'};if(cfg.token)h.Authorization='Bearer '+cfg.token;
 const r=await fetch(`https://api.github.com/repos/${cfg.repo}/${path}`,{...opt,headers:h});if(!r.ok)throw new Error(r.status+' '+(await r.text()).slice(0,140));return r.json()}

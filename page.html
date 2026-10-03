@@ -121,7 +121,7 @@ function ph(img){
   d.innerHTML='<b>'+img.getAttribute('width')+' × '+img.getAttribute('height')+' px</b><span>'+img.getAttribute('alt')+'</span><small>'+img.getAttribute('src')+'</small>';
   img.onerror=null;img.replaceWith(d);
 }
-</script><link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script></head><body id="top"><header>
+</script><link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script><link rel="stylesheet" href="slider.css"><script src="slider.js" defer></script></head><body id="top"><header>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
     <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
@@ -148,8 +148,8 @@ var b=document.getElementById('burger'),m=document.getElementById('menu');
 b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
 var t=document.getElementById('track');
-document.querySelector('.arrow.n').onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
-document.querySelector('.arrow.p').onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
+(document.querySelector('.arrow.n')||{}).onclick=function(){t.scrollBy({left:t.clientWidth*.8})};
+(document.querySelector('.arrow.p')||{}).onclick=function(){t.scrollBy({left:-t.clientWidth*.8})};
 </script><script>
 var E=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')};
 var IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+h+'" alt="'+E(alt)+'" onerror="ph(this)">'};
@@ -169,7 +169,7 @@ fetch('data.json').then(function(r){return r.json()}).then(function(D){
     document.title=p.title+' | Addis Alemayehu';
     h='<div class="pintro"><div class="rl"><h1>'+E(p.title)+'</h1><p class="meta">'+E(p.client||'Client name')+' &middot; '+E(p.date||'Month Year')+'</p><p class="lead">'+E(p.summary||'A short summary of this project: the goal, your role and the result.')+'</p></div>';
     h+='<div class="rr">'+(p.video?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(p.video)+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(p.cover||b+'cover.jpg',1600,900,p.title+' cover')+'</div>')+'</div></div>';
-    var M=function(x,k){return x.indexOf('yt:')==0?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(x.slice(3))+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(x,1600,900,p.title+' image '+(k+1))+'</div>'},T=function(x){return '<div class="txt"><h2>'+E(x.heading)+'</h2>'+E(x.text).split(/\n+/).map(function(t){return '<p>'+t+'</p>'}).join('')+'</div>'};
+    var M=function(x,k){return x.indexOf('sl:')==0?'<div class="cfslot" data-slider="'+E(x.slice(3))+'"></div>':x.indexOf('yt:')==0?'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'+E(x.slice(3))+'" title="'+E(p.title)+'" allowfullscreen loading="lazy"></iframe></div>':'<div class="shot">'+IMG(x,1600,900,p.title+' image '+(k+1))+'</div>'},T=function(x){return '<div class="txt"><h2>'+E(x.heading)+'</h2>'+E(x.text).split(/\n+/).map(function(t){return '<p>'+t+'</p>'}).join('')+'</div>'};
     if(s.some(function(x){return x.media})){s.forEach(function(x){var md=(x.media||[]).map(M).join('');if(x.layout==='l'||x.layout==='r'){var f=x.layout==='r';h+='<div class="sd'+(f?' flip':'')+'"><div class="'+(f?'rr':'rl')+'">'+T(x)+'</div><div class="'+(f?'rl':'rr')+'">'+md+'</div></div>'}else h+=T(x)+md});h+=(p.images||[]).map(M).join('')}
     else for(var i=0;i<L;i++){if(s[i])h+=T(s[i]);if(G[i])h+=M(G[i],i)}
     var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1});
@@ -177,6 +177,6 @@ fetch('data.json').then(function(r){return r.json()}).then(function(D){
     var pv=cat.projects[n-2],nx=cat.projects[n];
     h+='<div class="pn"><span>'+(pv?'<a href="page.html?c='+cat.id+'&amp;p='+(n-1)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="page.html?c='+cat.id+'&amp;p='+(n+1)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
   }
-  main.innerHTML=h;
+  main.innerHTML=h;if(window.CF)CF.mount(D);
 }).catch(function(){main.innerHTML='<h1>Could not load data.json</h1><p>Open the site through a web server (or the live Cloudflare address), not by double-clicking the file.</p>'});
 </script></body></html>
