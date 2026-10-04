@@ -75,3 +75,18 @@ header{height:62px}#menu{top:62px}.logo img,.logo .ph{width:36px;height:36px}
 .hero p{display:block;font-size:clamp(13px,1.35vw,16px);line-height:1.5;color:#000;font-weight:600;margin-top:8px;max-width:360px}.hero .r p{margin-left:auto}
 @media(max-width:900px){.hero .side,.hero .side.l,.hero .side.r{bottom:4%;padding:0 14px;max-width:none}.hero h2{font-size:clamp(20px,6.4vw,32px)}.hero p{display:none}.hero-in::after{height:26%}}
 .logo .ph{overflow:hidden;padding:0}.logo .ph *{display:none}
+
+/* Mobile menu: matches the reference (full-width centred rows, dividers, social row, slides down) */
+@media(max-width:900px){
+header{background:#111}
+header #burger{width:48px;height:48px;opacity:1}
+header #burger span{width:28px;height:2px;background:#bdbdbd;margin:6px auto;border-radius:0;transition:background .3s}
+header #menu{display:flex!important;position:absolute;top:100%;left:0;right:0;z-index:60;background:#222;flex-direction:column;align-items:stretch;gap:0;padding:0;border:0;
+visibility:hidden;opacity:0;transform:translateY(-14px);pointer-events:none;transition:transform .45s var(--ease),opacity .35s ease,visibility 0s .45s}
+header #menu.open{visibility:visible;opacity:1;transform:none;pointer-events:auto;transition:transform .45s var(--ease),opacity .35s ease,visibility 0s}
+header #menu nav{display:flex;flex-direction:column;gap:0;font-size:inherit;width:100%}
+header #menu nav a{display:block;text-align:center;color:#fff;font-size:23px;font-weight:300;line-height:1;padding:28px 0 27px;border-bottom:1px solid #3a3a3a;letter-spacing:.01em;transition:color .3s,background .3s}
+header #menu nav a:hover,header #menu nav a:active{color:#bbb;background:#272727}
+header #menu .social{display:flex;justify-content:center;align-items:center;gap:44px;padding:26px 0 28px}
+header #menu .social svg{width:32px;height:32px}
+}
