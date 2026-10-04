@@ -189,4 +189,9 @@ var f=document.getElementById('cf'),b=f.querySelector('button'),m=document.getEl
 f.onsubmit=function(e){e.preventDefault();var d=new FormData(f);
 if(C.endpoint){b.disabled=true;b.textContent='Sending…';fetch(C.endpoint,{method:'POST',body:d,headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;f.reset();m.textContent=C.success}).catch(function(){m.textContent='Sorry, something went wrong. Please email me directly.'}).then(function(){b.disabled=false;b.textContent='Send message'})}
 else location.href='mailto:'+C.email+'?subject='+encodeURIComponent('Message from '+d.get('name'))+'&body='+encodeURIComponent(d.get('message')+'\n\n'+d.get('name')+' ('+d.get('email')+')')}
-}).catch(function(){app.innerHTML='<div class="wrap"><h1>Could not load data.json</h1></div>'});</script></body></html>
+}).catch(function(){app.innerHTML='<div class="wrap"><h1>Could not load data.json</h1></div>'});</script><script>
+(function(){var b=document.getElementById('burger'),m=document.getElementById('menu');if(!b||!m)return;
+b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}})})();
+</script>
+</body></html>

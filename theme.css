@@ -10,7 +10,7 @@ h1,h2,h3{font-family:"Metropolis",Helvetica,Arial,sans-serif}
 /* 1. menu bar slides in from the top on every page load */
 @keyframes hdr{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
-header{animation:hdr .9s var(--ease) both}
+header{animation:hdr .9s var(--ease) both;position:relative;z-index:50}
 /* menu hover: white turns light grey */
 #menu nav a{font-weight:400;font-size:15px;transition:color .3s}#menu nav a:hover{color:#bbb;opacity:1}
 .social svg,.social svg [stroke]{transition:fill .3s,stroke .3s}.social a:hover{opacity:1}.social a:hover svg{fill:#bbb}.social a:hover svg [stroke]{stroke:#bbb}

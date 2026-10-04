@@ -183,4 +183,9 @@ app.innerHTML='<div data-slot="about.top"></div>'+'<section><div class="wrap int
 +'<section><div class="wrap facts"><div class="rl">'+IMG(fx.image||'images/about-facts.png',520,440,'Facts image')+'</div><div class="rr"><h2>'+E(fx.title)+'</h2><ul>'+L(fx.items)+'</ul></div></div></section>'+'<div data-slot="about.afterFacts"></div>'
 +'<section class="alt"><div class="wrap"><h2 class="sk">'+E(sk.title)+'</h2><div class="bars rv">'+sk.items.map(function(k){var v=Math.max(0,Math.min(100,+k.value||0));return '<div class="bar2" style="height:'+v+'%;background:linear-gradient(180deg,'+E(k.color)+','+E(k.color)+'bb)"><b>'+v+'<small>%</small></b><span>'+E(k.label)+'</span></div>'}).join('')+'</div></div></section>'+'<div data-slot="about.afterSkills"></div>'
 +A.rows.map(function(r,i){return '<section><div class="wrap row'+(i%2?' flip':'')+'"><div class="rt '+(i%2?'rr':'rl')+'"><h2>'+E(r.title)+'</h2>'+P(r.text)+(r.link?'<a href="'+E(r.url||'#')+'">'+E(r.link)+'</a>':'')+'</div><div class="'+(i%2?'rl':'rr')+'">'+IMG(r.image||'images/about-row-'+(i+1)+'.png',560,400,r.title)+'</div></div></section>'}).join('')+'<div data-slot="about.bottom"></div>';if(window.CF)CF.mount(D);
-}).catch(function(){app.innerHTML='<div class="wrap"><h1>Could not load data.json</h1></div>'});</script></body></html>
+}).catch(function(){app.innerHTML='<div class="wrap"><h1>Could not load data.json</h1></div>'});</script><script>
+(function(){var b=document.getElementById('burger'),m=document.getElementById('menu');if(!b||!m)return;
+b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}})})();
+</script>
+</body></html>
