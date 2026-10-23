@@ -82,7 +82,9 @@
           "cover": "images/branding/p-mvl8f4o3wpn.gif"
         },
         {
-          "title": "Branding & logo design 3"
+          "title": "Branding & logo design 3",
+          "sections": [],
+          "images": []
         }
       ],
       "cover": "images/branding/c-mur6oacphpq.gif"
@@ -851,6 +853,82 @@
       ],
       "auto": true,
       "delay": 6
+    },
+    {
+      "id": "slmvl8nazxqgx",
+      "name": "cmc_main",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pflfxeh.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfnctyv.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfnmphd.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pforses.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfow8yl.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfu8f28.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pg04fg9.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfvxm07.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfsjefm.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pfxb7xr.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pg1q677.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8uhxmuuf.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8pg49mwj.jpg",
+          "caption": ""
+        }
+      ],
+      "delay": 5,
+      "auto": true
     }
   ]
 }
