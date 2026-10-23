@@ -775,11 +775,6 @@
       "slides": [
         {
           "type": "image",
-          "src": "images/site/sl-mvl8b8gheov.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvl8c47bs3l.jpg",
           "caption": ""
         },
@@ -811,6 +806,11 @@
         {
           "type": "image",
           "src": "images/site/sl-mvl8c4nhv5y.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8b8gheov.gif",
           "caption": ""
         },
         {
@@ -848,7 +848,8 @@
           "src": "images/site/sl-mvl8c52i8g4.jpg",
           "caption": ""
         }
-      ]
+      ],
+      "auto": true
     }
   ]
 }
