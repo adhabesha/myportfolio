@@ -72,7 +72,9 @@
           "header": "slmus3qkgl4sn"
         },
         {
-          "title": "Branding & logo design 2"
+          "title": "Branding & logo design 2",
+          "sections": [],
+          "images": []
         },
         {
           "title": "Branding & logo design 3"
@@ -758,6 +760,90 @@
       "delay": 2,
       "shape": "916",
       "auto": true
+    },
+    {
+      "id": "slmvl8b0iuk9t",
+      "name": "interface_main",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8b8gheov.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c47bs3l.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c49hm42.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4cen9o.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4em86u.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4j1zpl.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4kxulo.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4nhv5y.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4phkm0.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4rmxrk.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4thl44.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4utcxa.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4x6b2n.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c4zi2y3.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvl8c52i8g4.jpg",
+          "caption": ""
+        }
+      ]
     }
   ]
 }
