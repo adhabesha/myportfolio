@@ -849,7 +849,8 @@
           "caption": ""
         }
       ],
-      "auto": true
+      "auto": true,
+      "delay": 5
     }
   ]
 }
