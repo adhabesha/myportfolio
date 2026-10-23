@@ -770,7 +770,7 @@
       "id": "slmvl8b0iuk9t",
       "name": "interface_main",
       "title": "",
-      "bg": "dark",
+      "bg": "none",
       "shape": "orig",
       "slides": [
         {
@@ -850,7 +850,7 @@
         }
       ],
       "auto": true,
-      "delay": 5
+      "delay": 6
     }
   ]
 }
