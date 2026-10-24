@@ -114,7 +114,8 @@
           "summary": "",
           "sections": [],
           "images": [],
-          "cover": "images/branding/p-mvlvpth7nlb.jpg"
+          "cover": "images/branding/p-mvlvpth7nlb.jpg",
+          "header": "slmvlvqhuk4e9"
         }
       ],
       "cover": "images/branding/c-mur6oacphpq.gif"
@@ -1216,6 +1217,127 @@
       ],
       "delay": 5,
       "auto": true
+    },
+    {
+      "id": "slmvlvqhuk4e9",
+      "name": "Midad_main",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvr07azi9.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvr089c67.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvr08jvot.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvr094opp.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqi4fyr.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqthf8n.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqry9of.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqusf8q.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsr07q3l.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsr1euow.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqkudvx.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqyd5g1.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsqvz01t.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsr33q20.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsr5rjst.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsr7xclr.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsrbwbyg.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsra93tj.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsrni7sm.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsrd3gtv.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsrotv9i.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlvsrqiqzk.jpg",
+          "caption": ""
+        }
+      ],
+      "auto": true,
+      "delay": 5
     }
   ]
 }
