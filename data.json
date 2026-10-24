@@ -292,8 +292,8 @@
       "description": "Selected Packaging, print & apparel projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Packaging, print & apparel 1",
-          "client": "Client name",
+          "title": "TPlink: packaging",
+          "client": "TLM international",
           "date": "Month 2026",
           "summary": "A short summary of this project: the goal, your role and the result.",
           "gallery": 3,
@@ -333,7 +333,8 @@
             }
           ],
           "images": [],
-          "cover": "images/packaging/p-mvm4jej6c22.gif"
+          "cover": "images/packaging/p-mvm4jej6c22.gif",
+          "header": "slmvm4nxb77fj"
         },
         {
           "title": "Packaging, print & apparel 2"
