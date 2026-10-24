@@ -301,7 +301,25 @@
             {
               "heading": "The challenge",
               "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
+              "media": [
+                "images/packaging/sm-mvm4lb6iewb.jpg",
+                "images/packaging/sm-mvm4lpx6r2t.jpg",
+                "images/packaging/sm-mvm4m6kg4t7.jpg",
+                "images/packaging/sm-mvm4muvh16l.jpg",
+                "images/packaging/sm-mvm4muwx0vt.jpg",
+                "images/packaging/sm-mvm4muy3f14.jpg",
+                "images/packaging/sm-mvm4muzanfi.jpg",
+                "images/packaging/sm-mvm4mv0h9d8.jpg",
+                "images/packaging/sm-mvm4mv1gh06.jpg",
+                "images/packaging/sm-mvm4mv2l31w.jpg",
+                "images/packaging/sm-mvm4mv3hkny.jpg",
+                "images/packaging/sm-mvm4mv4cba6.jpg",
+                "images/packaging/sm-mvm4mv5okga.jpg",
+                "images/packaging/sm-mvm4mv6trdk.jpg",
+                "images/packaging/sm-mvm4mv7ubyu.jpg",
+                "images/packaging/sm-mvm4mv8pqoh.jpg",
+                "images/packaging/sm-mvm4mv9lk09.jpg"
+              ]
             },
             {
               "heading": "The process",
@@ -313,7 +331,9 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "images": [],
+          "cover": "images/packaging/p-mvm4jej6c22.gif"
         },
         {
           "title": "Packaging, print & apparel 2"
@@ -391,7 +411,8 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "images": []
         },
         {
           "title": "3D designs & animation 2"
@@ -1757,6 +1778,66 @@
         {
           "type": "image",
           "src": "images/site/sl-mvm0zo9cf8n.jpg",
+          "caption": ""
+        }
+      ],
+      "auto": true
+    },
+    {
+      "id": "slmvm4nxb77fj",
+      "name": "tplink_techy",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4ouetcqg.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4oufweo5.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4ouh7maq.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4ouid72e.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4oujhsgt.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4ourl5vx.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4oukiaq2.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4oulooeq.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4ouozadg.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm4p0bwyf1.jpg",
           "caption": ""
         }
       ],
