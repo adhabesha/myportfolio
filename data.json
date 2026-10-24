@@ -1864,6 +1864,57 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmvm75i44evf",
+      "name": "Arifpay_main",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796j0lhl.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796mphry.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796oj6xd.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm76sg5o3z.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796sz06g.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796vd6fh.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796yesdm.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm7972ralz.jpg",
+          "caption": ""
+        }
+      ],
+      "auto": true,
+      "delay": 5
     }
   ]
 }
