@@ -1193,8 +1193,15 @@
           "type": "image",
           "src": "images/site/sl-mvluqu8d0pm.jpg",
           "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlv37mauw3.jpg",
+          "caption": ""
         }
-      ]
+      ],
+      "delay": 5,
+      "auto": true
     }
   ]
 }
