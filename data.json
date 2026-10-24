@@ -113,7 +113,9 @@
           "date": "September 2019",
           "summary": "Midad Jewlry Summary",
           "sections": [],
-          "images": [],
+          "images": [
+            "images/branding/m-mvlw0j7b88p.jpg"
+          ],
           "cover": "images/branding/p-mvlvxbhl3mc.jpg",
           "header": "slmvlvqhuk4e9"
         }
