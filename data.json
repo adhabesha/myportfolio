@@ -198,7 +198,7 @@
       "description": "Selected Social media projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Social media design",
+          "title": "KFF Restaurant Social media ",
           "client": "KFF restaurant",
           "date": "Month 2020",
           "summary": "A short summary of this project: the goal, your role and the result.",
@@ -231,7 +231,7 @@
             }
           ],
           "images": [],
-          "header": "",
+          "header": "slmvm0gi3fhbl",
           "cover": "images/social-media/p-mvm0d2n1u7o.jpg"
         },
         {
