@@ -259,7 +259,9 @@
           "cover": "images/social-media/p-mvm0s04obnb.jpg"
         },
         {
-          "title": "Social media 3"
+          "title": "Social media 3",
+          "sections": [],
+          "images": []
         }
       ],
       "cover": "images/social-media/c-mur6xuva93x.gif"
@@ -1686,6 +1688,56 @@
         {
           "type": "image",
           "src": "images/site/sl-mvm0ie1op89.jpg",
+          "caption": ""
+        }
+      ],
+      "auto": true
+    },
+    {
+      "id": "slmvm0xu93c7l",
+      "name": "CMC_social",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo662p9.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo6lkjk.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo72jik.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo7iylk.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo80zye.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo8fsbc.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo8wj7l.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0zo9cf8n.jpg",
           "caption": ""
         }
       ],
