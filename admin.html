@@ -30,13 +30,13 @@ h4{margin:24px 0 6px;display:flex;justify-content:space-between;align-items:cent
 dialog{border:0;border-radius:10px;padding:22px;width:min(480px,92vw);box-shadow:0 10px 40px #0005}
 @media(max-width:800px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid #ddd;max-height:40vh}.two{grid-template-columns:1fr}}
 .slfig{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;background:#2b2e33;color:#fff;border-radius:4px;font-size:13px;padding:6px}figure input{padding:4px 6px;margin-top:6px}.slot{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}.chip{display:inline-flex;gap:6px;align-items:center;background:#e3ecff;border-radius:14px;padding:2px 4px 2px 10px;margin:2px 4px 2px 0}.chip button{padding:0 7px;border:0;background:none;font-size:15px}.slot .tb{margin-top:6px}</style></head><body>
-<div class="bar"><b>Portfolio admin</b><input id="flt" placeholder="Filter projects…"><span id="st"></span>
+<div class="bar"><b>Portfolio admin</b><input id="flt" name="project-filter" placeholder="Filter projects…" autocomplete="off" spellcheck="false"><span id="st"></span>
 <button id="ex">Export</button><label class="btn" style="margin:0">Import<input type="file" id="im" accept=".json" hidden></label>
 <button id="cfgb">Settings</button><button id="pb" class="pri">Publish</button></div>
 <div class="app"><aside id="tree"></aside><main id="ed"></main></div>
 <dialog id="dlg"><h3 style="margin-top:0">Connect to GitHub</h3>
 <p class="hint">Create a token at github.com/settings/personal-access-tokens/new : pick only the <b>myportfolio</b> repository and set <b>Contents: Read and write</b>. It is stored only in this browser.</p>
-<label>Repository<input id="rp"></label><label>Branch<input id="br"></label><label>Token<input id="tk" type="password" placeholder="github_pat_…"></label>
+<label>Repository<input id="rp" autocomplete="off"></label><label>Branch<input id="br" autocomplete="off"></label><label>Token<input id="tk" type="password" autocomplete="new-password" placeholder="github_pat_…"></label>
 <p class="tb"><span class="sp"></span><button id="cx">Cancel</button><button id="cs" class="pri">Save &amp; load</button></p></dialog>
 <input type="file" id="fm" multiple accept="image/*" hidden><input type="file" id="fc" accept="image/*" hidden>
 <link rel="stylesheet" href="slider.css"><script src="slider.js"></script><script src="defaults.js"></script>
@@ -177,21 +177,27 @@ vdel:d=>{if(confirm('Delete this video?')){D.site.videos.splice(+d.i,1);done()}}
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(t&&A[t.dataset.a])A[t.dataset.a](t.dataset)});
 $('#ed').addEventListener('input',e=>{const t=e.target,k=t.dataset.b;if(!k)return;const a=k.split('.'),key=a.pop();let o=a[0]==='c'?C():a[0]==='s'?D.site:a[0]==='sl'?SLD():P();a.slice(1).forEach(x=>o=o[x]);o[key]=t.type==='checkbox'?t.checked:t.dataset.num?(+t.value||3):t.dataset.yt?(ytid(t.value)||''):t.dataset.l?t.value.split('\n'):t.value;touch();if(/title|group/.test(k))tree()});
 $('#fm').onchange=e=>{add(e.target.files,fmMode,fmIdx);e.target.value=''};$('#fc').onchange=e=>{add(e.target.files,covT,covI);e.target.value=''};
-$('#flt').oninput=tree;
+$('#flt').value='';$('#flt').oninput=tree;addEventListener('pageshow',()=>{$('#flt').value='';tree()});
 $('#ed').addEventListener('change',e=>{if(e.target.id==='sls'){slI=+e.target.value;edit()}else if(sel.c===-5&&e.target.dataset.b)preview()});
 
 async function gh(path,opt={}){const h={Accept:'application/vnd.github+json','Content-Type':'application/json'};if(cfg.token)h.Authorization='Bearer '+cfg.token;
 const r=await fetch(`https://api.github.com/repos/${cfg.repo}/${path}`,{...opt,headers:h});if(!r.ok)throw new Error(r.status+' '+(await r.text()).slice(0,140));return r.json()}
 async function load(){try{msg('Loading…');const f=await gh(`contents/data.json?ref=${cfg.branch}`);D=JSON.parse(decodeURIComponent(escape(atob(f.content.replace(/\n/g,'')))));
 if(localStorage.draft&&confirm('Restore your unpublished draft from last session?'))D=JSON.parse(localStorage.draft);mig();sel={c:-1,p:-1};tree();edit();msg('Loaded from GitHub')}catch(e){msg('Load failed: '+e.message,1)}}
-async function publish(){if(!cfg.token)return $('#dlg').showModal();
+let pubBusy=0;
+async function publish(){if(pubBusy)return;if(!cfg.token)return $('#dlg').showModal();
 if(D.categories.some(c=>!c.title.trim()||c.projects.some(p=>!p.title.trim())))return alert('Every category and project needs a title.');
-try{msg('Publishing…');const js=JSON.stringify(D),use=Object.keys(pend).filter(k=>!pend[k].done&&js.includes(k)),ref=await gh(`git/ref/heads/${cfg.branch}`),cm=await gh(`git/commits/${ref.object.sha}`),tree=[];
-for(const k of use){const b=await gh('git/blobs',{method:'POST',body:JSON.stringify({content:pend[k].b64,encoding:'base64'})});tree.push({path:k,mode:'100644',type:'blob',sha:b.sha});msg(`Uploading ${tree.length}/${use.length}…`)}
-tree.push({path:'data.json',mode:'100644',type:'blob',content:JSON.stringify(D,null,2)});
-const t=await gh('git/trees',{method:'POST',body:JSON.stringify({base_tree:cm.tree.sha,tree})}),n=await gh('git/commits',{method:'POST',body:JSON.stringify({message:'Update portfolio via admin',tree:t.sha,parents:[ref.object.sha]})});
-await gh(`git/refs/heads/${cfg.branch}`,{method:'PATCH',body:JSON.stringify({sha:n.sha})});
-use.forEach(k=>pend[k].done=1);dirty=0;localStorage.removeItem('draft');msg('Published ✔ The live site updates in about a minute')}catch(e){msg('Publish failed: '+e.message,1)}}
+pubBusy=1;$('#pb').disabled=true;
+try{msg('Publishing…');const js=JSON.stringify(D),use=Object.keys(pend).filter(k=>!pend[k].done&&js.includes(k)),items=[];
+for(const k of use){const b=await gh('git/blobs',{method:'POST',body:JSON.stringify({content:pend[k].b64,encoding:'base64'})});items.push({path:k,mode:'100644',type:'blob',sha:b.sha});msg(`Uploading ${items.length}/${use.length}…`)}
+items.push({path:'data.json',mode:'100644',type:'blob',content:JSON.stringify(D,null,2)});
+for(let a=0;;a++){try{
+const ref=await gh(`git/ref/heads/${cfg.branch}?t=${Date.now()}`),cm=await gh(`git/commits/${ref.object.sha}`),
+t=await gh('git/trees',{method:'POST',body:JSON.stringify({base_tree:cm.tree.sha,tree:items})}),
+n=await gh('git/commits',{method:'POST',body:JSON.stringify({message:'Update portfolio via admin',tree:t.sha,parents:[ref.object.sha]})});
+await gh(`git/refs/heads/${cfg.branch}`,{method:'PATCH',body:JSON.stringify({sha:n.sha})});break}
+catch(e){if(a<4&&/422|fast.?forward/i.test(e.message)){msg('GitHub was still updating, retrying ('+(a+1)+')…');await new Promise(r=>setTimeout(r,1500*(a+1)));continue}throw e}}
+use.forEach(k=>pend[k].done=1);dirty=0;localStorage.removeItem('draft');msg('Published ✔ The live site updates in about a minute')}catch(e){msg('Publish failed: '+e.message,1)}finally{pubBusy=0;$('#pb').disabled=false}}
 $('#pb').onclick=publish;
 $('#ex').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='data.json';a.click()};
 $('#im').onchange=async e=>{try{D=JSON.parse(await e.target.files[0].text());mig();sel={c:-1,p:-1};touch();tree();edit()}catch{alert('That is not a valid data.json')}e.target.value=''};
