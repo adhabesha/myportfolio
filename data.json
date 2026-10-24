@@ -1111,9 +1111,14 @@
       "id": "slmvluh6tn2ti",
       "name": "Blue_Rose_main",
       "title": "",
-      "bg": "dark",
+      "bg": "none",
       "shape": "orig",
       "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlv6o517io.jpg",
+          "caption": ""
+        },
         {
           "type": "image",
           "src": "images/site/sl-mvlun6tbyfs.jpg",
@@ -1192,11 +1197,6 @@
         {
           "type": "image",
           "src": "images/site/sl-mvlv37mauw3.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvlv53ljlw0.jpg",
           "caption": ""
         }
       ],
