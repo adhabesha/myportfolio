@@ -1892,27 +1892,12 @@
       "slides": [
         {
           "type": "image",
-          "src": "images/site/sl-mvm796j0lhl.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvm796mphry.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvm796oj6xd.jpg",
           "caption": ""
         },
         {
           "type": "image",
           "src": "images/site/sl-mvm76sg5o3z.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvm796sz06g.jpg",
           "caption": ""
         },
         {
@@ -1927,7 +1912,47 @@
         },
         {
           "type": "image",
+          "src": "images/site/sl-mvmemxy38fn.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm796sz06g.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
           "src": "images/site/sl-mvm7972ralz.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvmemxyzmku.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvmemy07du7.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvmemy46vys.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvmemy79ovl.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvmemyb7336.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvmemyc24x2.gif",
           "caption": ""
         }
       ],
