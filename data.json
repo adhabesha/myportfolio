@@ -363,16 +363,31 @@
       "description": "Selected UI/UX designs projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "UI/UX designs 1",
-          "client": "Client name",
-          "date": "Month 2026",
+          "title": "UI/UX Design | Fintech | Arifpay",
+          "client": "Client nameArifpay",
+          "date": "Month 2023",
           "summary": "A short summary of this project: the goal, your role and the result.",
           "gallery": 3,
           "sections": [
             {
               "heading": "The challenge",
               "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
+              "media": [
+                "images/ui-ux/sm-mvm7dhz7bn5.jpg",
+                "images/ui-ux/sm-mvm7e23w2ta.jpg",
+                "images/ui-ux/sm-mvm7ecbk56n.gif",
+                "images/ui-ux/sm-mvm7fpbaet5.jpg",
+                "images/ui-ux/sm-mvm7fphxqx0.jpg",
+                "images/ui-ux/sm-mvm7fpl53n1.jpg",
+                "images/ui-ux/sm-mvm7fpnff62.jpg",
+                "images/ui-ux/sm-mvm7fpphllo.jpg",
+                "images/ui-ux/sm-mvm7fpsdtt9.jpg",
+                "images/ui-ux/sm-mvm7fq3b377.jpg",
+                "images/ui-ux/sm-mvm7fq58vct.jpg",
+                "images/ui-ux/sm-mvm7fq7mvj8.jpg",
+                "images/ui-ux/sm-mvm7fqa3bdr.jpg",
+                "images/ui-ux/sm-mvm7fqcz3mf.jpg"
+              ]
             },
             {
               "heading": "The process",
@@ -384,7 +399,10 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "images": [],
+          "header": "slmvm75i44evf",
+          "cover": "images/ui-ux/p-mvm7d61o3na.gif"
         },
         {
           "title": "UI/UX designs 2"
