@@ -83,7 +83,13 @@
         },
         {
           "title": "City Medical Center: Brand Identity",
-          "sections": [],
+          "sections": [
+            {
+              "heading": "",
+              "text": "",
+              "media": []
+            }
+          ],
           "images": [],
           "client": "City Medical Center",
           "date": "February 2023",
@@ -939,6 +945,157 @@
         {
           "type": "image",
           "src": "images/site/sl-mvl8pg49mwj.jpg",
+          "caption": ""
+        }
+      ],
+      "delay": 5,
+      "auto": true
+    },
+    {
+      "id": "slmvltwkf3kea",
+      "name": "Flintston_main",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0uokoyj.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0uqxw0y.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0uspdae.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0uufa8d.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0uwfzwb.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0uyl3oy.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0v0kxtw.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0v28pts.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0v3uurv.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0v5h0mk.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vagk1e.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vc5btm.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vlzbyo.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vnm4j6.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vpgy2j.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vra63t.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vtauxf.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0wasqb8.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0w9tim8.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vvhbc7.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vyt4po.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0vxfaqa.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0w0in5a.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0w4buu7.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0wcd0ba.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0w2ikge.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0w7u3cj.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlu0w65j2c.jpg",
           "caption": ""
         }
       ],
