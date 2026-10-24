@@ -1629,6 +1629,45 @@
       ],
       "delay": 5,
       "auto": true
+    },
+    {
+      "id": "slmvm0gi3fhbl",
+      "name": "KFF_Social",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0gzbyq1o.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0gzhz7l4.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0gzmmyne.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0gzrnp4b.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0ie187wt.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm0ie1op89.jpg",
+          "caption": ""
+        }
+      ]
     }
   ]
 }
