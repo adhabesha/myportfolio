@@ -235,7 +235,28 @@
           "cover": "images/social-media/p-mvm0d2n1u7o.jpg"
         },
         {
-          "title": "Social media 2"
+          "title": "Flintstone Social media",
+          "sections": [
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/social-media/sm-mvm0t943f9r.jpg",
+                "images/social-media/sm-mvm0t94jlnp.jpg",
+                "images/social-media/sm-mvm0t94z8y1.jpg",
+                "images/social-media/sm-mvm0t95gwfl.jpg",
+                "images/social-media/sm-mvm0t95xfih.jpg",
+                "images/social-media/sm-mvm0t96de4x.jpg",
+                "images/social-media/sm-mvm0t96w5u3.jpg",
+                "images/social-media/sm-mvm0t97bexu.jpg"
+              ]
+            }
+          ],
+          "images": [],
+          "client": "Flntstone",
+          "date": "march 2024",
+          "header": "slmus2p795sbs",
+          "cover": "images/social-media/p-mvm0s04obnb.jpg"
         },
         {
           "title": "Social media 3"
