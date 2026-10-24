@@ -1403,7 +1403,7 @@
       "id": "slmvlwsdak7zx",
       "name": "siket_main",
       "title": "",
-      "bg": "dark",
+      "bg": "none",
       "shape": "orig",
       "slides": [
         {
@@ -1433,16 +1433,6 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvlwtemlh8q.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvlwstoan2g.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvlwv6xha9q.jpg",
           "caption": ""
         },
@@ -1453,12 +1443,22 @@
         },
         {
           "type": "image",
+          "src": "images/site/sl-mvlwv6z6cby.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
           "src": "images/site/sl-mvlwteonftz.jpg",
           "caption": ""
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvlwv6z6cby.jpg",
+          "src": "images/site/sl-mvlwstoan2g.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlwtemlh8q.jpg",
           "caption": ""
         },
         {
