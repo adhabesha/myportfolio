@@ -112,7 +112,15 @@
           "client": "Midad Jewlry",
           "date": "September 2019",
           "summary": "Midad Jewlry Summary",
-          "sections": [],
+          "sections": [
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvlw1upbzbv.jpg"
+              ]
+            }
+          ],
           "images": [
             "images/branding/m-mvlw0j7b88p.jpg"
           ],
