@@ -1141,11 +1141,6 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvlupnr80ky.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvlus3qv0e7.gif",
           "caption": ""
         },
@@ -1166,12 +1161,17 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvlupnuyc68.jpg",
+          "src": "images/site/sl-mvlupnr80ky.jpg",
           "caption": ""
         },
         {
           "type": "image",
           "src": "images/site/sl-mvlupnz1ujo.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlupnuyc68.jpg",
           "caption": ""
         },
         {
@@ -1192,11 +1192,6 @@
         {
           "type": "image",
           "src": "images/site/sl-mvluqu8d0pm.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvlurpr22vp.gif",
           "caption": ""
         }
       ]
