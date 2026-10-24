@@ -8,8 +8,8 @@
       "description": "Selected Branding & logo design projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Flintstone Real Estate: Brand Identity",
-          "client": "Flintstone Real Estate",
+          "title": "Flintstone Real Estate",
+          "client": "Brand Identity",
           "date": "2025",
           "summary": "A brand identity for Flintstone Real Estate, a builder of luxury custom homes. The identity is built around one idea: \"Building your vision, stone by stone. Est. 2025\"",
           "gallery": 3,
