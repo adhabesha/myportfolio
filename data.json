@@ -198,16 +198,26 @@
       "description": "Selected Social media projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Social media 1",
-          "client": "Client name",
-          "date": "Month 2026",
+          "title": "Social media design",
+          "client": "KFF restaurant",
+          "date": "Month 2020",
           "summary": "A short summary of this project: the goal, your role and the result.",
           "gallery": 3,
           "sections": [
             {
               "heading": "The challenge",
               "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
+              "media": [
+                "images/social-media/sm-mvm0e60tres.jpg",
+                "images/social-media/sm-mvm0e67o0r5.jpg",
+                "images/social-media/sm-mvm0e6cnq8q.jpg",
+                "images/social-media/sm-mvm0e6if5t5.jpg",
+                "images/social-media/sm-mvm0e6no304.jpg",
+                "images/social-media/sm-mvm0e77849n.jpg",
+                "images/social-media/sm-mvm0e7lm49c.jpg",
+                "images/social-media/sm-mvm0e817u02.jpg",
+                "images/social-media/sm-mvm0e85ybeb.jpg"
+              ]
             },
             {
               "heading": "The process",
@@ -219,7 +229,10 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "images": [],
+          "header": "",
+          "cover": "images/social-media/p-mvm0d2n1u7o.jpg"
         },
         {
           "title": "Social media 2"
