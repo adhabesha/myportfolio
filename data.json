@@ -1530,16 +1530,6 @@
       "slides": [
         {
           "type": "image",
-          "src": "images/site/sl-mvlxm7e8s1m.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvlxm7ipfes.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvlxm7gmdcs.jpg",
           "caption": ""
         },
@@ -1555,7 +1545,7 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvlxm7s2j98.jpg",
+          "src": "images/site/sl-mvlxm7ipfes.jpg",
           "caption": ""
         },
         {
@@ -1565,12 +1555,27 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvlxo6arfgg.jpg",
+          "src": "images/site/sl-mvlxm7s2j98.jpg",
           "caption": ""
         },
         {
           "type": "image",
           "src": "images/site/sl-mvlxm7qcg8b.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlxo6arfgg.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlxm7e8s1m.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlxm7zyx4p.jpg",
           "caption": ""
         },
         {
@@ -1586,11 +1591,6 @@
         {
           "type": "image",
           "src": "images/site/sl-mvlxo6h70z4.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvlxm7zyx4p.jpg",
           "caption": ""
         },
         {
