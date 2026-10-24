@@ -1805,6 +1805,41 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmvm5b2wv0zt",
+      "name": "tplink_smple",
+      "title": "",
+      "bg": "none",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm5fj55hfo.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm5fraqq2i.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm5fd0f8sw.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm5frbowe2.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvm5g7gcxdx.jpg",
+          "caption": ""
+        }
+      ],
+      "auto": true
     }
   ]
 }
