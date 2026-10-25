@@ -980,7 +980,7 @@
       "id": "slmus2p795sbs",
       "name": "branding",
       "title": "",
-      "bg": "none",
+      "bg": "light",
       "slides": [
         {
           "type": "image",
