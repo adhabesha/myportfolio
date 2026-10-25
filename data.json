@@ -219,9 +219,20 @@
           "client": "Brand identity",
           "date": "February 2020",
           "summary": "Blue Rose Hotel: Brand identity Summary",
-          "sections": [],
-          "images": [],
-          "cover": "images/branding/p-mvnvo1z4djh.gif",
+          "sections": [
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "yt:XifilZtnrYg"
+              ]
+            }
+          ],
+          "images": [
+            "images/branding/m-mvnvstv4nc2.jpg",
+            "images/branding/m-mvnvtg7pvt6.gif"
+          ],
+          "cover": "images/branding/p-mvnvqdxwoj6.gif",
           "header": "slmvluh6tn2ti"
         },
         {
