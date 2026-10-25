@@ -1911,6 +1911,11 @@
         },
         {
           "type": "image",
+          "src": "images/site/sl-mvnedpa5wu5.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
           "src": "images/site/sl-mvm796sz06g.jpg",
           "caption": ""
         },
@@ -1922,11 +1927,6 @@
         {
           "type": "image",
           "src": "images/site/sl-mvm7972ralz.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvndvmtcoh9.gif",
           "caption": ""
         }
       ],
