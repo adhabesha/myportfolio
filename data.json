@@ -290,7 +290,18 @@
               "heading": "",
               "text": "",
               "media": [
-                "images/branding/sm-mvnxf5y6jlh.gif"
+                "images/branding/sm-mvnxl4gt5ix.jpg",
+                "images/branding/sm-mvnxf5y6jlh.gif",
+                "images/branding/sm-mvnxlkwwbig.jpg",
+                "images/branding/sm-mvnxlv51y19.jpg",
+                "images/branding/sm-mvnxn5z2kcn.jpg"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnxnwqnhsj.jpg"
               ]
             }
           ],
@@ -2102,6 +2113,15 @@
           "caption": ""
         }
       ]
+    },
+    {
+      "id": "slmvnxgm2wxlv",
+      "name": "blue_rose_rooms",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [],
+      "auto": true
     }
   ]
 }
