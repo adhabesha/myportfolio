@@ -168,7 +168,34 @@
               "text": "",
               "media": [
                 "images/branding/sm-mvlw9zqglwk.jpg",
-                "images/branding/sm-mvlwa5ter6q.jpg"
+                "images/branding/sm-mvnngrup8tl.jpg",
+                "images/branding/sm-mvnnhdgwpw5.gif",
+                "images/branding/sm-mvnnhk5kguu.jpg",
+                "images/branding/sm-mvnnht1q9ud.gif"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnnj35b7sr.jpg",
+                "images/branding/sm-mvnnjazsmuk.gif",
+                "images/branding/sm-mvnnjj4mmr9.jpg",
+                "images/branding/sm-mvnnjtyejbu.gif",
+                "images/branding/sm-mvnnk48dlaf.gif"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnnkua73hz.jpg",
+                "images/branding/sm-mvnnl33vrq7.jpg",
+                "images/branding/sm-mvnnm52r3mf.gif",
+                "images/branding/sm-mvnnmjh2a8r.jpg",
+                "images/branding/sm-mvnnnekxdix.gif",
+                "images/branding/sm-mvnnnv8zh99.jpg",
+                "images/branding/sm-mvnno66p9l2.jpg"
               ]
             }
           ],
@@ -1137,17 +1164,7 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvl8pfnmphd.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvl8pforses.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvl8pfow8yl.gif",
           "caption": ""
         },
         {
@@ -1157,27 +1174,7 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mvl8pg04fg9.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvnn48ltdni.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mvl8pfvxm07.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvla3amdne8.gif",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvl8pfsjefm.gif",
           "caption": ""
         },
         {
@@ -1193,11 +1190,6 @@
         {
           "type": "image",
           "src": "images/site/sl-mvl8pg1q677.jpg",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "images/site/sl-mvl8pg49mwj.jpg",
           "caption": ""
         }
       ],
