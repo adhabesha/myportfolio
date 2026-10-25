@@ -20,7 +20,7 @@
               "media": [
                 "images/branding/sm-mvnhps86b0u.jpg"
               ],
-              "layout": ""
+              "layout": "l"
             },
             {
               "heading": "",
@@ -36,13 +36,20 @@
             },
             {
               "heading": "Color and typography",
-              "text": "A deep midnight blue and crisp white give the brand a calm, premium feel. Widely spaced, light lettering keeps it modern and luxurious.",
+              "text": "",
               "media": [
-                "images/branding/sm-mur18r6rqad.jpg",
-                "images/branding/sm-mur1qok3gj5.jpg",
-                "images/branding/sm-mur1r3sxn2h.jpg"
+                "images/branding/sm-mur18r6rqad.jpg"
               ],
               "layout": "r"
+            },
+            {
+              "heading": "",
+              "text": "A deep midnight blue and crisp white give the brand a calm, premium feel. Widely spaced, light lettering keeps it modern and luxurious.",
+              "media": [
+                "images/branding/sm-mvni1h6c6rx.jpg",
+                "images/branding/sm-mvni1h85nw4.jpg"
+              ],
+              "layout": "l"
             },
             {
               "heading": "Four brand pillars",
