@@ -273,6 +273,11 @@
                 "images/branding/sm-mvnwsccgmx6.jpg",
                 "images/branding/sm-mvnwscbljz0.jpg"
               ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": []
             }
           ],
           "images": [],
@@ -2044,6 +2049,45 @@
       ],
       "auto": true,
       "delay": 5
+    },
+    {
+      "id": "slmvnx7wyco5s",
+      "name": "Blue_rose_stationery",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvnx9mky2vq.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvnx9mmi9ig.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvnx9mojqvb.gif",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvnx9mnihi4.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvnx9mocvzb.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvnx9mqb9tt.jpg",
+          "caption": ""
+        }
+      ]
     }
   ]
 }
