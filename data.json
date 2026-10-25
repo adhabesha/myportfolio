@@ -15,12 +15,12 @@
           "gallery": 3,
           "sections": [
             {
-              "heading": "The brief",
-              "text": "Flintstone builds luxurious, custom homes that blend timeless design with modern innovation. The brand needed to feel as solid as the buildings: premium, durable and trustworthy.",
+              "heading": "",
+              "text": "",
               "media": [
                 "images/branding/sm-mvnhps86b0u.jpg"
               ],
-              "layout": "r"
+              "layout": ""
             },
             {
               "heading": "Concept: stone by stone",
