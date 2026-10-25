@@ -315,20 +315,29 @@
           "title": "Midad Jewlry",
           "client": "Brand Identity",
           "date": "September 2019",
-          "summary": "Midad Jewlry Summary",
+          "summary": "Midad Jewelry is a Qatari jewelry brand rooted in storytelling, heritage, and emotional resonance.   Each collection is a poetic expression—whether through the romanticism of “Hob Horoof”, the joy of “Bahja”, or the elegance of “Luxury by Midad”. The brand’s essence lies in the phrase:   “A unique story with every piece.” \"قصة مميزة مع كل قطعة\"   This reflects a commitment to personal meaning, cultural pride, and timeless artistry.   ",
           "sections": [
             {
               "heading": "",
               "text": "",
               "media": [
-                "images/branding/sm-mvlw1upbzbv.jpg"
+                "images/branding/sm-mvlw1upbzbv.jpg",
+                "images/branding/sm-mvo7vbxyjrc.jpg",
+                "images/branding/sm-mvo7vcbn5qj.jpg",
+                "images/branding/sm-mvo7vcdkprf.jpg",
+                "images/branding/sm-mvo7vcfzx8z.jpg"
               ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": []
             }
           ],
           "images": [
             "images/branding/m-mvlw0j7b88p.jpg"
           ],
-          "cover": "images/branding/p-mvlvxbhl3mc.jpg",
+          "cover": "images/branding/p-mvo7pyf3c4t.gif",
           "header": "slmvlvqhuk4e9"
         },
         {
