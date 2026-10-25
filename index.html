@@ -117,7 +117,7 @@ function ph(img){
   img.onerror=null;img.replaceWith(d);
 }
 </script>
-<link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script><link rel="stylesheet" href="slider.css"><script src="slider.js" defer></script></head>
+<link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script><link rel="stylesheet" href="swiper/swiper-bundle.min.css"><script src="swiper/swiper-bundle.min.js" defer></script><link rel="stylesheet" href="slider.css"><script src="slider.js" defer></script></head>
 <body id="top">
 
 <header>
@@ -224,7 +224,7 @@ fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(functio
 var ul=document.querySelector(x[1]+' .grid');if(!ul)return;
 ul.innerHTML=D.categories.filter(function(c){return c.group===x[0]}).map(function(c){
 var s=c.cover||'images/'+(x[0]==='industry'?'industry-':'work-')+c.id+'.jpg';
-return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')});
+return '<li><a class="card" href="page.html?c='+E(c.id)+'&amp;p=1"><div class="thumb"><img loading="lazy" decoding="async" src="'+E(s)+'" width="960" height="540" alt="'+E(c.title)+'" onerror="ph(this)"></div><h3>'+E(c.title)+'</h3></a></li>'}).join('')});
 if(window.CF)CF.mount(D);var S=D.site;if(!S)return;if(S.hideHero){var hh=q('.hero');if(hh)hh.style.display='none'}
 if(S.hero){q('.hero .l h2').textContent=S.hero.left.title;q('.hero .l p').textContent=S.hero.left.text;q('.hero .r h2').textContent=S.hero.right.title;q('.hero .r p').textContent=S.hero.right.text;
 if(S.hero.image)q('.hero-in').firstElementChild.replaceWith(mk(S.hero.image,1040,600,'Hero'))}

@@ -111,15 +111,21 @@ ed.innerHTML=`<div class="tb"><b>${E(c.title)} ›</b><span class="sp"></span><b
 +`<h4>Media at the end <small class="hint">(after all sections)</small></h4>`+mb(p.images,'m',0);
 bindDrops()}
 
-async function proc(f,mode,cid){const cover=/^(c|p|vt)$/.test(mode),png=/^(logo|hero|k:.*)$/.test(mode)&&f.type!=='image/jpeg';let ext,b64,mime;
-if(/gif|svg/.test(f.type)){ext=f.type.includes('gif')?'gif':'svg';mime=f.type;b64=await rd(f)}
+async function proc(f,mode,cid){const cover=/^(c|p|vt)$/.test(mode),png=/^(logo|hero|k:.*)$/.test(mode)&&f.type!=='image/jpeg';let ext,b64,mime,meta={};
+if(/gif|svg/.test(f.type)){ext=f.type.includes('gif')?'gif':'svg';mime=f.type;b64=await rd(f);
+if(ext==='gif'){try{const bm=await createImageBitmap(f);meta.w=bm.width;meta.h=bm.height;
+if(f.size>1e6){const tw=Math.min(1280,bm.width),th=Math.round(tw*bm.height/bm.width),cv=document.createElement('canvas');cv.width=tw;cv.height=th;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,tw,th);x.drawImage(bm,0,0,tw,th);meta.pb=await rd(await new Promise(r=>cv.toBlob(r,'image/jpeg',.78)))}}catch(e){}}}
 else{const bm=await createImageBitmap(f);let sx=0,sy=0,sw=bm.width,sh=bm.height;if(cover){const r=16/9;if(sw/sh>r){sw=sh*r;sx=(bm.width-sw)/2}else{sh=sw/r;sy=(bm.height-sh)/2}}
 const tw=Math.round(Math.min(png?2080:1600,sw)),th=Math.round(tw*sh/sw),cv=document.createElement('canvas');cv.width=tw;cv.height=th;const x=cv.getContext('2d');if(!png){x.fillStyle='#fff';x.fillRect(0,0,tw,th)}x.drawImage(bm,sx,sy,sw,sh,0,0,tw,th);
-mime=png?'image/png':'image/jpeg';ext=png?'png':'jpg';b64=await rd(await new Promise(r=>cv.toBlob(r,mime,.82)))}
-const path=`images/${cid}/${mode}-${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;pend[path]={b64,url:`data:${mime};base64,${b64}`};return path}
+mime=png?'image/png':'image/jpeg';ext=png?'png':'jpg';meta.w=tw;meta.h=th;b64=await rd(await new Promise(r=>cv.toBlob(r,mime,.82)))}
+const path=`images/${cid}/${mode}-${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;pend[path]={b64,url:`data:${mime};base64,${b64}`};
+if(meta.pb){const pp=path.replace(/\.gif$/,'-poster.jpg');pend[pp]={b64:meta.pb,url:`data:image/jpeg;base64,${meta.pb}`};meta.poster=pp;delete meta.pb}
+pend[path].meta=meta;return path}
 async function add(files,mode,idx){const home=/^(logo|hero|vt|ap|sl|k:.*)$/.test(mode),c=C();if(!home&&!c)return;msg('Processing images…');
-for(const f of [...files]){if(f.type.startsWith('video/')&&mode==='sl'){const v=await addVideo(f);if(v)SLD().slides.push(v);continue}if(!f.type.startsWith('image/'))continue;const path=await proc(f,mode,home?'site':c.id);
-if(mode==='c')c.cover=path;else if(mode==='p')P().cover=path;else if(mode==='logo')D.site.logo=path;else if(mode==='hero')D.site.hero.image=path;else if(mode==='vt')D.site.videos[idx].image=path;else if(mode==='ap')D.site.about.photos.push(path);else if(mode==='sl')SLD().slides.push({type:'image',src:path,caption:''});else if(mode.startsWith('k:'))setp(mode.slice(2),path);else if(mode==='sm')P().sections[idx].media.push(path);else P().images.push(path);
+for(const f of [...files]){if(f.size>24*1048576){alert(f.name+' is '+(f.size/1048576).toFixed(1)+' MB. The hosting limit is 25 MB per file, so it was skipped. Shrink it first (for example at ezgif.com) or use a YouTube link.');continue}
+if(/gif/.test(f.type)&&f.size>8*1048576&&!confirm(f.name+' is '+(f.size/1048576).toFixed(1)+' MB. A GIF this big loads slowly on phones. Use it anyway?\n\nTip: shrink it to about 5 MB or less at ezgif.com for a much faster site.'))continue;
+if(f.type.startsWith('video/')&&mode==='sl'){const v=await addVideo(f);if(v)SLD().slides.push(v);continue}if(!f.type.startsWith('image/'))continue;const path=await proc(f,mode,home?'site':c.id);
+if(mode==='c')c.cover=path;else if(mode==='p')P().cover=path;else if(mode==='logo')D.site.logo=path;else if(mode==='hero')D.site.hero.image=path;else if(mode==='vt')D.site.videos[idx].image=path;else if(mode==='ap')D.site.about.photos.push(path);else if(mode==='sl')SLD().slides.push(Object.assign({type:'image',src:path,caption:''},pend[path].meta||{}));else if(mode.startsWith('k:'))setp(mode.slice(2),path);else if(mode==='sm')P().sections[idx].media.push(path);else P().images.push(path);
 if(!/^(m|sm|ap|sl)$/.test(mode))break}done()}
 
 let slI=0;const SLD=()=>D.sliders[slI],uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
