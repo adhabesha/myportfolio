@@ -226,15 +226,28 @@
               "media": [
                 "yt:XifilZtnrYg"
               ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnw5gwtqiv.jpg",
+                "images/branding/sm-mvnw5q0pw1k.gif",
+                "images/branding/sm-mvnw5zobllv.jpg",
+                "images/branding/sm-mvnw64ehen1.jpg",
+                "images/branding/sm-mvnw6bahoex.jpg"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnwdgzb6t3.gif",
+                "images/branding/sm-mvnweb8qy6r.jpg"
+              ]
             }
           ],
-          "images": [
-            "images/branding/m-mvnvstv4nc2.jpg",
-            "images/branding/m-mvnvtg7pvt6.gif",
-            "images/branding/m-mvnvuddt3dc.jpg",
-            "images/branding/m-mvnvuqee9ex.jpg",
-            "images/branding/m-mvnvw1mkyuw.jpg"
-          ],
+          "images": [],
           "cover": "images/branding/p-mvnvqdxwoj6.gif",
           "header": "slmvluh6tn2ti"
         },
