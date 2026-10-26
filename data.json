@@ -522,7 +522,22 @@
           "client": "Arif Pay",
           "date": "September 2023",
           "summary": "",
-          "sections": [],
+          "sections": [
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/social-media/sm-mvpdy3ntkxh.jpg",
+                "images/social-media/sm-mvpdy3o52ul.jpg",
+                "images/social-media/sm-mvpdy3omfj3.jpg",
+                "images/social-media/sm-mvpdy3qke4z.jpg",
+                "images/social-media/sm-mvpdy3qxy30.jpg",
+                "images/social-media/sm-mvpdy3s3iw8.jpg",
+                "images/social-media/sm-mvpdy3sdwh5.jpg",
+                "images/social-media/sm-mvpdy3tmdi5.jpg"
+              ]
+            }
+          ],
           "images": [],
           "cover": "images/social-media/p-mvm73x7ktou.jpg"
         }
@@ -591,7 +606,9 @@
           "summary": "Designed for TLM International as an approved regional distributor, this packaging solution for the TP-Link Archer AX55 Wi-Fi 6 Router balances corporate brand harmonization with localized retail appeal. The project involved engineering a precise, print-ready dieline and visual layout that seamlessly integrates TLM International’s distributor branding alongside TP-Link’s established global visual identity, color scheme, and typography hierarchy. By structuring critical technical specifications, compliance marks, and core product features into a clean, intuitive layout, the packaging ensures strong shelf impact, retail clarity, and flawless execution across international markets."
         },
         {
-          "title": "Packaging, print & apparel 3"
+          "title": "Packaging, print & apparel 3",
+          "sections": [],
+          "images": []
         }
       ],
       "cover": "images/packaging/c-mur4clhpbxc.gif"
