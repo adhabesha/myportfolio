@@ -920,39 +920,69 @@
       "description": "Selected Medical projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Medical 1",
-          "client": "Client name",
-          "date": "Month 2026",
-          "summary": "A short summary of this project: the goal, your role and the result.",
-          "gallery": 3,
+          "title": "City Medical Center",
           "sections": [
             {
-              "heading": "The challenge",
-              "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvlw9he8ra6.jpg"
+              ]
             },
             {
-              "heading": "The process",
-              "text": "Explain your approach, sketches, research and key decisions.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvlw9zqglwk.jpg",
+                "images/branding/sm-mvnrr4anqod.jpg",
+                "images/branding/sm-mvnrrnyp3of.gif",
+                "images/branding/sm-mvnrrutp2xa.jpg",
+                "images/branding/sm-mvnrsa8lam4.gif"
+              ]
             },
             {
-              "heading": "The result",
-              "text": "Show the final outcome and what it achieved.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnrsxfdv8r.jpg",
+                "images/branding/sm-mvnrt4iwm65.gif",
+                "images/branding/sm-mvnrtry838z.jpg",
+                "images/branding/sm-mvnru1lgtsh.gif",
+                "images/branding/sm-mvns5s8akoy.gif"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnrusnpu7a.jpg",
+                "images/branding/sm-mvnrv06axq3.jpg",
+                "images/branding/sm-mvnrv77kqjk.jpg",
+                "images/branding/sm-mvnrvkuj8ys.jpg",
+                "images/branding/sm-mvnrvxlsvsc.gif"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnrx54lb63.jpg",
+                "images/branding/sm-mvnry4irfdi.gif",
+                "images/branding/sm-mvnrymfg4ij.jpg",
+                "images/branding/sm-mvnrzu4iu2w.jpg"
+              ]
             }
           ],
-          "id": "pmvpnnupfpu3"
-        },
-        {
-          "title": "Medical 2",
-          "id": "pmvpnnupfqcf"
-        },
-        {
-          "title": "Medical 3",
-          "id": "pmvpnnupf77x"
+          "images": [],
+          "client": "Brand Identity",
+          "date": "February 2023",
+          "summary": "City Medical Center's brand identity design is a cohesive, modern visual system built around the core themes of continuity, trust, and compassionate care. By translating a multifaceted healthcare model into a clean, approachable, and scalable identity—featuring soothing medical teal tones, clean typography, and empathetic iconography—the branding successfully positions the center as a lifelong partner in health and a leader in modern medical excellence.",
+          "header": "slmvl8nazxqgx",
+          "cover": "images/branding/p-mvnn10ujz17.gif",
+          "id": "pmvpoy7hb3lz"
         }
-      ]
+      ],
+      "cover": "images/branding/p-mvnn10ujz17.gif"
     },
     {
       "id": "jewelry",
