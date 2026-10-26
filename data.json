@@ -86,7 +86,8 @@
           ],
           "images": [],
           "cover": "images/branding/p-mvnhp0pf3x0.jpg",
-          "header": "slmvltwkf3kea"
+          "header": "slmvltwkf3kea",
+          "id": "pmvpnnupft0m"
         },
         {
           "title": "Interface Digital Marketing",
@@ -151,7 +152,8 @@
           "date": "Jun 2022",
           "summary": "he brand identity for Interface Digital Marketing centers around a bold, growth-driven aesthetic inspired by precision geometry and the Golden Ratio, utilizing a striking high-contrast palette of digital red, core black, and pure white paired with clean Montserrat typography. The visual system seamlessly bridges data-driven strategy and creative execution across digital touchpoints, corporate collateral, and large-scale outdoor displays to establish a modern, authoritative market presence.",
           "header": "slmvl8b0iuk9t",
-          "cover": "images/branding/p-mvl8f4o3wpn.gif"
+          "cover": "images/branding/p-mvl8f4o3wpn.gif",
+          "id": "pmvpnnupf6rf"
         },
         {
           "title": "City Medical Center",
@@ -212,7 +214,8 @@
           "date": "February 2023",
           "summary": "City Medical Center's brand identity design is a cohesive, modern visual system built around the core themes of continuity, trust, and compassionate care. By translating a multifaceted healthcare model into a clean, approachable, and scalable identity—featuring soothing medical teal tones, clean typography, and empathetic iconography—the branding successfully positions the center as a lifelong partner in health and a leader in modern medical excellence.",
           "header": "slmvl8nazxqgx",
-          "cover": "images/branding/p-mvnn10ujz17.gif"
+          "cover": "images/branding/p-mvnn10ujz17.gif",
+          "id": "pmvpnnupf4nz"
         },
         {
           "title": "Blue Rose Hotel",
@@ -309,7 +312,8 @@
           ],
           "images": [],
           "cover": "images/branding/p-mvnvqdxwoj6.gif",
-          "header": "slmvluh6tn2ti"
+          "header": "slmvluh6tn2ti",
+          "id": "pmvpnnupf54d"
         },
         {
           "title": "Midad Jewlry",
@@ -373,7 +377,8 @@
             "images/branding/m-mvlw0j7b88p.jpg"
           ],
           "cover": "images/branding/p-mvou7fwbu3p.gif",
-          "header": "slmvo7wip6h0s"
+          "header": "slmvo7wip6h0s",
+          "id": "pmvpnnupfgl1"
         },
         {
           "title": "Siket Training Center",
@@ -409,7 +414,8 @@
           ],
           "images": [],
           "cover": "images/branding/p-mvlwpj1ma1i.gif",
-          "header": "slmvlwsdak7zx"
+          "header": "slmvlwsdak7zx",
+          "id": "pmvpnnupfw96"
         },
         {
           "title": "KFF Restaurant",
@@ -437,7 +443,8 @@
             "images/branding/m-mvpadsdtfco.jpg"
           ],
           "cover": "images/branding/p-mvpai5l8pc5.gif",
-          "header": "slmvlxix015mb"
+          "header": "slmvlxix015mb",
+          "id": "pmvpnnupfkfv"
         }
       ],
       "cover": "images/branding/c-mur6oacphpq.gif"
@@ -473,7 +480,8 @@
           ],
           "images": [],
           "header": "slmvm0gi3fhbl",
-          "cover": "images/social-media/p-mvm0d2n1u7o.jpg"
+          "cover": "images/social-media/p-mvm0d2n1u7o.jpg",
+          "id": "pmvpnnupfdhc"
         },
         {
           "title": "Flintstone Social media",
@@ -492,7 +500,8 @@
           "client": "Flntstone",
           "date": "march 2024",
           "header": "slmus3qkgl4sn",
-          "cover": "images/social-media/p-mvm0s04obnb.jpg"
+          "cover": "images/social-media/p-mvm0s04obnb.jpg",
+          "id": "pmvpnnupfnzv"
         },
         {
           "title": "CMC Social media",
@@ -516,7 +525,8 @@
           "client": "City MedcalCenter",
           "date": "2019",
           "header": "slmvm0xu93c7l",
-          "cover": "images/social-media/p-mvm13khj513.jpg"
+          "cover": "images/social-media/p-mvm13khj513.jpg",
+          "id": "pmvpnnupf3cc"
         },
         {
           "title": "Arif Pay Social media",
@@ -540,7 +550,8 @@
             }
           ],
           "images": [],
-          "cover": "images/social-media/p-mvm73x7ktou.jpg"
+          "cover": "images/social-media/p-mvm73x7ktou.jpg",
+          "id": "pmvpnnupfo9b"
         }
       ],
       "cover": "images/social-media/c-mur6xuva93x.gif"
@@ -582,7 +593,8 @@
           ],
           "images": [],
           "cover": "images/packaging/p-mvm53bg6zdl.gif",
-          "header": "slmvm4nxb77fj"
+          "header": "slmvm4nxb77fj",
+          "id": "pmvpnnupfmhf"
         },
         {
           "title": "Tplink: packaging white",
@@ -604,12 +616,14 @@
           "date": "march 2024",
           "header": "slmvm5b2wv0zt",
           "cover": "images/packaging/p-mvm5ia8bqo7.gif",
-          "summary": "Designed for TLM International as an approved regional distributor, this packaging solution for the TP-Link Archer AX55 Wi-Fi 6 Router balances corporate brand harmonization with localized retail appeal. The project involved engineering a precise, print-ready dieline and visual layout that seamlessly integrates TLM International’s distributor branding alongside TP-Link’s established global visual identity, color scheme, and typography hierarchy. By structuring critical technical specifications, compliance marks, and core product features into a clean, intuitive layout, the packaging ensures strong shelf impact, retail clarity, and flawless execution across international markets."
+          "summary": "Designed for TLM International as an approved regional distributor, this packaging solution for the TP-Link Archer AX55 Wi-Fi 6 Router balances corporate brand harmonization with localized retail appeal. The project involved engineering a precise, print-ready dieline and visual layout that seamlessly integrates TLM International’s distributor branding alongside TP-Link’s established global visual identity, color scheme, and typography hierarchy. By structuring critical technical specifications, compliance marks, and core product features into a clean, intuitive layout, the packaging ensures strong shelf impact, retail clarity, and flawless execution across international markets.",
+          "id": "pmvpnnupfe6w"
         },
         {
           "title": "Packaging, print & apparel 3",
           "sections": [],
-          "images": []
+          "images": [],
+          "id": "pmvpnnupfjrv"
         }
       ],
       "cover": "images/packaging/c-mur4clhpbxc.gif"
@@ -671,13 +685,16 @@
           ],
           "images": [],
           "header": "slmvm75i44evf",
-          "cover": "images/ui-ux/p-mvpet01piwh.gif"
+          "cover": "images/ui-ux/p-mvpet01piwh.gif",
+          "id": "pmvpnnupf3j7"
         },
         {
-          "title": "UI/UX designs 2"
+          "title": "UI/UX designs 2",
+          "id": "pmvpnnupfr91"
         },
         {
-          "title": "UI/UX designs 3"
+          "title": "UI/UX designs 3",
+          "id": "pmvpnnupfs77"
         }
       ],
       "cover": "images/ui-ux/c-muramlhmefa.gif"
@@ -711,13 +728,16 @@
               "media": []
             }
           ],
-          "images": []
+          "images": [],
+          "id": "pmvpnnupf27c"
         },
         {
-          "title": "3D designs & animation 2"
+          "title": "3D designs & animation 2",
+          "id": "pmvpnnupflg3"
         },
         {
-          "title": "3D designs & animation 3"
+          "title": "3D designs & animation 3",
+          "id": "pmvpnnupfw48"
         }
       ],
       "cover": "images/3d/c-muracqoe5of.gif"
@@ -750,13 +770,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupf80q"
         },
         {
-          "title": "Motion graphics 2"
+          "title": "Motion graphics 2",
+          "id": "pmvpnnupfe79"
         },
         {
-          "title": "Motion graphics 3"
+          "title": "Motion graphics 3",
+          "id": "pmvpnnupfudl"
         }
       ]
     },
@@ -788,13 +811,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupfbsl"
         },
         {
-          "title": "Real estate 2"
+          "title": "Real estate 2",
+          "id": "pmvpnnupfqlj"
         },
         {
-          "title": "Real estate 3"
+          "title": "Real estate 3",
+          "id": "pmvpnnupf1a6"
         }
       ]
     },
@@ -826,13 +852,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupfpky"
         },
         {
-          "title": "Restaurants 2"
+          "title": "Restaurants 2",
+          "id": "pmvpnnupfqww"
         },
         {
-          "title": "Restaurants 3"
+          "title": "Restaurants 3",
+          "id": "pmvpnnupfu4w"
         }
       ]
     },
@@ -864,13 +893,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupfpu3"
         },
         {
-          "title": "Medical 2"
+          "title": "Medical 2",
+          "id": "pmvpnnupfqcf"
         },
         {
-          "title": "Medical 3"
+          "title": "Medical 3",
+          "id": "pmvpnnupf77x"
         }
       ]
     },
@@ -902,13 +934,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupfpou"
         },
         {
-          "title": "Jewelry 2"
+          "title": "Jewelry 2",
+          "id": "pmvpnnupf99w"
         },
         {
-          "title": "Jewelry 3"
+          "title": "Jewelry 3",
+          "id": "pmvpnnupfual"
         }
       ]
     },
@@ -940,13 +975,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupfn41"
         },
         {
-          "title": "Social media companies 2"
+          "title": "Social media companies 2",
+          "id": "pmvpnnupfx6v"
         },
         {
-          "title": "Social media companies 3"
+          "title": "Social media companies 3",
+          "id": "pmvpnnupfkkx"
         }
       ]
     },
@@ -978,13 +1016,16 @@
               "text": "Show the final outcome and what it achieved.",
               "media": []
             }
-          ]
+          ],
+          "id": "pmvpnnupfblx"
         },
         {
-          "title": "Schools 2"
+          "title": "Schools 2",
+          "id": "pmvpnnupfhrz"
         },
         {
-          "title": "Schools 3"
+          "title": "Schools 3",
+          "id": "pmvpnnupf3tj"
         }
       ]
     }
