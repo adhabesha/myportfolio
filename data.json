@@ -456,8 +456,8 @@
           "gallery": 3,
           "sections": [
             {
-              "heading": "The challenge",
-              "text": "Describe the brief, the client and the problem you were solving.",
+              "heading": "",
+              "text": "",
               "media": [
                 "images/social-media/sm-mvm0e60tres.jpg",
                 "images/social-media/sm-mvm0e67o0r5.jpg",
@@ -469,16 +469,6 @@
                 "images/social-media/sm-mvm0e817u02.jpg",
                 "images/social-media/sm-mvm0e85ybeb.jpg"
               ]
-            },
-            {
-              "heading": "The process",
-              "text": "Explain your approach, sketches, research and key decisions.",
-              "media": []
-            },
-            {
-              "heading": "The result",
-              "text": "Show the final outcome and what it achieved.",
-              "media": []
             }
           ],
           "images": [],
