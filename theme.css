@@ -90,3 +90,9 @@ header #menu nav a:hover,header #menu nav a:active{color:#bbb;background:#272727
 header #menu .social{display:flex;justify-content:center;align-items:center;gap:44px;padding:26px 0 28px}
 header #menu .social svg{width:32px;height:32px}
 }
+
+/* sticky menu: hides when scrolling down, comes back as soon as you scroll up */
+header{position:sticky;top:0}
+header.ready{animation:none;transition:transform .35s var(--ease),background .3s}
+header.ready.hide{transform:translateY(-100%)}
+header.ready.stuck{background:#111}

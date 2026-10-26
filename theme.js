@@ -14,3 +14,11 @@ addEventListener('pageshow',function(e){if(e.persisted)document.documentElement.
 (function(){var h=document.querySelector('.hero'),d=0;if(!h)return;
 var iv=setInterval(function(){var el=h.querySelector('.hero-in').firstElementChild,t=performance.now(),ok=el&&(el.tagName!=='IMG'||el.complete);
 if(!d&&((t>800&&ok&&window.__homeReady)||t>6000)){d=1;clearInterval(iv);h.classList.add('s1');setTimeout(function(){h.classList.add('s2')},1000)}},100)})();
+
+/* sticky menu behaviour */
+(function(){var h=document.querySelector('header');if(!h)return;var y=scrollY,tk=0;
+function rdy(){h.classList.add('ready')}h.addEventListener('animationend',rdy,{once:true});setTimeout(rdy,1500);
+addEventListener('scroll',function(){if(tk)return;tk=1;requestAnimationFrame(function(){tk=0;var n=scrollY,m=document.getElementById('menu');
+h.classList.toggle('stuck',n>10);
+if(m&&m.classList.contains('open')){y=n;return}
+if(n>y+4&&n>120)h.classList.add('hide');else if(n<y-4||n<=10)h.classList.remove('hide');y=n})},{passive:true})})();
