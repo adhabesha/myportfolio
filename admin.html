@@ -222,7 +222,7 @@ async function load(){try{msg('Loading…');const f=await gh(`contents/data.json
 if(localStorage.draft&&confirm('Restore your unpublished draft from last session?'))D=JSON.parse(localStorage.draft);mig();sel={c:-1,p:-1};tree();edit();msg('Loaded from GitHub')}catch(e){msg('Load failed: '+e.message,1)}}
 let pubBusy=0;
 async function publish(){if(pubBusy)return;if(!cfg.token)return $('#dlg').showModal();
-if(D.categories.some(c=>!c.title.trim()||c.projects.some(p=>!p.title.trim())))return alert('Every category and project needs a title.');
+if(D.categories.some(c=>!c.title.trim()||c.projects.some(p=>!p.ref&&!(p.title||'').trim())))return alert('Every category and project needs a title.');
 pubBusy=1;$('#pb').disabled=true;
 try{msg('Publishing…');const js=JSON.stringify(D),use=Object.keys(pend).filter(k=>!pend[k].done&&js.includes(k)),items=[];
 for(const k of use){const b=await gh('git/blobs',{method:'POST',body:JSON.stringify({content:pend[k].b64,encoding:'base64'})});items.push({path:k,mode:'100644',type:'blob',sha:b.sha});msg(`Uploading ${items.length}/${use.length}…`)}
@@ -245,7 +245,7 @@ if(bad){msg('Published to GitHub, but the website build FAILED ✘ ('+bad.d+')',
 if(!wait){msg('Live ✔ The website is updated (hard refresh with Ctrl+Shift+R)');return}
 msg('Published ✔ — Cloudflare is building… '+Math.round((Date.now()-t0)/1000)+'s')}catch(e){if(++er>=3){msg('Published ✔ (cannot read build status: give the token Read access to Checks and Commit statuses, or check Cloudflare)',1);return}}}
 msg('Published ✔ but the build is taking long. Check the Cloudflare dashboard if the site does not change.',1)}
-$('#pb').onclick=publish;
+$('#pb').onclick=publish;addEventListener('error',e=>{try{msg('Error: '+e.message,1)}catch(_){}});
 $('#ex').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='data.json';a.click()};
 $('#im').onchange=async e=>{try{D=JSON.parse(await e.target.files[0].text());mig();sel={c:-1,p:-1};touch();tree();edit()}catch{alert('That is not a valid data.json')}e.target.value=''};
 const dlg=()=>{$('#rp').value=cfg.repo;$('#br').value=cfg.branch;$('#tk').value=cfg.token;$('#dlg').showModal()};
