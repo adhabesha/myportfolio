@@ -790,39 +790,90 @@
       "description": "Selected Real estate projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Real estate 1",
-          "client": "Client name",
-          "date": "Month 2026",
-          "summary": "A short summary of this project: the goal, your role and the result.",
+          "title": "Flintstone Real Estate",
+          "client": "Brand Identity",
+          "date": "2025",
+          "summary": "A brand identity for Flintstone Real Estate, a builder of luxury custom homes. The identity is built around one idea: \"Building your vision, stone by stone. Est. 2025\"",
           "gallery": 3,
           "sections": [
             {
-              "heading": "The challenge",
-              "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnhps86b0u.jpg"
+              ],
+              "layout": ""
             },
             {
-              "heading": "The process",
-              "text": "Explain your approach, sketches, research and key decisions.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvnhuse5rch.jpg",
+                "images/branding/sm-mvnhvenodxy.jpg",
+                "images/branding/sm-mvnhvpqslqm.jpg",
+                "images/branding/sm-mvnhwo0jdwd.jpg",
+                "images/branding/sm-mvnhwv0y0st.jpg",
+                "images/branding/sm-mvnhx9o99to.jpg"
+              ]
             },
             {
-              "heading": "The result",
-              "text": "Show the final outcome and what it achieved.",
-              "media": []
+              "heading": "Color and typography",
+              "text": "",
+              "media": [
+                "images/branding/sm-mur18r6rqad.jpg"
+              ],
+              "layout": "r"
+            },
+            {
+              "heading": "",
+              "text": "A deep midnight blue and crisp white give the brand a calm, premium feel. Widely spaced, light lettering keeps it modern and luxurious.",
+              "media": [
+                "images/branding/sm-mvni1h6c6rx.jpg",
+                "images/branding/sm-mvni1h85nw4.jpg"
+              ],
+              "layout": "l"
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvni3vtwx6a.jpg",
+                "images/branding/sm-mvni4cy9rac.jpg",
+                "images/branding/sm-mvni4lpvtjp.jpg"
+              ]
+            },
+            {
+              "heading": "On the building site",
+              "text": "The identity is made for the places clients actually see it: hard hats, site hoarding, signage, vehicles and stationery. Every piece uses the same grid, colours and logo placement.",
+              "media": [
+                "images/branding/sm-mur1d5o8nb6.jpg",
+                "images/branding/sm-mur1fdxcr24.jpg",
+                "images/branding/sm-mur1rmq88zo.jpg",
+                "images/branding/sm-mur1sczync7.jpg",
+                "images/branding/sm-mvni7vyzyb8.jpg"
+              ]
+            },
+            {
+              "heading": "Reels",
+              "text": "",
+              "media": [
+                "sl:slmus3qkgl4sn",
+                "images/branding/sm-mvni7fpcq7e.jpg",
+                "images/branding/sm-mvni8gdnin6.jpg",
+                "sl:slmus2p795sbs",
+                "images/branding/sm-mvni9i2zkqt.jpg",
+                "images/branding/sm-mvni9wuctnm.jpg"
+              ]
             }
           ],
-          "id": "pmvpnnupfbsl"
-        },
-        {
-          "title": "Real estate 2",
-          "id": "pmvpnnupfqlj"
-        },
-        {
-          "title": "Real estate 3",
-          "id": "pmvpnnupf1a6"
+          "images": [],
+          "cover": "images/branding/p-mvnhp0pf3x0.jpg",
+          "header": "slmvltwkf3kea",
+          "id": "pmvpogot7cb1"
         }
-      ]
+      ],
+      "header": "slmvltwkf3kea",
+      "cover": "images/branding/sm-mvnhuse5rch.jpg"
     },
     {
       "id": "restaurants",
