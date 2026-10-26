@@ -199,11 +199,22 @@ for(const k of use){const b=await gh('git/blobs',{method:'POST',body:JSON.string
 items.push({path:'data.json',mode:'100644',type:'blob',content:JSON.stringify(D,null,2)});
 let nc;for(let a=0;;a++){try{
 const ref=await gh(`git/ref/heads/${cfg.branch}?t=${Date.now()}`),cm=await gh(`git/commits/${ref.object.sha}`),
-t=await gh('git/trees',{method:'POST',body:JSON.stringify({base_tree:cm.tree.sha,tree:items})}),
+full=await gh(`git/trees/${cm.tree.sha}?recursive=1`),
+big=(full.tree||[]).filter(x=>x.type==='blob'&&x.size>24*1048576&&!items.some(i=>i.path===x.path)),
+t=await gh('git/trees',{method:'POST',body:JSON.stringify({base_tree:cm.tree.sha,tree:items.concat(big.map(x=>({path:x.path,mode:'100644',type:'blob',sha:null})))})}),
 n=await gh('git/commits',{method:'POST',body:JSON.stringify({message:'Update portfolio via admin',tree:t.sha,parents:[ref.object.sha]})});
-await gh(`git/refs/heads/${cfg.branch}`,{method:'PATCH',body:JSON.stringify({sha:n.sha})});nc=n;break}
+await gh(`git/refs/heads/${cfg.branch}`,{method:'PATCH',body:JSON.stringify({sha:n.sha})});nc=n;if(big.length)alert('These files were over 25 MB, which Cloudflare refuses, so I removed them from the site:\n\n'+big.map(x=>x.path+' ('+(x.size/1048576).toFixed(1)+' MB)').join('\n')+'\n\nCompress them and upload again.');break}
 catch(e){if(a<4&&/422|fast.?forward/i.test(e.message)){msg('GitHub was still updating, retrying ('+(a+1)+')…');await new Promise(r=>setTimeout(r,1500*(a+1)));continue}throw e}}
-use.forEach(k=>pend[k].done=1);dirty=0;localStorage.removeItem('draft');msg('Published ✔ to '+cfg.repo+' ('+cfg.branch+'), commit '+nc.sha.slice(0,7)+'. The live site updates in about a minute');console.log('Published','https://github.com/'+cfg.repo+'/commit/'+nc.sha)}catch(e){msg('Publish failed: '+e.message,1)}finally{pubBusy=0;$('#pb').disabled=false}}
+use.forEach(k=>pend[k].done=1);dirty=0;localStorage.removeItem('draft');msg('Published ✔ to '+cfg.repo+' ('+cfg.branch+'), commit '+nc.sha.slice(0,7)+'. The live site updates in about a minute');console.log('Published','https://github.com/'+cfg.repo+'/commit/'+nc.sha);watch(nc.sha)}catch(e){msg('Publish failed: '+e.message,1)}finally{pubBusy=0;$('#pb').disabled=false}}
+async function watch(sha){const t0=Date.now();let er=0;
+while(Date.now()-t0<240000){await new Promise(r=>setTimeout(r,5000));
+try{const cr=await gh(`commits/${sha}/check-runs`),st=await gh(`commits/${sha}/status`),all=[...(cr.check_runs||[]).map(c=>({n:c.name,s:c.status==='completed'?c.conclusion:'pending',d:(c.output&&c.output.summary)||c.conclusion||''})),...(st.statuses||[]).map(c=>({n:c.context,s:c.state,d:c.description||''}))];
+if(!all.length){msg('Published ✔ — waiting for Cloudflare to start…');continue}
+const bad=all.find(a=>/fail|error|cancel|timed/i.test(a.s)),wait=all.some(a=>/pending|queued|in_progress/i.test(a.s));
+if(bad){msg('Published to GitHub, but the website build FAILED ✘ ('+bad.d+')',1);alert('Cloudflare could not deploy this update, so the live site did NOT change.\n\n'+bad.n+': '+bad.d+'\n\nMost likely a file is over 25 MB. Click Publish again: oversized files already in the repo are removed automatically. Then compress that file and upload it again.');return}
+if(!wait){msg('Live ✔ The website is updated (hard refresh with Ctrl+Shift+R)');return}
+msg('Published ✔ — Cloudflare is building… '+Math.round((Date.now()-t0)/1000)+'s')}catch(e){if(++er>=3){msg('Published ✔ (cannot read build status: give the token Read access to Checks and Commit statuses, or check Cloudflare)',1);return}}}
+msg('Published ✔ but the build is taking long. Check the Cloudflare dashboard if the site does not change.',1)}
 $('#pb').onclick=publish;
 $('#ex').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));a.download='data.json';a.click()};
 $('#im').onchange=async e=>{try{D=JSON.parse(await e.target.files[0].text());mig();sel={c:-1,p:-1};touch();tree();edit()}catch{alert('That is not a valid data.json')}e.target.value=''};
