@@ -156,10 +156,13 @@ var IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height
 var SEC=[{heading:'The challenge',text:'Describe the brief, the client and the problem you were solving.'},{heading:'The process',text:'Explain your approach, sketches, research and key decisions.'},{heading:'The result',text:'Show the final outcome and what it achieved.'}];
 var main=document.getElementById('main');
 fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
+  var byId={};D.categories.forEach(function(c){c.projects.forEach(function(p,i){if(p.id)byId[p.id]={c:c.id,i:i+1,p:p}})});
+  D.categories.forEach(function(c){c.projects=c.projects.map(function(p){var o=p.ref&&byId[p.ref];return p.ref?(o?Object.assign({},o.p,{_c:o.c,_i:o.i}):null):p}).filter(Boolean)});
+  var lk=function(p,i,cid){return 'page.html?c='+(p&&p._c||cid)+'&amp;p='+(p&&p._i||i+1)};
   var q=new URLSearchParams(location.search),cat=D.categories.find(function(c){return c.id===q.get('c')}),n=+q.get('p')||0;
   if(!cat){main.innerHTML='<h1>Page not found</h1><p><a href="index.html">Back to home</a></p>';return}
   var base=function(i){return 'images/'+cat.id+'/'+i+'-'};
-  var card=function(p,i){return '<li><a class="card" href="page.html?c='+cat.id+'&amp;p='+(i+1)+'"><div class="thumb">'+IML(p.cover||base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
+  var card=function(p,i){return '<li><a class="card" href="'+lk(p,i,cat.id)+'"><div class="thumb">'+IML(p.cover||base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
   var h='';
   if(!n||!cat.projects[n-1]){
     document.title=cat.title+' | Addis Alemayehu';
@@ -175,7 +178,7 @@ fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(functio
     var o=cat.projects.map(function(x,i){return card(x,i)}).filter(function(_,i){return i!==n-1});
     if(o.length)h+='<div class="more"><div class="title"><h2>More from '+E(cat.title)+'</h2></div><ul class="grid">'+o.join('')+'</ul></div>';
     var pv=cat.projects[n-2],nx=cat.projects[n];
-    h+='<div class="pn"><span>'+(pv?'<a href="page.html?c='+cat.id+'&amp;p='+(n-1)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="page.html?c='+cat.id+'&amp;p='+(n+1)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
+    h+='<div class="pn"><span>'+(pv?'<a href="'+lk(pv,n-2,cat.id)+'">&larr; '+E(pv.title)+'</a>':'')+'</span><span>'+(nx?'<a href="'+lk(nx,n,cat.id)+'">'+E(nx.title)+' &rarr;</a>':'')+'</span></div>';
   }
   var hd=((n&&cat.projects[n-1])||{}).header||cat.header,mt=function(){if(window.CF)CF.mount(D);else addEventListener('DOMContentLoaded',function(){CF.mount(D)})};
   document.getElementById('hs').innerHTML=hd?'<div data-slider="'+E(hd)+'" data-full="1"></div>':'';mt();           /* 1. header slider starts first */
