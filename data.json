@@ -991,39 +991,72 @@
       "description": "Selected Jewelry projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Jewelry 1",
-          "client": "Client name",
-          "date": "Month 2026",
-          "summary": "A short summary of this project: the goal, your role and the result.",
-          "gallery": 3,
+          "title": "Midad Jewlry",
+          "client": "Brand Identity",
+          "date": "September 2019",
+          "summary": "Midad Jewelry is a Qatari jewelry brand rooted in storytelling, heritage, and emotional resonance.   Each collection is a poetic expression—whether through the romanticism of “Hob Horoof”, the joy of “Bahja”, or the elegance of “Luxury by Midad”. The brand’s essence lies in the phrase:   “A unique story with every piece.” \"قصة مميزة مع كل قطعة\"   This reflects a commitment to personal meaning, cultural pride, and timeless artistry.   ",
           "sections": [
             {
-              "heading": "The challenge",
-              "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvlw1upbzbv.jpg",
+                "images/branding/sm-mvou9j7kpob.jpg",
+                "images/branding/sm-mvou9ofl1yb.jpg",
+                "images/branding/sm-mvoua4pw5mv.jpg",
+                "images/branding/sm-mvoua8h2ent.jpg"
+              ]
             },
             {
-              "heading": "The process",
-              "text": "Explain your approach, sketches, research and key decisions.",
-              "media": []
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvouajglold.jpg",
+                "images/branding/sm-mvouavkfcgd.jpg",
+                "images/branding/sm-mvoub2fzntu.jpg",
+                "images/branding/sm-mvoub9b99ve.jpg",
+                "images/branding/sm-mvoubkq11m6.jpg"
+              ]
             },
             {
-              "heading": "The result",
-              "text": "Show the final outcome and what it achieved.",
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvoubz58o4g.jpg",
+                "images/branding/sm-mvoubz6iwhk.jpg",
+                "images/branding/sm-mvouc8q67hw.jpg",
+                "images/branding/sm-mvouc8r4vtj.jpg",
+                "images/branding/sm-mvoucthnym2.jpg"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/branding/sm-mvoudet4js5.jpg",
+                "images/branding/sm-mvoudeuvfok.jpg",
+                "images/branding/sm-mvoudmbi65q.gif",
+                "images/branding/sm-mvouea3ctpz.jpg",
+                "images/branding/sm-mvoueag16so.jpg",
+                "images/branding/sm-mvoueahnsog.jpg",
+                "images/branding/sm-mvoueaec1tz.jpg"
+              ]
+            },
+            {
+              "heading": "",
+              "text": "",
               "media": []
             }
           ],
-          "id": "pmvpnnupfpou"
-        },
-        {
-          "title": "Jewelry 2",
-          "id": "pmvpnnupf99w"
-        },
-        {
-          "title": "Jewelry 3",
-          "id": "pmvpnnupfual"
+          "images": [
+            "images/branding/m-mvlw0j7b88p.jpg"
+          ],
+          "cover": "images/branding/p-mvou7fwbu3p.gif",
+          "header": "slmvo7wip6h0s",
+          "id": "pmvpp3n1fc5c"
         }
-      ]
+      ],
+      "cover": "images/branding/p-mvou7fwbu3p.gif"
     },
     {
       "id": "social-media-companies",
