@@ -2288,6 +2288,73 @@
       ],
       "delay": 5,
       "auto": true
+    },
+    {
+      "id": "slmvpnfk0v09u",
+      "name": "flintstone_social",
+      "title": "",
+      "bg": "dark",
+      "shape": "916",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjn44ph.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjnkwdk.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjnxcou.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjoej3f.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjouw7c.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjpbna4.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjps44k.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvpnhjq806x.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        }
+      ],
+      "kind": "gallery",
+      "rows": "8"
     }
   ]
 }
