@@ -882,39 +882,36 @@
       "description": "Selected Restaurants projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Restaurants 1",
-          "client": "Client name",
-          "date": "Month 2026",
-          "summary": "A short summary of this project: the goal, your role and the result.",
-          "gallery": 3,
-          "sections": [
-            {
-              "heading": "The challenge",
-              "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
-            },
-            {
-              "heading": "The process",
-              "text": "Explain your approach, sketches, research and key decisions.",
-              "media": []
-            },
-            {
-              "heading": "The result",
-              "text": "Show the final outcome and what it achieved.",
-              "media": []
-            }
+          "title": "KFF Restaurant",
+          "client": "Brand Identity",
+          "date": "May 2020",
+          "summary": "KFF Restaurant summary",
+          "sections": [],
+          "images": [
+            "images/branding/m-mvlxu5l1i3t.jpg",
+            "images/branding/m-mvlxuk9ix39.jpg",
+            "images/branding/m-mvpa87r3az6.jpg",
+            "images/branding/m-mvpa8m0ax6s.jpg",
+            "images/branding/m-mvpa9637q3h.jpg",
+            "images/branding/m-mvpa9a87g7n.jpg",
+            "images/branding/m-mvpa9jbrmmp.jpg",
+            "images/branding/m-mvpa9oft3ri.jpg",
+            "images/branding/m-mvpa9t4l27j.jpg",
+            "images/branding/m-mvpa9vxcz7y.jpg",
+            "images/branding/m-mvpaa25briv.jpg",
+            "images/branding/m-mvpaa6x3zy3.jpg",
+            "sl:slmvm0gi3fhbl",
+            "images/branding/m-mvpaac1buh4.jpg",
+            "images/branding/m-mvpaap4bo0y.jpg",
+            "images/branding/m-mvpaau7oiui.jpg",
+            "images/branding/m-mvpadsdtfco.jpg"
           ],
-          "id": "pmvpnnupfpky"
-        },
-        {
-          "title": "Restaurants 2",
-          "id": "pmvpnnupfqww"
-        },
-        {
-          "title": "Restaurants 3",
-          "id": "pmvpnnupfu4w"
+          "cover": "images/branding/p-mvpai5l8pc5.gif",
+          "header": "slmvlxix015mb",
+          "id": "pmvpomnzv0jg"
         }
-      ]
+      ],
+      "cover": "images/branding/p-mvpai5l8pc5.gif"
     },
     {
       "id": "medical",
