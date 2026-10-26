@@ -2488,7 +2488,7 @@
       "name": "flintstone_social",
       "title": "",
       "bg": "dark",
-      "shape": "916",
+      "shape": "orig",
       "slides": [
         {
           "type": "image",
@@ -2550,7 +2550,7 @@
       "kind": "gallery",
       "rows": "8",
       "gap": "24",
-      "cols": "4"
+      "cols": "3"
     }
   ]
 }
