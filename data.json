@@ -715,29 +715,14 @@
             {
               "heading": "The challenge",
               "text": "Describe the brief, the client and the problem you were solving.",
-              "media": []
-            },
-            {
-              "heading": "The process",
-              "text": "Explain your approach, sketches, research and key decisions.",
-              "media": []
-            },
-            {
-              "heading": "The result",
-              "text": "Show the final outcome and what it achieved.",
-              "media": []
+              "media": [
+                "images/3d/sm-mvs10lvsqsf.jpg"
+              ]
             }
           ],
           "images": [],
-          "id": "pmvpnnupf27c"
-        },
-        {
-          "title": "3D designs & animation 2",
-          "id": "pmvpnnupflg3"
-        },
-        {
-          "title": "3D designs & animation 3",
-          "id": "pmvpnnupfw48"
+          "id": "pmvpnnupf27c",
+          "cover": "images/3d/p-mvs0zxdjuas.jpg"
         }
       ],
       "cover": "images/3d/c-muracqoe5of.gif"
