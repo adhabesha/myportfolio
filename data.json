@@ -706,9 +706,9 @@
       "description": "Selected 3D designs & animation projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "3D designs & animation 1",
-          "client": "Client name",
-          "date": "Month 2026",
+          "title": "Qatar Airways Exhibition Booth: 3D",
+          "client": "ClieQatar Airwaysnt name",
+          "date": "Jun 2022",
           "summary": "A short summary of this project: the goal, your role and the result.",
           "gallery": 3,
           "sections": [
