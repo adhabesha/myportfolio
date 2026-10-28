@@ -734,19 +734,19 @@
       "description": "Selected Motion graphics projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Motion graphics 1",
-          "client": "Client name",
-          "date": "Month 2026",
-          "summary": "A short summary of this project: the goal, your role and the result.",
+          "title": "Motion graphics Collection",
+          "client": "Aftereffects",
+          "date": "Month 2017",
+          "summary": "This are some of the Motion Graphics Designs I have Done.",
           "gallery": 3,
           "sections": [
             {
-              "heading": "The challenge",
+              "heading": "Reels",
               "text": "Describe the brief, the client and the problem you were solving.",
               "media": []
             },
             {
-              "heading": "The process",
+              "heading": "",
               "text": "Explain your approach, sketches, research and key decisions.",
               "media": []
             },
@@ -757,15 +757,8 @@
             }
           ],
           "id": "pmvpnnupf80q",
-          "images": []
-        },
-        {
-          "title": "Motion graphics 2",
-          "id": "pmvpnnupfe79"
-        },
-        {
-          "title": "Motion graphics 3",
-          "id": "pmvpnnupfudl"
+          "images": [],
+          "cover": "images/motion/p-mvsb8gfgqyo.gif"
         }
       ]
     },
