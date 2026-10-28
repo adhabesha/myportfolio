@@ -742,7 +742,7 @@
           "sections": [
             {
               "heading": "Reels",
-              "text": "Describe the brief, the client and the problem you were solving.",
+              "text": "",
               "media": []
             },
             {
@@ -760,7 +760,8 @@
           "images": [],
           "cover": "images/motion/p-mvsb8gfgqyo.gif"
         }
-      ]
+      ],
+      "cover": "images/motion/c-mvsbbx6tsgg.gif"
     },
     {
       "id": "real-estate",
