@@ -14,7 +14,7 @@ export async function onRequest({ request, env }) {
   const cid = url.searchParams.get('c') || '', n = parseInt(url.searchParams.get('p') || '0', 10) || 0;
   const cat = (D.categories || []).find(c => c.id === cid), proj = cat && n ? (cat.projects || [])[n - 1] : null;
 
-  let title, desc, img, target;
+  let title, desc, img, target, W = 1600, H = 900;
   const brand = 'Addis Alemayehu';
   if (proj) {
     title = (proj.title || cat.title) + ' | ' + brand;
@@ -29,7 +29,7 @@ export async function onRequest({ request, env }) {
   } else {
     title = sh.title || (brand + ' | Graphic designer & front end developer');
     desc = sh.description || about.lead || 'Branding, social media, packaging, UI/UX, 3D and motion graphics.';
-    img = sh.image || (site.hero && site.hero.image) || site.logo || 'images/logo.png';
+    img = sh.image || (site.hero && site.hero.image) || site.logo || 'images/logo.png'; if (sh.image) { W = 1200; H = 630 }
     target = 'index.html';
   }
   // GIF covers: use the light JPEG poster when the admin made one, so previews load fast
@@ -41,7 +41,7 @@ export async function onRequest({ request, env }) {
   const self = origin + '/share' + url.search, dest = origin + '/' + target;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(clip(desc, 200))}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="${esc(brand)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(clip(desc, 200))}"><meta property="og:url" content="${esc(self)}"><meta property="og:image" content="${esc(imgUrl)}"><meta property="og:image:alt" content="${esc(title)}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="${esc(brand)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(clip(desc, 200))}"><meta property="og:url" content="${esc(self)}"><meta property="og:image" content="${esc(imgUrl)}"><meta property="og:image:secure_url" content="${esc(imgUrl)}"><meta property="og:image:type" content="${/\.png$/i.test(img)?'image/png':/\.gif$/i.test(img)?'image/gif':'image/jpeg'}"><meta property="og:image:width" content="${W}"><meta property="og:image:height" content="${H}"><link rel="image_src" href="${esc(imgUrl)}"><meta property="og:image:alt" content="${esc(title)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(clip(desc, 200))}"><meta name="twitter:image" content="${esc(imgUrl)}">
 <link rel="canonical" href="${esc(dest)}"><noscript><meta http-equiv="refresh" content="0;url=${esc(dest)}"></noscript>
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#111;color:#fff;font:16px Helvetica,Arial,sans-serif}a{color:#fff}</style></head>
