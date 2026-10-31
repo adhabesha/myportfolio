@@ -1186,7 +1186,7 @@
       "facebook": "https://web.facebook.com/sikettc",
       "linkedin": "https://www.linkedin.com/in/aceaddiss/",
       "instagram": "#",
-      "youtube": "https://www.youtube.com/@addisinfolinked"
+      "youtube": "https://www.youtube.com/@TechETx"
     },
     "footer": "© 2026 Addis Alemayehu",
     "hero": {
@@ -1352,10 +1352,10 @@
       "title": "contact.",
       "lead": "Let's work together.",
       "text": "Tell me about your project and I will get back to you soon.",
-      "email": "",
-      "phone": "",
-      "address": "",
-      "image": "",
+      "email": "adhabesha@gmail.com",
+      "phone": "+251909589283",
+      "address": "Addis",
+      "image": "images/site/k:contact.image-mvwft1zzcfj.jpg",
       "endpoint": "",
       "success": "Thank you! Your message has been sent."
     },
