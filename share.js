@@ -1,0 +1,20 @@
+/* Share button: any element with data-share opens a share sheet. data-c = category id, data-p = project number (both empty = whole site). */
+(function(){
+var css='.shr{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px;color:inherit;background:transparent;border:1px solid currentColor;border-radius:30px;padding:7px 16px;cursor:pointer;opacity:.8;transition:opacity .25s,background .25s,color .25s;vertical-align:middle}.shr:hover{opacity:1;background:#222;color:#fff;border-color:#222}.shr svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}'
++'.shsheet{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;animation:shin .2s ease both}@keyframes shin{from{opacity:0}to{opacity:1}}'
++'.shsheet>div{background:#fff;color:#222;width:min(420px,92vw);border-radius:14px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.4);font-family:inherit}.shsheet h3{margin:0 0 4px;font-size:18px}.shsheet p{margin:0 0 14px;font-size:13px;color:#666;line-height:1.4}'
++'.shsheet .row{display:flex;gap:8px}.shsheet input{flex:1;min-width:0;font:inherit;font-size:13px;padding:10px;border:1px solid #ccd;border-radius:8px}.shsheet button,.shsheet a.b{font:inherit;font-size:14px;border:0;border-radius:8px;padding:10px 14px;background:#111;color:#fff;cursor:pointer;text-decoration:none;text-align:center}'
++'.shsheet .g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.shsheet .g a.b{background:#eef0f3;color:#222}.shsheet .g a.b:hover{background:#dfe3e8}.shsheet .x{margin-top:14px;width:100%;background:transparent;color:#666}';
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+function link(c,p){return location.origin+'/share'+(c?'?c='+encodeURIComponent(c)+(p?'&p='+p:''):'')}
+function open(c,p,title){var u=link(c,p),t=title||document.title,enc=encodeURIComponent,o=document.createElement('div');o.className='shsheet';
+  o.innerHTML='<div role="dialog" aria-modal="true"><h3>Share</h3><p>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'<br>Opens straight on this part of the portfolio, with its cover picture in the preview.</p><div class="row"><input readonly value="'+u+'"><button type="button" class="cp">Copy</button></div><div class="g">'
+  +'<a class="b" target="_blank" rel="noopener" href="https://wa.me/?text='+enc(t+' '+u)+'">WhatsApp</a><a class="b" target="_blank" rel="noopener" href="https://t.me/share/url?url='+enc(u)+'&text='+enc(t)+'">Telegram</a><a class="b" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url='+enc(u)+'">LinkedIn</a>'
+  +'<a class="b" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u='+enc(u)+'">Facebook</a><a class="b" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url='+enc(u)+'&text='+enc(t)+'">X</a><a class="b" href="mailto:?subject='+enc(t)+'&body='+enc(u)+'">Email</a></div>'+(navigator.share?'<button type="button" class="x nv">More options…</button>':'')+'<button type="button" class="x cl">Close</button></div>';
+  document.body.appendChild(o);var inp=o.querySelector('input');
+  function close(){o.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}document.addEventListener('keydown',k);
+  o.addEventListener('click',function(e){var b=e.target;if(b===o||b.classList.contains('cl'))close();else if(b.classList.contains('cp')){inp.select();var done=function(){b.textContent='Copied ✔'};(navigator.clipboard?navigator.clipboard.writeText(u).then(done,function(){document.execCommand('copy');done()}):(document.execCommand('copy'),done()))}else if(b.classList.contains('nv'))navigator.share({title:t,url:u}).catch(function(){})});
+  inp.focus();inp.select()}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-share]');if(!b)return;e.preventDefault();open(b.getAttribute('data-c')||'',b.getAttribute('data-p')||'',b.getAttribute('data-t')||'')});
+window.shareOpen=open;
+})();
