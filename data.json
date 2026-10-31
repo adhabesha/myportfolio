@@ -1269,8 +1269,8 @@
     ],
     "about": {
       "title": "about.",
-      "lead": "I'm a graphic designer and front end developer.",
-      "text": "Write a short introduction about yourself here: your experience, what you enjoy designing and how you like to work.",
+      "lead": "I'm a Senior graphic designer | UI/UX & Product Designer | Video Editor",
+      "text": "I am a multidisciplinary creator with over 14 years of experience bridging the gap between rigorous technical systems and intuitive design. Specializing in branding, UI/UX systems, and front-end execution, I thrive in fast-paced environments where creativity meets engineering. I use strategic problem-solving and out-of-the-box thinking to turn complex user challenges into clean, engaging, and high-impact digital realities.",
       "image": "",
       "photos": [],
       "split": {
@@ -1285,8 +1285,8 @@
         "rightTitle": "Part coder",
         "rightItems": [
           "Front-end development",
-          "HTML / CSS",
-          "JavaScript",
+          "HTML / CSS, REACT",
+          "JavaScript, Go lang",
           "WordPress & PHP",
           "SEO"
         ],
@@ -1295,8 +1295,9 @@
       "facts": {
         "title": "Random facts",
         "items": [
-          "Add a fun fact about yourself",
-          "Add another fact"
+          "Fact 1:Rooted in Code, Driven by Art: Holding a Bachelor’s in Computer Science from Jimma University, I approach UI/UX design with a deep, structural understanding of how applications are built under the hood.   ",
+          "",
+          "Fact 2:Global Perspective: Having worked across East Africa and the Middle East (including major projects in Doha, Qatar), I love adapting creative campaigns to diverse cultural landscapes and fast-moving markets. "
         ],
         "image": ""
       },
@@ -1304,28 +1305,28 @@
         "title": "My skills",
         "items": [
           {
-            "label": "Photoshop",
-            "value": 90,
+            "label": "UI/UX & Product Design",
+            "value": "95",
             "color": "#41b8a8"
           },
           {
-            "label": "Illustrator",
-            "value": 85,
+            "label": "Adobe Creative Suite (Photoshop/Illustrator/After Effects)",
+            "value": "90",
             "color": "#e8a6a0"
           },
           {
-            "label": "After Effects",
-            "value": 75,
+            "label": "Full Stack Development",
+            "value": "85",
             "color": "#f0c040"
           },
           {
-            "label": "HTML / CSS",
-            "value": 70,
+            "label": "3D & Motion Graphics (Cinema 4D/Blender)",
+            "value": "80",
             "color": "#c49a5a"
           },
           {
-            "label": "JavaScript",
-            "value": 50,
+            "label": "Social media Analysis And SEO",
+            "value": "85",
             "color": "#d9534f"
           }
         ]
@@ -1333,16 +1334,16 @@
       "rows": [
         {
           "title": "My story",
-          "text": "Tell visitors how you got into design and how your career has grown.",
-          "link": "",
-          "url": "",
+          "text": "From Computer Science Roots to Creative Execution\n\nMy career journey began at the intersection of logic and structure with a degree in Computer Science. Realizing my passion for visual communication and human-computer interaction, I transitioned into professional design and media production. Over the last 14+ years, I’ve grown from an IT and systems administrator into a Senior UI/UX and Product Designer. Today, I combine my technical coding capabilities with advanced motion arts and branding strategies to deliver seamless, scalable, and visually compelling digital experiences.",
+          "link": "LinkedIn Profile",
+          "url": "https://www.linkedin.com/feed/foryou/",
           "image": ""
         },
         {
-          "title": "My services",
-          "text": "Describe the services you offer and who you like to work with.",
-          "link": "",
-          "url": "",
+          "title": "My Services & Who I Work With",
+          "text": "Text Box ContentWhat I Offer:\nI deliver end-to-end digital solutions by bridging UI/UX design, motion graphics, and front-end execution. My primary services include:   \nUI/UX & Product Design: Building mobile-first interfaces, intuitive user flows, and scalable Figma design systems for fintech, Web apps, and digital platforms.  \n\n Brand Identity & 3D Visualizations: Crafting complete corporate brand identities, packaging dielines, and photorealistic 3D product renders using Cinema 4D and Blender.   \n\nFull STack Development: Translating visual concepts into clean, functional web applications utilizing HTML/CSS, JavaScript, React, and WordPress.   \n\nMotion Graphics & Content Production: Designing animated explainers, promo reels, and interactive walkthroughs with After Effects and Premiere Pro. ",
+          "link": "Behance Portfolio",
+          "url": "https://www.behance.net/adhabesha",
           "image": ""
         }
       ]
@@ -1358,7 +1359,12 @@
       "endpoint": "",
       "success": "Thank you! Your message has been sent."
     },
-    "slots": {}
+    "slots": {},
+    "share": {
+      "title": "",
+      "description": "",
+      "image": ""
+    }
   },
   "sliders": [
     {
