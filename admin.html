@@ -122,7 +122,7 @@ bindDrops()}
 async function proc(f,mode,cid){const sh=mode==='k:share.image',cover=/^(c|p|vt)$/.test(mode)||sh,png=!sh&&/^(logo|hero|k:.*)$/.test(mode)&&f.type!=='image/jpeg';let ext,b64,mime,meta={};
 if(/gif|svg/.test(f.type)){ext=f.type.includes('gif')?'gif':'svg';mime=f.type;b64=await rd(f);
 if(ext==='gif'){try{const bm=await createImageBitmap(f);meta.w=bm.width;meta.h=bm.height;
-if(f.size>1e6){const tw=Math.min(1280,bm.width),th=Math.round(tw*bm.height/bm.width),cv=document.createElement('canvas');cv.width=tw;cv.height=th;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,tw,th);x.drawImage(bm,0,0,tw,th);meta.pb=await rd(await new Promise(r=>cv.toBlob(r,'image/jpeg',.78)))}}catch(e){}}}
+{const tw=Math.min(1280,bm.width),th=Math.round(tw*bm.height/bm.width),cv=document.createElement('canvas');cv.width=tw;cv.height=th;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,tw,th);x.drawImage(bm,0,0,tw,th);meta.pb=await rd(await new Promise(r=>cv.toBlob(r,'image/jpeg',.78)))}}catch(e){}}}
 else{const bm=await createImageBitmap(f);let sx=0,sy=0,sw=bm.width,sh=bm.height;if(cover){const r=sh?1200/630:16/9;if(sw/sh>r){sw=sh*r;sx=(bm.width-sw)/2}else{sh=sw/r;sy=(bm.height-sh)/2}}
 const tw=Math.round(Math.min(png?2080:sh?1200:1600,sw)),th=Math.round(tw*sh/sw),cv=document.createElement('canvas');cv.width=tw;cv.height=th;const x=cv.getContext('2d');if(!png){x.fillStyle='#fff';x.fillRect(0,0,tw,th)}x.drawImage(bm,sx,sy,sw,sh,0,0,tw,th);
 mime=png?'image/png':'image/jpeg';ext=png?'png':'jpg';meta.w=tw;meta.h=th;b64=await rd(await new Promise(r=>cv.toBlob(r,mime,.82)))}
@@ -133,7 +133,7 @@ async function add(files,mode,idx){const home=/^(logo|hero|vt|ap|sl|k:.*)$/.test
 for(const f of [...files]){if(f.size>24*1048576){alert(f.name+' is '+(f.size/1048576).toFixed(1)+' MB. The hosting limit is 25 MB per file, so it was skipped. Shrink it first (for example at ezgif.com) or use a YouTube link.');continue}
 if(/gif/.test(f.type)&&f.size>8*1048576&&!confirm(f.name+' is '+(f.size/1048576).toFixed(1)+' MB. A GIF this big loads slowly on phones. Use it anyway?\n\nTip: shrink it to about 5 MB or less at ezgif.com for a much faster site.'))continue;
 if(f.type.startsWith('video/')&&mode==='sl'){const v=await addVideo(f);if(v)SLD().slides.push(v);continue}if(!f.type.startsWith('image/'))continue;const path=await proc(f,mode,home?'site':c.id);
-place(path,mode,idx,pend[path].meta);
+{const mt=Object.assign({},pend[path].meta||{});if(mode==='sl'&&f.size<=1e6)delete mt.poster;place(path,mode,idx,mt)}
 if(!/^(m|sm|ap|sl)$/.test(mode))break}done()}
 
 let slI=0;const SLD=()=>D.sliders[slI],uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
@@ -228,7 +228,7 @@ let pubBusy=0;
 async function publish(){if(pubBusy)return;if(!cfg.token)return $('#dlg').showModal();
 if(D.categories.some(c=>!c.title.trim()||c.projects.some(p=>!p.ref&&!(p.title||'').trim())))return alert('Every category and project needs a title.');
 pubBusy=1;$('#pb').disabled=true;
-try{msg('Publishing…');const js=JSON.stringify(D),use=Object.keys(pend).filter(k=>!pend[k].done&&js.includes(k)),items=[];
+try{msg('Publishing…');const js=JSON.stringify(D),use=Object.keys(pend).filter(k=>!pend[k].done&&(js.includes(k)||(/-poster\.jpg$/.test(k)&&js.includes(k.replace(/-poster\.jpg$/,'.gif'))))),items=[];
 for(const k of use){const b=await gh('git/blobs',{method:'POST',body:JSON.stringify({content:pend[k].b64,encoding:'base64'})});items.push({path:k,mode:'100644',type:'blob',sha:b.sha});msg(`Uploading ${items.length}/${use.length}…`)}
 items.push({path:'data.json',mode:'100644',type:'blob',content:JSON.stringify(D,null,2)});
 let nc;for(let a=0;;a++){try{
