@@ -713,8 +713,8 @@
           "gallery": 3,
           "sections": [
             {
-              "heading": "The challenge",
-              "text": "Describe the brief, the client and the problem you were solving.",
+              "heading": "",
+              "text": "",
               "media": [
                 "images/3d/sm-mvs10lvsqsf.jpg",
                 "images/3d/sm-mvv51vhoqos.jpg",
