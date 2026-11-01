@@ -244,5 +244,5 @@ tr.addEventListener('click',function(e){var li=e.target.closest('.vid');if(!li||
 setInterval(function(){if(document.querySelector('.cfbox')||document.hidden)return;var f=tr.querySelector('.vid');if(!f)return;var r=tr.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
 if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4)tr.scrollTo({left:0,behavior:'smooth'});else tr.scrollBy({left:f.offsetWidth+20,behavior:'smooth'})},3000)})();
 </script>
-<script src="share.js" defer></script></body>
+<script src="share.js" defer></script><script src="float.js" defer></script></body>
 </html>

@@ -104,7 +104,7 @@ footer nav{display:flex;gap:24px}
 .ab h1{font-weight:700;font-size:clamp(48px,9vw,84px);letter-spacing:-.05em;line-height:1;color:#222}
 .ab .lead{font-size:22px;color:#888;margin:18px 0 14px}.ab p{margin-bottom:12px;color:#444}
 .photos{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;border-top:1px solid #ddd;padding-top:28px;margin-top:26px}
-.photos img,.photos .ph{aspect-ratio:4/3;object-fit:cover;border-radius:6px;box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.imglink{display:block}.imglink:hover img{filter:brightness(1.08)}.photos img,.photos .ph{aspect-ratio:4/3;object-fit:cover;border-radius:6px;box-shadow:0 1px 6px rgba(0,0,0,.25)}
 .split{display:grid;grid-template-columns:1fr minmax(220px,380px) 1fr;gap:30px;align-items:center}.split .r{text-align:right}
 .ab h2{font-weight:400;font-size:28px;margin-bottom:14px;color:#333}.ab li{padding:4px 0;color:#555}
 .facts{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
@@ -176,6 +176,9 @@ IMG=function(src,w,h,alt){return '<img src="'+E(src)+'" width="'+w+'" height="'+
 P=function(t){return String(t||'').split(/\n+/).filter(Boolean).map(function(x){return '<p>'+E(x)+'</p>'}).join('')},
 L=function(a){return (a||[]).filter(Boolean).map(function(x){return '<li>'+E(x)+'</li>'}).join('')},app=document.getElementById('app');
 fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
+var LKU=function(D,src){var v=D.links&&D.links[src];if(!v)return null;var m;if(m=/^proj:(.+)$/.exec(v)){for(var i=0;i<D.categories.length;i++){var c=D.categories[i];for(var j=0;j<c.projects.length;j++)if(c.projects[j].id===m[1])return{h:'page.html?c='+encodeURIComponent(c.id)+'&p='+(j+1)}}return null}if(m=/^cat:(.+)$/.exec(v))return{h:'page.html?c='+encodeURIComponent(m[1])};return{h:v,x:/^https?:/i.test(v)}};
+var LKA=function(u,inner){return '<a class="imglink" href="'+E(u.h)+'"'+(u.x?' target="_blank" rel="noopener"':'')+'>'+inner+'</a>'};
+var IMG0=IMG;IMG=function(src,w,h,alt){var h0=IMG0(src,w,h,alt),u=LKU(D,src);return u?LKA(u,h0):h0};
 var A=Object.assign({},DEF.about,(D.site||{}).about||{}),sp=A.split,fx=A.facts,sk=A.skills,ph=A.photos&&A.photos.length?A.photos:[1,2,3,4,5,6].map(function(i){return 'images/about-photo-'+i+'.jpg'});
 document.title='About | Addis Alemayehu';
 app.innerHTML='<div data-slot="about.top"></div>'+'<section><div class="wrap intro"><div class="rl"><h1>'+E(A.title)+'</h1><p class="lead">'+E(A.lead)+'</p>'+P(A.text)+'</div>'+'<div class="rr">'+IMG(A.image||'images/about-intro.png',540,400,'About portrait')+'</div>'+'</div><div class="wrap"><div class="photos rv">'+ph.map(function(s,i){return IMG(s,400,300,'Photo '+(i+1))}).join('')+'</div></div></section>'+'<div data-slot="about.afterIntro"></div>'
@@ -188,4 +191,4 @@ app.innerHTML='<div data-slot="about.top"></div>'+'<section><div class="wrap int
 b.onclick=function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 m.addEventListener('click',function(e){if(e.target.closest('nav a')){m.classList.remove('open');b.setAttribute('aria-expanded',false)}})})();
 </script>
-<script src="share.js" defer></script></body></html>
+<script src="share.js" defer></script><script src="float.js" defer></script></body></html>
