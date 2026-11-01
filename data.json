@@ -706,10 +706,10 @@
       "description": "Selected 3D designs & animation projects. Edit this description in data.json.",
       "projects": [
         {
-          "title": "Qatar Airways Exhibition Booth: 3D",
-          "client": "ClieQatar Airwaysnt name",
+          "title": "Qatar Airways Exhibition Booth: 3D Visualization",
+          "client": "Qatar Airways",
           "date": "Jun 2022",
-          "summary": "A short summary of this project: the goal, your role and the result.",
+          "summary": "This 3D exhibition booth concept presents a flagship mega-activation designed in Cinema 4D for Qatar Airways, spanning an expansive total area of 600 square meters (20m × 30m) to accommodate large-scale international trade shows. Masterfully rendered in signature Qatar Airways maroon and polished gold accents under sweeping overhead trussing and suspended branding, the design is built on a fully modular framework. This structural flexibility allows the layout to operate as a unified, high-density pavilion or be broken down into five standalone, independently deployable sub-booths for smaller venue footprints.",
           "gallery": 3,
           "sections": [
             {
@@ -717,19 +717,22 @@
               "text": "",
               "media": [
                 "images/3d/sm-mvs10lvsqsf.jpg",
-                "images/3d/sm-mvv51vhoqos.jpg",
                 "images/3d/sm-mvv51wnwdl2.jpg",
                 "images/3d/sm-mvv51vvnra7.jpg",
                 "images/3d/sm-mvv51w0rgu9.jpg",
                 "images/3d/sm-mvv51wa5q18.jpg",
-                "images/3d/sm-mvv51wip6qo.jpg",
                 "images/3d/sm-mvv51wsj1pw.jpg",
-                "images/3d/sm-mvv51x8qur6.jpg",
-                "images/3d/sm-mvv51x03uae.jpg",
                 "images/3d/sm-mvv51x6ljpn.jpg",
+                "images/3d/sm-mvv51x8qur6.jpg",
+                "images/3d/sm-mvv51x9djf8.jpg",
                 "images/3d/sm-mvv51x7p2oy.jpg",
-                "images/3d/sm-mvv51x9djf8.jpg"
+                "images/3d/sm-mvv51x03uae.jpg"
               ]
+            },
+            {
+              "heading": "Modular Sub-Booth Breakdown & Area Estimates",
+              "text": "1. Left Wing – Part 1: Main Reception & Welcome DeskDescription: The initial brand gateway featuring custom counters and dedicated line-queuing space for arriving visitors along the main aisle.   Estimated Area: 30 – 40 sqm2. Left Wing – \n\nPart 2: Customer Experience & Coffee Shop LoungeDescription: An extended hospitality pavilion housing a barista station, service counters, and comfortable lounge seating for client meetings.   Estimated Area: 70 – 90 sqm\n\n3. Left Back Corner: Logo Header & Music / Presentation StageDescription: A focal performance corner defined by the illuminated Oryx crest, elevated stage platform, back-of-house AV access, and audience space.   Estimated Area: 80 – 100 sqm\n\n4. Center Piece: Circular Multi-Screen Reception HubDescription: The 360-degree cylindrical centerpiece wrapped in dynamic LED video displays, housing central service desks and internal tech storage.   Estimated Area: 50 – 70 sqm\n\n5. Right Wing: Grand Dome Structure & Interactive Globe LoungeDescription: The primary architectural landmark featuring double-curved sweeping arches, structural staircases, elevated VIP seating, and a glowing globe centerpiece.   Estimated Area: 150 – 200 sqm\n\nOverall Footprint Allocation Active Built Footprint: 380 – 500 sqmPerimeter Circulation & Safety Buffer: ~100 sqm (required for fire codes, structural clearance, and crowd flow between zones)Total Venue Space Required: 400 – 600 sqm",
+              "media": []
             }
           ],
           "images": [],
