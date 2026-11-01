@@ -2,8 +2,14 @@
 (function(){
 var css='.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:900;display:flex;flex-direction:column;align-items:center;gap:10px}'
 +'.fab a,.fab button{width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .25s,opacity .25s;padding:0;text-decoration:none}'
-+'.fab svg{width:22px;height:22px;fill:#fff}.fab .m{width:52px;height:52px;background:#111;position:relative}.fab .m svg{width:24px;height:24px;transition:opacity .2s,transform .3s;position:absolute}.fab .m .c{opacity:0;transform:rotate(-90deg) scale(.6)}'
-+'.fab.open .m .o{opacity:0;transform:rotate(90deg) scale(.6)}.fab.open .m .c{opacity:1;transform:none}'
++'.fab{align-items:flex-end}.fab svg{width:22px;height:22px;fill:#fff}'
++'.fab .m{width:auto;height:50px;padding:0 20px 0 16px;border-radius:30px;background:#111;display:flex;align-items:center;gap:9px;color:#fff;font:500 15px/1 Metropolis,Helvetica,Arial,sans-serif;letter-spacing:.02em;position:relative;animation:fabring 2.8s ease-out infinite}'
++'.fab .m svg{width:22px;height:22px;flex:none}.fab .m .ic{display:grid;place-items:center;width:22px;height:22px;animation:fabwig 5s ease-in-out infinite;transform-origin:50% 80%}.fab .m .c{display:none}'
++'.fab .m i{position:absolute;top:-3px;right:-3px;width:13px;height:13px;border-radius:50%;background:#25D366;border:2px solid #fff;animation:fabdot 1.6s ease-in-out infinite}'
++'.fab.open .m{animation:none;padding:0 18px 0 14px}.fab.open .m i,.fab.open .m .o{display:none}.fab.open .m .c{display:block}.fab.open .m .ic{animation:none}'
++'@keyframes fabring{0%{box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,0)}}'
++'@keyframes fabwig{0%,70%,100%{transform:none}74%{transform:rotate(-14deg)}80%{transform:rotate(12deg)}86%{transform:rotate(-8deg)}92%{transform:rotate(4deg)}}'
++'@keyframes fabdot{50%{transform:scale(1.25)}}@media(prefers-reduced-motion:reduce){.fab .m,.fab .m .ic,.fab .m i{animation:none}}'
 +'.fab .l{display:flex;flex-direction:column;gap:10px}.fab .l a{opacity:0;transform:translateY(14px) scale(.6);pointer-events:none}.fab.open .l a{opacity:1;transform:none;pointer-events:auto}'
 +'.fab.open .l a:nth-last-child(1){transition-delay:.02s}.fab.open .l a:nth-last-child(2){transition-delay:.06s}.fab.open .l a:nth-last-child(3){transition-delay:.1s}.fab.open .l a:nth-last-child(4){transition-delay:.14s}.fab.open .l a:nth-last-child(5){transition-delay:.18s}'
 +'.fab a:hover,.fab button:hover{transform:scale(1.08)}body:has(.cfbox) .fab{display:none}@media print{.fab{display:none}}';
@@ -20,9 +26,9 @@ fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(functio
   if(wa)L.push(['WhatsApp','https://wa.me/'+wa,'#25D366',I.wa,1]);if(tel)L.push(['Call','tel:'+tel,'#1e88e5',I.tel]);if(c.email)L.push(['Email','mailto:'+c.email,'#d93025',I.mail]);
   L.push(['LinkedIn',li,'#0a66c2',I.li,1]);L.push(['Facebook',fb,'#1877f2',I.fb,1]);
   var d=document.createElement('div');d.className='fab';
-  d.innerHTML='<div class="l">'+L.map(function(x){return '<a href="'+x[1].replace(/"/g,'&quot;')+'"'+(x[4]?' target="_blank" rel="noopener"':'')+' style="background:'+x[2]+'" aria-label="'+x[0]+'" title="'+x[0]+'">'+svg(x[3])+'</a>'}).join('')+'</div><button type="button" class="m" aria-label="Contact me" aria-expanded="false"><svg class="o" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 011 1v11a1 1 0 01-1 1H9l-5 4V5a1 1 0 011-1z"/></svg><svg class="c" viewBox="0 0 24 24"><path d="M6.4 5L5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4L13.4 12 19 6.4 17.6 5 12 10.6z"/></svg></button>';
+  d.innerHTML='<div class="l">'+L.map(function(x){return '<a href="'+x[1].replace(/"/g,'&quot;')+'"'+(x[4]?' target="_blank" rel="noopener"':'')+' style="background:'+x[2]+'" aria-label="'+x[0]+'" title="'+x[0]+'">'+svg(x[3])+'</a>'}).join('')+'</div><button type="button" class="m" aria-label="Chat with me" aria-expanded="false"><i></i><span class="ic"><svg class="o" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 011 1v11a1 1 0 01-1 1H9l-5 4V5a1 1 0 011-1z"/></svg><svg class="c" viewBox="0 0 24 24"><path d="M6.4 5L5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4L13.4 12 19 6.4 17.6 5 12 10.6z"/></svg></span><span class="t">Chat</span></button>';
   document.body.appendChild(d);var b=d.querySelector('.m');
-  b.onclick=function(e){e.stopPropagation();var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)};
-  document.addEventListener('click',function(e){if(!d.contains(e.target)){d.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+  b.onclick=function(e){e.stopPropagation();var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o);b.querySelector('.t').textContent=o?'Close':'Chat'};
+  document.addEventListener('click',function(e){if(!d.contains(e.target)){d.classList.remove('open');b.setAttribute('aria-expanded',false);b.querySelector('.t').textContent='Chat'}});
 }).catch(function(){});
 })();

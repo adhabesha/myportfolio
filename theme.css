@@ -96,3 +96,13 @@ header{position:sticky;top:0}
 header.ready{animation:none;transition:transform .35s var(--ease),background .3s}
 header.ready.hide{transform:translateY(-100%)}
 header.ready.stuck{background:#111}
+
+/* balanced cards: every card in a row is the same height, every thumbnail the same 16:9 box */
+.grid{align-items:stretch}
+.grid>li{display:flex}
+.card{display:flex;flex-direction:column;width:100%}
+.card .thumb{flex:none}
+.card .thumb img,.card .thumb .ph{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.card h3{flex:1;line-height:1.4}
+@media(max-width:600px){.card .thumb{padding:10px;margin-bottom:12px}.card h3{padding:0 8px;font-size:15px}.card{padding:8px 8px 14px}}
+@media(max-width:700px){footer{padding-bottom:84px}}
