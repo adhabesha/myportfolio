@@ -2595,5 +2595,13 @@
       "auto": true,
       "delay": 5
     }
-  ]
+  ],
+  "links": {
+    "images/site/sl-mvm56qz2xyd.gif": "proj:pmvpnnupfmhf",
+    "images/ui-ux/c-muramlhmefa.gif": "proj:pmvpnnupf3j7",
+    "images/site/sl-mvo7yngwva9.gif": "proj:pmvpnnupfgl1",
+    "images/social-media/m-mvm14ch6s01.gif": "proj:pmvpnnupf4nz",
+    "images/site/sl-mvl8b8gheov.gif": "proj:pmvpnnupf6rf",
+    "images/site/sl-mvlwstoan2g.gif": "proj:pmvpnnupfw96"
+  }
 }
