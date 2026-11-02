@@ -2815,6 +2815,73 @@
       ],
       "kind": "gallery",
       "cols": "2"
+    },
+    {
+      "id": "slmvzl022u0t3",
+      "name": "Arifpay Explainers",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvm7dhz7bn5.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1210
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvphmof8dru.jpg",
+          "caption": "",
+          "w": 1440,
+          "h": 2160
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvphpbpg3kw.gif",
+          "caption": "",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvpewktdu1q.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1541
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvpej13idok.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvm7fq58vct.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1250
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvm7fqcz3mf.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1211
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvphn6cde2j.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1210
+        }
+      ],
+      "kind": "gallery",
+      "cols": "2"
     }
   ],
   "links": {
