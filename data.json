@@ -511,8 +511,8 @@
           "images": [
             "images/social-media/m-mvm14ch6s01.gif",
             "images/social-media/m-mvm14cna396.gif",
-            "sl:slmus3qkgl4sn",
-            "images/social-media/m-mvm14ckbvrd.gif"
+            "images/social-media/m-mvm14ckbvrd.gif",
+            "sl:slmvzj5x68cf0"
           ],
           "client": "City MedcalCenter",
           "date": "2019",
@@ -2720,7 +2720,7 @@
     },
     {
       "id": "slmvzk4vj91n2",
-      "name": "Slider 22",
+      "name": "CMC social Reels",
       "title": "CMC Gallery reals",
       "bg": "dark",
       "shape": "orig",
