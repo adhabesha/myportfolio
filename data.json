@@ -2768,6 +2768,59 @@
         }
       ],
       "kind": "gallery"
+    },
+    {
+      "id": "slmvzkjqfiaqr",
+      "name": "Arif Pay socal instagram",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/ui-ux/sm-mvpevj0yjom.gif",
+          "caption": "",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvpdy3tmdi5.jpg",
+          "caption": "",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvpdy3qke4z.jpg",
+          "caption": "",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvpdy3o52ul.jpg",
+          "caption": "",
+          "w": 289,
+          "h": 361
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvpdy3ntkxh.jpg",
+          "caption": "",
+          "w": 289,
+          "h": 361
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvpdy3s3iw8.jpg",
+          "caption": "",
+          "w": 1024,
+          "h": 1024
+        }
+      ],
+      "kind": "gallery",
+      "cols": "2"
     }
   ],
   "links": {
