@@ -2605,6 +2605,59 @@
       "kind": "",
       "auto": true,
       "delay": 5
+    },
+    {
+      "id": "slmvzho6rnofw",
+      "name": "kff social galary",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvm0e6no304.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvm0e6if5t5.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvm0e67o0r5.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvm0e6cnq8q.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvm0e60tres.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlxo6rsydl.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1600
+        }
+      ],
+      "kind": "gallery",
+      "cols": "2"
     }
   ],
   "links": {
