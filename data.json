@@ -2660,6 +2660,73 @@
       ],
       "kind": "gallery",
       "cols": "2"
+    },
+    {
+      "id": "slmvzj5x68cf0",
+      "name": "Slider 21",
+      "title": "CMC Gallery",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15otd1c0.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15op3nt3.jpg",
+          "caption": "",
+          "w": 271,
+          "h": 284
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15oomtqu.jpg",
+          "caption": "",
+          "w": 271,
+          "h": 284
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15oo6gk6.jpg",
+          "caption": "",
+          "w": 274,
+          "h": 284
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15onq0ta.jpg",
+          "caption": "",
+          "w": 282,
+          "h": 284
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15oms61h.jpg",
+          "caption": "",
+          "w": 271,
+          "h": 284
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15onae0g.jpg",
+          "caption": "",
+          "w": 271,
+          "h": 284
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/m-mvm15ombnio.jpg",
+          "caption": "",
+          "w": 271,
+          "h": 284
+        }
+      ],
+      "kind": "gallery",
+      "cols": "2"
     }
   ],
   "links": {
