@@ -2180,6 +2180,20 @@
         },
         {
           "type": "image",
+          "src": "images/branding/p-mvpai5l8pc5.gif",
+          "caption": "",
+          "w": 1440,
+          "h": 788
+        },
+        {
+          "type": "image",
+          "src": "images/social-media/sm-mvm0e77849n.jpg",
+          "caption": "",
+          "w": 1600,
+          "h": 1800
+        },
+        {
+          "type": "image",
           "src": "images/site/sl-mvm0gzmmyne.jpg",
           "caption": ""
         },
@@ -2187,6 +2201,13 @@
           "type": "image",
           "src": "images/site/sl-mvm0gzrnp4b.jpg",
           "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvlxm7kogqx.jpg",
+          "caption": "",
+          "w": 1441,
+          "h": 801
         }
       ],
       "auto": true
