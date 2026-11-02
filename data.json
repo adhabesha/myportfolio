@@ -2717,6 +2717,56 @@
       ],
       "kind": "gallery",
       "cols": "2"
+    },
+    {
+      "id": "slmvzk4vj91n2",
+      "name": "Slider 22",
+      "title": "CMC Gallery reals",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mvzk7qhtbae.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "video",
+          "src": "images/sliders/v-mvzk7qiunzb.mp4",
+          "poster": "images/sliders/v-mvzk7qiunzb-poster.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvzk7qielps.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvzk7qiuuqi.jpg",
+          "caption": "",
+          "w": 354,
+          "h": 681
+        },
+        {
+          "type": "video",
+          "src": "images/sliders/v-mvzk7qm67il.mp4",
+          "poster": "images/sliders/v-mvzk7qm67il-poster.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mvzk9ohzg0v.jpg",
+          "caption": "",
+          "w": 1024,
+          "h": 1536
+        }
+      ],
+      "kind": "gallery"
     }
   ],
   "links": {
