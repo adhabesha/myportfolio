@@ -3807,7 +3807,7 @@
       "name": "3d first",
       "title": "",
       "bg": "dark",
-      "shape": "orig",
+      "shape": "sq",
       "slides": [
         {
           "type": "image",
