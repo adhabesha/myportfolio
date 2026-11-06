@@ -3416,6 +3416,65 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4urx0avai",
+      "name": "xidex black",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustii3ns.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustjip3r.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustke9xc.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustlb97h.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustlztjs.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustmram5.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustnoazb.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
