@@ -2938,6 +2938,50 @@
       ],
       "kind": "gallery",
       "cols": "2"
+    },
+    {
+      "id": "slmw4p940c8jz",
+      "name": "blitz onbording",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4pcvy2dnw.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4pcvzdok9.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4pd553jxh.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4pd569jd9.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4pd577lwk.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        }
+      ]
     }
   ],
   "links": {
