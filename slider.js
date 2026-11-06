@@ -20,7 +20,9 @@ function openBox(list,i,R,tall,sw,d3){if(sw&&sw.autoplay&&sw.autoplay.running)sw
     stg.innerHTML=s.type==='yt'?'<iframe src="https://www.youtube-nocookie.com/embed/'+E(s.id)+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+E(s.caption||'Video')+'"></iframe>':
       s.type==='video'?'<video src="'+E(R(s.src))+'" controls autoplay playsinline></video>':'<img src="'+E(R(s.src))+'" alt="'+E(s.caption||'')+'">';
     ct.textContent=(s.caption?s.caption+'  ·  ':'')+(i+1)+' / '+list.length}
-  function close(){stg.innerHTML='';o.remove();document.removeEventListener('keydown',key);document.documentElement.style.overflow='';if(sw&&sw.params.autoplay&&sw.autoplay&&!sw.autoplay.running)sw.autoplay.start();if(prevFocus&&prevFocus.focus)prevFocus.focus()}
+  var hist=1;try{if(location.hash==='#zoom')hist=0;else location.hash='zoom'}catch(e){hist=0}
+  function pop(){if(!o.isConnected||location.hash==='#zoom')return;hist=0;close()}window.addEventListener('popstate',pop);window.addEventListener('hashchange',pop);
+  function close(){window.removeEventListener('popstate',pop);window.removeEventListener('hashchange',pop);if(hist&&location.hash==='#zoom'){hist=0;try{history.back()}catch(e){}}stg.innerHTML='';o.remove();document.removeEventListener('keydown',key);document.documentElement.style.overflow='';if(sw&&sw.params.autoplay&&sw.autoplay&&!sw.autoplay.running)sw.autoplay.start();if(prevFocus&&prevFocus.focus)prevFocus.focus()}
   function key(e){if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(i-1);else if(e.key==='ArrowRight')show(i+1)}
   o.addEventListener('click',function(e){var c=e.target;if(c===o||c===stg)close();else if(c.classList.contains('x'))close();else if(c.classList.contains('p'))show(i-1);else if(c.classList.contains('n'))show(i+1)});
   var tx=null;o.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});o.addEventListener('touchend',function(e){if(tx==null||list.length<2)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)show(i+(dx<0?1:-1))});

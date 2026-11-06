@@ -167,7 +167,11 @@ slmv:d=>{mv(SLD().slides,+d.i,+d.d);done()},slx:d=>{SLD().slides.splice(+d.i,1);
 slyt:()=>{const i=ytid(prompt('Paste the YouTube link'));if(i){SLD().slides.push({type:'yt',id:i,caption:''});done()}},
 slotadd:d=>{const v=document.querySelector(`select[data-sel="${d.k}"]`).value;if(!v)return;(D.site.slots[d.k]=D.site.slots[d.k]||[]).push(v);done()},
 slotdel:d=>{D.site.slots[d.k].splice(+d.i,1);done()},
-slpick:d=>{const L=D.sliders;if(!L.length)return alert('Create a slider first: open “Sliders” in the left list.');const n=prompt('Which slider? Type its number:\n'+L.map((x,i)=>(i+1)+') '+x.name).join('\n'),'1'),x=L[(+n||0)-1];if(!x)return;(d.mode==='sm'?P().sections[+d.i].media:P().images).push('sl:'+x.id);done()},
+slpick:d=>{const L=D.sliders;if(!L.length)return alert('Create a slider first: open “Sliders” in the left list.');const pick=new Set;$('#pkt').textContent='Choose a slider to place here';
+$('#pkb').innerHTML='<input id="slq" placeholder="Search sliders by name…" style="width:100%;box-sizing:border-box" autocomplete="off"><div class="plist" id="sll"></div>';
+const draw=()=>{const q=$('#slq').value.toLowerCase();$('#sll').innerHTML=L.map((x,i)=>[x,i]).reverse().filter(([x])=>!q||x.name.toLowerCase().includes(q)).map(([x,i])=>`<label><input type="checkbox" value="${i}"${pick.has(i)?' checked':''}> <span>${E(x.name)} <small>· ${x.slides.length} ${x.kind==='gallery'?'items, gallery':'slides'}${i===L.length-1?' · newest':''}</small></span></label>`).join('')||'<p class="hint">No slider matches.</p>'};
+draw();$('#slq').oninput=draw;$('#sll').onchange=e=>{const v=+e.target.value;e.target.checked?pick.add(v):pick.delete(v)};
+$('#pkok').textContent='Add selected';$('#pkok').onclick=()=>{if(!pick.size)return;const tgt=d.mode==='sm'?P().sections[+d.i].media:P().images;[...pick].sort((a,b)=>a-b).forEach(i=>tgt.push('sl:'+L[i].id));$('#pk').close();done()};$('#pk').showModal();setTimeout(()=>$('#slq').focus(),50)},
 addc:d=>{const t=prompt('Category name');if(!t)return;D.categories.push({id:slug(t),group:d.g,title:t,description:'',projects:[]});sel={c:D.categories.length-1,p:-1};done()},
 addp:()=>{const c=C(),t=prompt('Project name',c.title+' '+(c.projects.length+1));if(!t)return;c.projects.push(NP(t));sel.p=c.projects.length-1;done()},
 bulk:()=>{$('#bulk').value.split('\n').map(s=>s.trim()).filter(Boolean).forEach(t=>C().projects.push(NP(t)));done()},
