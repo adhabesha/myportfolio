@@ -3156,6 +3156,100 @@
           "h": 2218
         }
       ]
+    },
+    {
+      "id": "slmw4tar6944e",
+      "name": "blitz connected",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbee0fpz.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbefgodc.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbeighq2.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1486
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbek20hp.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1253
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbeldwra.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1190
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbemk72t.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbeqijk9.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 2218
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tberl53t.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbet13rl.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1030
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbeumohy.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1460
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbevq13v.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tbewyos9.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
