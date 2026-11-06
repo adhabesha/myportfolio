@@ -3288,6 +3288,100 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4th9b5csi",
+      "name": "blitz publish",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjb6v9v.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjcogfw.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1030
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjdrgih.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjffr63.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 999
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjgk6s3.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjjar1z.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1432
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjkw7zd.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1432
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjn7gxs.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1461
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjqe0cr.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1787
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjrnvxq.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjw5vk7.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 2544
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4thjxn6pe.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1093
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
