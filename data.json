@@ -3617,6 +3617,121 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4vsors05q",
+      "name": "xdex top",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/ui-ux/p-mw4vq6nvbul.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 567
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/p-mw4tvkuqj7i.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 630
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4ul0r2xyd.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4ul0q4rba.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4ul0p9tmj.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4ul0ob83g.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4ul0ngcrl.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustnoazb.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4uvohjef4.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustlb97h.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4ul0ggk2x.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustjip3r.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4uvokahwh.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4ustii3ns.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4uvoii5ky.jpg",
+          "caption": "",
+          "w": 1080,
+          "h": 676
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
