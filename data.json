@@ -758,7 +758,7 @@
           "title": "UI/UX Design | Fintech | Xidex",
           "client": "Xidex",
           "date": "",
-          "summary": "Xidex is a streamlined payment gateway designed specifically for Ethiopia, unifying multiple local wallets and payment methods—including Telebirr, CBE Birr, M-Pesa, Amole, and cards—into a single API and fast hosted checkout page. Built with a bold lime and black identity, the platform features an intuitive merchant mobile app, a secure customer checkout interface, and a comprehensive owner admin console across Android, Windows, and Web environments.",
+          "summary": "Xidex is a payment gateway that unifies local wallets like Telebirr, CBE Birr, M-Pesa, and cards into a single API and fast checkout page. Wrapped in a bold lime and black identity, it offers a merchant mobile app, secure customer checkout, and a full admin console across Android, Windows, and Web.",
           "sections": [],
           "images": [
             "images/ui-ux/m-mw4ul0ggk2x.jpg",
