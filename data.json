@@ -456,6 +456,35 @@
       "description": "Selected Social media projects. Edit this description in data.json.",
       "projects": [
         {
+          "id": "pmw4pf5594jv",
+          "title": "Social Media Managment Platform",
+          "client": "",
+          "date": "",
+          "summary": "",
+          "sections": [
+            {
+              "heading": "",
+              "text": "",
+              "media": [
+                "images/social-media/sm-mw4pjh266oa.jpg",
+                "images/social-media/sm-mw4pjrnro56.jpg",
+                "images/social-media/sm-mw4pjrolvdd.jpg",
+                "images/social-media/sm-mw4pjrpb8cg.jpg",
+                "images/social-media/sm-mw4pjrpu1mr.jpg",
+                "images/social-media/sm-mw4pjrqirob.jpg",
+                "images/social-media/sm-mw4pjrr6vym.jpg",
+                "images/social-media/sm-mw4pjrrqtd0.jpg",
+                "images/social-media/sm-mw4pjrskwv1.jpg",
+                "images/social-media/sm-mw4pjrt8k8g.jpg",
+                "images/social-media/sm-mw4pjrtw44v.jpg",
+                "images/social-media/sm-mw4pjruewci.jpg"
+              ]
+            }
+          ],
+          "images": [],
+          "cover": "images/social-media/p-mw4phh4ojic.jpg"
+        },
+        {
           "title": "KFF Restaurant Social media ",
           "client": "KFF restaurant",
           "date": "Month 2020",
@@ -540,35 +569,6 @@
           "images": [],
           "cover": "images/social-media/p-mvm73x7ktou.jpg",
           "id": "pmvpnnupfo9b"
-        },
-        {
-          "id": "pmw4pf5594jv",
-          "title": "Social Media Managment Platform",
-          "client": "",
-          "date": "",
-          "summary": "",
-          "sections": [
-            {
-              "heading": "",
-              "text": "",
-              "media": [
-                "images/social-media/sm-mw4pjh266oa.jpg",
-                "images/social-media/sm-mw4pjrnro56.jpg",
-                "images/social-media/sm-mw4pjrolvdd.jpg",
-                "images/social-media/sm-mw4pjrpb8cg.jpg",
-                "images/social-media/sm-mw4pjrpu1mr.jpg",
-                "images/social-media/sm-mw4pjrqirob.jpg",
-                "images/social-media/sm-mw4pjrr6vym.jpg",
-                "images/social-media/sm-mw4pjrrqtd0.jpg",
-                "images/social-media/sm-mw4pjrskwv1.jpg",
-                "images/social-media/sm-mw4pjrt8k8g.jpg",
-                "images/social-media/sm-mw4pjrtw44v.jpg",
-                "images/social-media/sm-mw4pjruewci.jpg"
-              ]
-            }
-          ],
-          "images": [],
-          "cover": "images/social-media/p-mw4phh4ojic.jpg"
         }
       ],
       "cover": "images/social-media/c-mur6xuva93x.gif"
