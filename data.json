@@ -3098,6 +3098,64 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4t71zxdg5",
+      "name": "blits non connected youtube",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7c09uxf.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7c28sga.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1412
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7c3eh7p.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7c56sba.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1202
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7c6ejbv.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 922
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7c7mi4o.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t7caj907.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 2218
+        }
+      ]
     }
   ],
   "links": {
