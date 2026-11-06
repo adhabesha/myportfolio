@@ -3250,6 +3250,44 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4tesbq7wj",
+      "name": "biltz others",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tf2n280c.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tf2p05ys.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1030
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tf2q3git.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4tf2rfbts.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 999
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
