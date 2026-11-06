@@ -3819,19 +3819,19 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mw57gij32a0.gif",
-          "caption": "",
-          "w": 800,
-          "h": 600,
-          "poster": "images/site/sl-mw57gij32a0-poster.jpg"
-        },
-        {
-          "type": "image",
           "src": "images/site/sl-mw57gika7sj.gif",
           "caption": "",
           "w": 800,
           "h": 600,
           "poster": "images/site/sl-mw57gika7sj-poster.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw57gij32a0.gif",
+          "caption": "",
+          "w": 800,
+          "h": 600,
+          "poster": "images/site/sl-mw57gij32a0-poster.jpg"
         }
       ],
       "kind": "gallery"
