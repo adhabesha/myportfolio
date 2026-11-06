@@ -3039,6 +3039,65 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4t1k6sgq6",
+      "name": "blitz non connected ",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3aau2bd.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3ad5m13.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1365
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3aeckib.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3afymrg.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1017
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3ah3mer.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 876
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3alxa71.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 2218
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw4t3anlifw.jpg",
+          "caption": "",
+          "w": 1200,
+          "h": 1365
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
