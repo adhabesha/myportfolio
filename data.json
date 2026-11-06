@@ -3845,27 +3845,34 @@
         },
         {
           "type": "image",
-          "src": "images/site/sl-mw57gika7sj.gif",
+          "src": "images/site/sl-mw5b8eq9ywn.gif",
           "caption": "",
           "w": 800,
           "h": 600,
-          "poster": "images/site/sl-mw57gika7sj-poster.jpg"
+          "poster": "images/site/sl-mw5b8eq9ywn-poster.jpg"
         },
         {
           "type": "image",
-          "src": "images/site/sl-mw57gihua07.gif",
+          "src": "images/site/sl-mw5b8erbibq.gif",
           "caption": "",
           "w": 800,
-          "h": 600,
-          "poster": "images/site/sl-mw57gihua07-poster.jpg"
+          "h": 600
         },
         {
           "type": "image",
-          "src": "images/site/sl-mw57gij32a0.gif",
+          "src": "images/site/sl-mw5b8essrda.gif",
           "caption": "",
           "w": 800,
           "h": 600,
-          "poster": "images/site/sl-mw57gij32a0-poster.jpg"
+          "poster": "images/site/sl-mw5b8essrda-poster.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/site/sl-mw5b8eu5hww.gif",
+          "caption": "",
+          "w": 800,
+          "h": 600,
+          "poster": "images/site/sl-mw5b8eu5hww-poster.jpg"
         }
       ],
       "kind": "",
