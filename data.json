@@ -710,7 +710,7 @@
           "title": "UI/UX designs | productivity | Veloa",
           "client": "",
           "date": "",
-          "summary": "",
+          "summary": "Veloa is a desktop operating system built for Windows that combines goals, schedules, notes, music, and an AI coach into a single dark-themed workspace designed to connect long-term ambition directly to daily execution. Featuring a calm visual identity built on a 60-30-10 color system (black canvas, white text, and yellow action highlights), the app provides nine core tabs—ranging from a priority-driven Dashboard and timeline-based Schedule to a four-level hierarchical Goals tree that tracks progress and pace—all supported by desktop widgets and offline-first Markdown notes.",
           "sections": [],
           "images": [
             "images/ui-ux/m-mw4v8yi2pdk.jpg",
@@ -750,7 +750,8 @@
             "images/ui-ux/m-mw4v8yxu1vl.jpg",
             "images/ui-ux/m-mw4v8yykyw3.jpg"
           ],
-          "cover": "images/ui-ux/p-mw4rpdcj3sc.jpg"
+          "cover": "images/ui-ux/p-mw4rpdcj3sc.jpg",
+          "header": "slmw4w04e0du0"
         },
         {
           "id": "pmw4tv50yuqr",
