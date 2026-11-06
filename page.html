@@ -146,8 +146,13 @@ html:has(header.hide) .prail{top:22px;max-height:calc(100vh - 44px)}
 @keyframes rin2{from{opacity:.0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(max-width:900px){
   .pj{display:block}
-  .prail{position:sticky;top:62px;z-index:40;max-height:none;overflow:visible;margin:0 0 26px;padding:0 0 2px;background:#fff;box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax);overflow-anchor:none;transition:top .35s var(--ease)}
-  html:has(header.hide) .prail{top:0;max-height:none}
+  .prail{position:static;max-height:none;overflow:visible;margin:0;padding:0}
+  #pr:not(:empty){display:block;position:sticky;top:62px;z-index:40;background:#fff;overflow-anchor:none;transition:top .35s var(--ease)}
+  html:has(header.hide) #pr{top:0}
+  #pr .wrap{padding-top:14px;padding-bottom:16px}
+  #pr.cmp .wrap{padding-top:8px;padding-bottom:9px}
+  #pr.cmp{box-shadow:0 1px 0 #e3e5e8,0 6px 14px rgba(0,0,0,.06)}
+  .pj .prail{display:none}
   .phd{margin:0 0 12px;align-items:baseline}.phd .num{font-size:30px}.phd h4{flex-basis:auto;margin:0 0 0 auto}
   .rl2{overflow:visible;padding:0}
   .rl2 ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px;width:auto;animation:rin2 .4s var(--ease)}
@@ -163,8 +168,6 @@ html:has(header.hide) .prail{top:22px;max-height:calc(100vh - 44px)}
   .prail.many .pmore:active{background:#222;color:#fff}
   .pmore i{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
   .prail.open .pmore i{transform:rotate(225deg) translateY(-2px)}
-  .prail.cmp{padding:8px 0 10px}
-  .prail.cmp:after{content:"";position:absolute;left:-100vmax;right:-100vmax;bottom:0;height:1px;background:#e3e5e8}
   .prail.cmp .phd,.prail.cmp .pmore{display:none!important}
   .prail.cmp .rl2 ol{display:flex;flex-direction:row;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;padding:3px 3px 4px;animation:rin .4s var(--ease);-webkit-overflow-scrolling:touch}
   .prail.cmp .rl2 ol::-webkit-scrollbar{display:none}
@@ -200,7 +203,7 @@ function ph(img){
       </div>
     </div>
   </div>
-</header><div id="hs"></div><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
+</header><div id="pr"></div><div id="hs"></div><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
   <a class="top" href="#top" aria-label="Back to top"></a>
   <div class="wrap">
     <span>&copy; 2026 Addis Alemayehu</span>
@@ -248,12 +251,15 @@ var byId={};D.categories.forEach(function(c){c.projects.forEach(function(p,i){if
   var railInit=function(){var a=document.querySelector('.prail');if(!a)return;var box=a.querySelector('.rl2'),on=a.querySelector('li.on'),mq=matchMedia('(max-width:900px)');
     var place=function(){if(mq.matches){}else{var y=on.offsetTop+on.querySelector('.t').offsetHeight/2;box.style.setProperty('--y',y+'px');a.scrollTop=Math.max(0,on.offsetTop-a.clientHeight/2+on.offsetHeight/2)}};
     box.style.setProperty('--x','0px');box.style.setProperty('--y','0px');requestAnimationFrame(function(){requestAnimationFrame(function(){a.classList.add('go');place()})});addEventListener('resize',place);
-    var N=a.querySelectorAll('li').length,ol=a.querySelector('ol'),mb=a.querySelector('.pmore'),cmp=false,onI=[].indexOf.call(a.querySelectorAll('li'),on);
+    var pr=document.getElementById('pr'),pj=a.parentNode,N=a.querySelectorAll('li').length,ol=a.querySelector('ol'),mb=a.querySelector('.pmore'),cmp=false,onI=[].indexOf.call(a.querySelectorAll('li'),on);
     var lab=function(){mb.firstChild.textContent=a.classList.contains('open')?'Show less':'More projects (+'+(N-6)+')'};
     if(N>6){a.classList.add('many');if(onI>=6)a.classList.add('open');lab();mb.addEventListener('click',function(){a.classList.toggle('open');lab();ol.style.animation='none';ol.offsetWidth;ol.style.animation=''})}
     var ctr=function(){ol.scrollLeft=Math.max(0,on.offsetLeft-(ol.clientWidth-on.offsetWidth)/2)};
-    var set=function(c){cmp=c;if(c){var h1=a.offsetHeight;a.classList.add('cmp');a.style.marginBottom=(26+h1-a.offsetHeight)+'px';ctr()}else{a.classList.remove('cmp');a.style.marginBottom=''}};
-    var chk=function(){if(!mq.matches||N<4){if(cmp)set(false);return}var stk=parseFloat(getComputedStyle(a).top)||0,t=a.parentElement.getBoundingClientRect().top;if(!cmp&&t<=stk-30)set(true);else if(cmp&&t>stk-6)set(false)};
+    var H=0;
+    var set=function(c){cmp=c;if(c){H=pr.offsetHeight;pr.classList.add('cmp');a.classList.add('cmp');pr.style.marginBottom=Math.max(0,H-pr.offsetHeight)+'px';ctr()}else{pr.classList.remove('cmp');a.classList.remove('cmp');pr.style.marginBottom=''}};
+    var mv=function(){if(mq.matches){if(!pr.firstChild){pr.innerHTML='<div class="wrap"></div>'}if(a.parentNode!==pr.firstChild)pr.firstChild.appendChild(a)}else{if(cmp)set(false);if(a.parentNode!==pj)pj.insertBefore(a,pj.firstChild);pr.innerHTML=''}};
+    var chk=function(){if(!mq.matches||N<4){if(cmp)set(false);return}var y=scrollY;if(!cmp&&y>260)set(true);else if(cmp&&y<Math.max(60,H*.25))set(false)};
+    mv();addEventListener('resize',mv);
     addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);chk();
     a.querySelectorAll('li').forEach(function(li){li.addEventListener('mouseenter',function(){if(mq.matches)return;box.style.setProperty('--hy',(li.offsetTop+li.querySelector('.t').offsetHeight/2)+'px');a.classList.add('hov')});li.addEventListener('mouseleave',function(){a.classList.remove('hov')})})};
   var zoomInit=function(){if(!n)return;main.addEventListener('click',function(e){var im=e.target.closest('.shot img');if(!im||im.closest('a'))return;var all=[].slice.call(main.querySelectorAll('.shot img,.video iframe')),list=all.map(function(el){if(el.tagName==='IMG')return{type:'image',src:el.getAttribute('src'),caption:el.getAttribute('alt')||''};var m=/embed\/([^?]+)/.exec(el.getAttribute('src')||'');return m?{type:'yt',id:m[1]}:null}).filter(Boolean),i=list.findIndex(function(x){return x.src===im.getAttribute('src')});if(window.CF&&i>=0)CF.open(list,i)})};
