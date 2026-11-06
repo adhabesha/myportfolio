@@ -2972,7 +2972,7 @@
     {
       "id": "slmw4p940c8jz",
       "name": "blitz onbording",
-      "title": "onboarding ",
+      "title": "",
       "bg": "dark",
       "shape": "orig",
       "slides": [
@@ -3011,7 +3011,8 @@
           "w": 1200,
           "h": 876
         }
-      ]
+      ],
+      "auto": true
     }
   ],
   "links": {
