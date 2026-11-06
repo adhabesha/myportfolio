@@ -148,7 +148,7 @@ html:has(header.hide) .prail{top:22px;max-height:calc(100vh - 44px)}
   .pj{display:block}
   .prail{position:static;max-height:none;overflow:visible;margin:0;padding:0}
   #pr:not(:empty){display:block;position:sticky;top:62px;z-index:40;background:#fff;overflow-anchor:none;transition:top .35s var(--ease)}
-  html:has(header.hide) #pr{top:0}
+  html:has(#pr:not(:empty)) header.ready.hide{transform:none}
   #pr .wrap{padding-top:14px;padding-bottom:16px}
   #pr.cmp .wrap{padding-top:8px;padding-bottom:9px}
   #pr.cmp{box-shadow:0 1px 0 #e3e5e8,0 6px 14px rgba(0,0,0,.06)}
