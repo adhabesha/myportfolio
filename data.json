@@ -3732,6 +3732,72 @@
         }
       ],
       "auto": true
+    },
+    {
+      "id": "slmw4w04e0du0",
+      "name": "vloa top",
+      "title": "",
+      "bg": "dark",
+      "shape": "orig",
+      "slides": [
+        {
+          "type": "image",
+          "src": "images/ui-ux/p-mw4rpdcj3sc.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 473
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8yu4j5k.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 1277
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8yt7w6l.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 1292
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8yrrt7k.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 1360
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8ykm71x.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 587
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8yjvsez.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 805
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8yvwuzm.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 1007
+        },
+        {
+          "type": "image",
+          "src": "images/ui-ux/m-mw4v8yizmwg.jpg",
+          "caption": "",
+          "w": 900,
+          "h": 542
+        }
+      ],
+      "auto": true
     }
   ],
   "links": {
