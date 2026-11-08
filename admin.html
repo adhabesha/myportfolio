@@ -43,7 +43,7 @@ dialog{border:0;border-radius:10px;padding:22px;width:min(480px,92vw);box-shadow
 <p class="tb"><span class="sp"></span><button id="cx">Cancel</button><button id="cs" class="pri">Save &amp; load</button></p></dialog>
 <input type="file" id="fm" multiple accept="image/*" hidden><input type="file" id="fc" accept="image/*" hidden>
 <link rel="stylesheet" href="slider.css"><script src="slider.js"></script><script src="defaults.js"></script>
-<script>
+<script>try{localStorage.noTrack=1}catch(e){}
 const $=s=>document.querySelector(s),E=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 let D={categories:[]},sel={c:-1,p:-1},pend={},dirty=0,covT='c',covI=0,fmMode='m',fmIdx=0,cfg=JSON.parse(localStorage.cfg||'{"repo":"adhabesha/myportfolio","branch":"main","token":""}');
 const G=[['previous','Previous work'],['industry','Sample work by industry']],C=()=>D.categories[sel.c],P=()=>C()&&C().projects[sel.p];
@@ -95,12 +95,12 @@ function contactEd(){const c=D.site.contact,s='s.contact.';$('#ed').innerHTML=`<
 +`<h4>Details shown on the page</h4><div class="two">`+FL('Email (also receives messages if no form service is set)',FI(s+'email',c.email))+FL('Phone',FI(s+'phone',c.phone))+`</div>`+FL('WhatsApp number (optional, with country code, e.g. +251911223344. Empty = use the phone number)',FI(s+'whatsapp',c.whatsapp))+FL('Address',FI(s+'address',c.address))
 +`<h4>Contact form</h4>`+FL('Form service address (optional)',FI(s+'endpoint',c.endpoint,'https://formspree.io/f/xxxxxxx'))+`<p class="hint">Create a free form at formspree.io (or a similar service) and paste its address. Leave empty to open the visitor's email app instead.</p>`+FL('Message after sending',FI(s+'success',c.success))+`<p class="hint">Social links come from the Home page settings.</p>`}
 function tree(){const f=$('#flt').value.toLowerCase();
-$('#tree').innerHTML=`<div class="cat${sel.c===-2?' on':''}" data-a="go" data-c="-2" data-p="-1">Home page</div><div class="cat${sel.c===-3?' on':''}" data-a="go" data-c="-3" data-p="-1">About page</div><div class="cat${sel.c===-4?' on':''}" data-a="go" data-c="-4" data-p="-1">Contact page</div><div class="cat${sel.c===-5?' on':''}" data-a="go" data-c="-5" data-p="-1">Sliders</div>`+G.map(([g,n])=>`<h3>${n}<button data-a="addc" data-g="${g}">+ Category</button></h3>`+D.categories.map((c,ci)=>[c,ci]).filter(([c])=>c.group===g).map(([c,ci])=>{
+$('#tree').innerHTML=`<div class="cat${sel.c===-2?' on':''}" data-a="go" data-c="-2" data-p="-1">Home page</div><div class="cat${sel.c===-3?' on':''}" data-a="go" data-c="-3" data-p="-1">About page</div><div class="cat${sel.c===-4?' on':''}" data-a="go" data-c="-4" data-p="-1">Contact page</div><div class="cat${sel.c===-5?' on':''}" data-a="go" data-c="-5" data-p="-1">Sliders</div><div class="cat${sel.c===-6?' on':''}" data-a="go" data-c="-6" data-p="-1">📊 Analytics</div>`+G.map(([g,n])=>`<h3>${n}<button data-a="addc" data-g="${g}">+ Category</button></h3>`+D.categories.map((c,ci)=>[c,ci]).filter(([c])=>c.group===g).map(([c,ci])=>{
 const ps=c.projects.map((p,pi)=>[p.ref?(Object.assign({},(fp(p.ref)||{}).p||{title:'(missing project)'},{ref:p.ref})):p,pi]).filter(([p])=>!f||(p.title+c.title).toLowerCase().includes(f));if(f&&!ps.length)return'';
 return `<div class="cat${sel.c===ci&&sel.p<0?' on':''}" data-a="go" data-c="${ci}" data-p="-1">${E(c.title)}</div>`+ps.map(([p,pi])=>`<div class="prj${sel.c===ci&&sel.p===pi?' on':''}" data-a="go" data-c="${ci}" data-p="${pi}">${p.ref?'🔗 ':''}${E(p.title)}</div>`).join('')}).join('')).join('')}
 
 function edit(){const c=C(),p=P(),ed=$('#ed');
-if(sel.c<-1){sel.c===-2?home():sel.c===-3?aboutEd():sel.c===-4?contactEd():sliderEd();if(sel.c>-5)$('#ed').insertAdjacentHTML('beforeend',slotsEd(sel.c));return}
+if(sel.c<-1){sel.c===-2?home():sel.c===-3?aboutEd():sel.c===-4?contactEd():sel.c===-6?analyticsEd():sliderEd();if(sel.c>-5)$('#ed').insertAdjacentHTML('beforeend',slotsEd(sel.c));return}
 if(!c){ed.innerHTML='<p class="hint">Pick a category on the left, or add one with “+ Category”.</p>';return}
 const L=(t,x)=>`<label>${t}${x}</label>`,I=(k,v,ph='')=>`<input data-b="${k}" value="${E(v)}" placeholder="${ph}">`,T=(k,v,r=3)=>`<textarea data-b="${k}" rows="${r}">${E(v)}</textarea>`,
 cov=(path,t)=>`<div class="cov">${path?`<img src="${E(src(path))}">`:'<span>No image yet</span>'}<div><button data-a="cov" data-t="${t}">Upload image (auto-cropped to 16:9)</button><button data-a="lib" data-mode="${t}" data-i="0">From library</button>${path?`<button data-a="covx" data-t="${t}">Remove</button>`:''}</div></div>`;
@@ -268,4 +268,4 @@ $('#cs').onclick=()=>{cfg={repo:$('#rp').value.trim(),branch:$('#br').value.trim
 addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();publish()}});
 addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
 cfg.token?load():(load(),dlg());
-</script></body></html>
+</script><script src="admin-analytics.js"></script></body></html>

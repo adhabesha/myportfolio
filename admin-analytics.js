@@ -1,0 +1,107 @@
+/* Admin > Analytics: visitors, entry/exit pages, time per page, journey map, click + attention heatmap, fix-first hints. */
+(function(){
+const A={days:30,dev:'',rows:null,hp:'',hd:'d',hm:'both'};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=s=>s>=60?Math.floor(s/60)+'m '+Math.round(s%60)+'s':Math.round(s)+'s';
+const pct=(a,b)=>b?Math.round(a/b*100):0;
+const url=k=>k==='index'?'index.html':k.startsWith('page')?'page.html'+k.slice(4):k+'.html';
+function label(k){try{if(k==='index')return 'Home';if(k==='about')return 'About';if(k==='contact')return 'Contact';const m=/^page\?c=([^&]+)(?:&p=(\d+))?/.exec(k);if(m){const c=(D.categories||[]).find(x=>x.id===decodeURIComponent(m[1]));if(!c)return k;if(!m[2])return c.title;let p=c.projects[+m[2]-1];if(p&&p.ref&&typeof fp==='function')p=(fp(p.ref)||{}).p||p;return c.title+' › '+(p&&p.title||'#'+m[2])}}catch(e){}return k}
+const css=`<style>
+.an h2{margin:0 0 4px}.an .sub{color:#666;font-size:13px;margin:0 0 14px}.an .tb2{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 16px}.an .tb2 select{width:auto}
+.an .kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}.an .kp div{background:#fff;border:1px solid #e1e4e8;border-radius:10px;padding:12px 14px}.an .kp b{display:block;font-size:26px;font-weight:600;letter-spacing:-.02em}.an .kp span{font-size:12px;color:#666}
+.an .card{background:#fff;border:1px solid #e1e4e8;border-radius:10px;padding:14px 16px;margin-bottom:16px}.an .card h3{margin:0 0 10px;font-size:15px}.an .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.an table{width:100%;border-collapse:collapse;font-size:13px}.an th{text-align:left;color:#666;font-weight:600;padding:6px 8px;border-bottom:1px solid #e1e4e8}.an td{padding:6px 8px;border-bottom:1px solid #f0f1f3}.an td.n,.an th.n{text-align:right;font-variant-numeric:tabular-nums}
+.an .bar2{display:flex;align-items:center;gap:8px;font-size:13px;margin:5px 0}.an .bar2 i{display:block;height:8px;border-radius:4px;background:#222;min-width:2px}.an .bar2 em{flex:0 0 38px;text-align:right;color:#666;font-style:normal}.an .bar2 u{text-decoration:none;flex:0 0 42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.an .bar2 s{flex:1;background:#eef0f3;border-radius:4px;height:8px;display:block}.an .bar2 s i{height:8px}
+.an .tip{border-left:3px solid #e67e22;background:#fff8f0;padding:8px 12px;margin:6px 0;border-radius:0 6px 6px 0;font-size:13px}.an .tip.g{border-color:#27ae60;background:#f1fbf5}
+.an .hmw{position:relative;border:1px solid #d5d9de;border-radius:8px;overflow:hidden;background:#fff;margin:0 auto}.an iframe{display:block;border:0;width:100%;height:100%}
+.an .seg button.on{background:#111!important;color:#fff!important;border-color:#111!important}.an .seg{display:inline-flex;gap:0}.an .seg button{border-radius:0}.an .seg button:first-child{border-radius:6px 0 0 6px}.an .seg button:last-child{border-radius:0 6px 6px 0}
+.an .note{background:#fff;border:1px dashed #b9bec6;border-radius:10px;padding:16px 18px;line-height:1.55}.an .note ol{margin:8px 0 0 18px;padding:0}.an code{background:#eef0f3;padding:1px 5px;border-radius:4px}
+.an svg text{font:12px system-ui,sans-serif}.an .sk{width:100%;height:auto}
+</style>`;
+window.analyticsEd=function(){
+  const ed=$('#ed');ed.innerHTML=css+`<div class="an"><h2>Analytics</h2><p class="sub">Visitors, where they enter, stay and leave, the full journey, and a heatmap of what to fix. No cookies and no personal data. Your own visits are excluded on this browser.</p>
+  <div class="tb2"><select id="anD"><option value="1">Last 24 hours</option><option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last year</option></select>
+  <select id="anV"><option value="">All devices</option><option value="m">Phones</option><option value="d">Computers</option></select><button id="anR">Refresh</button><span class="sp" style="flex:1"></span><button id="anX" class="dng">Clear all data</button></div><div id="anB"><p class="hint">Loading…</p></div></div>`;
+  $('#anD').value=A.days;$('#anV').value=A.dev;
+  $('#anD').onchange=()=>{A.days=+$('#anD').value;load()};$('#anV').onchange=()=>{A.dev=$('#anV').value;if(A.rows)render()};$('#anR').onclick=load;
+  $('#anX').onclick=async()=>{if(!confirm('Delete ALL analytics data? This cannot be undone.'))return;await api('clear=1','POST');load()};
+  load()};
+async function api(q,method){const r=await fetch('/api/stats?'+q,{method:method||'GET',headers:{Authorization:'Bearer '+(cfg.token||'')}});let j={};try{j=await r.json()}catch(e){}j.status=r.status;return j}
+async function load(){const B=$('#anB');if(!B)return;B.innerHTML='<p class="hint">Loading…</p>';let j;try{j=await api('days='+A.days)}catch(e){j={status:0}}
+  if(j.status===404||j.status===0){B.innerHTML='<div class="note"><b>Analytics is not switched on yet.</b> The collecting part (<code>functions/api</code> and <code>track.js</code>) has not been deployed, or you are opening this file locally. Publish the update, wait for Cloudflare to finish, then open the live /admin address.</div>';return}
+  if(j.status===401){B.innerHTML='<div class="note"><b>Access denied.</b> Open Settings and check that the GitHub token is saved and has <b>Contents: Read and write</b> on the myportfolio repository.</div>';return}
+  if(j.status===503){B.innerHTML=`<div class="note"><b>One-time setup (2 minutes): give the site a small database.</b><ol><li>Cloudflare dashboard → <b>Storage &amp; databases</b> → <b>D1 SQL database</b> → <b>Create database</b>, name it <code>portfolio-analytics</code>.</li><li>Workers &amp; Pages → your portfolio project → <b>Settings</b> → <b>Bindings</b> → <b>Add</b> → <b>D1 database</b>. Variable name: <code>DB</code>, pick <code>portfolio-analytics</code>, save (for Production).</li><li>Deployments → <b>Retry deployment</b> (or push any change). Then come back and press Refresh.</li></ol><p style="margin:10px 0 0">It is free. Tables are created automatically.</p></div>`;return}
+  A.rows=j.rows||[];render()}
+function render(){const B=$('#anB');if(!B)return;const R=A.rows.filter(r=>!A.dev||r.dev===A.dev);
+  if(!R.length){B.innerHTML='<div class="note">No visits recorded yet'+(A.dev?' for this device type':'')+'. Open your live site in a private/incognito window (your normal browser is excluded), click around, close the tab, and press Refresh. Data appears when a visit ends.</div>';return}
+  const ss={};R.forEach(r=>(ss[r.sid]=ss[r.sid]||[]).push(r));const S=Object.values(ss).map(a=>a.sort((x,y)=>x.n-y.n||x.ts-y.ts));
+  const vis=new Set(R.map(r=>r.vid)).size,tot=R.reduce((a,r)=>a+r.dwell,0),bounce=S.filter(a=>a.length===1).length;
+  const pg={};R.forEach(r=>{const o=pg[r.path]=pg[r.path]||{v:0,d:0,s:0,e:0,x:0,u:new Set,key:r.path};o.v++;o.d+=r.dwell;o.s+=r.scroll;o.u.add(r.sid)});
+  S.forEach(a=>{pg[a[0].path].e++;pg[a[a.length-1].path].x++});
+  const P=Object.values(pg).sort((a,b)=>b.v-a.v);
+  const top=(m,n)=>Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,n);
+  const bars=(arr,tot,fn)=>arr.map(([k,v])=>`<div class="bar2"><u title="${esc(fn?fn(k):k)}">${esc(fn?fn(k):k)}</u><s><i style="width:${pct(v,tot)}%"></i></s><em>${v}</em></div>`).join('')||'<p class="hint">—</p>';
+  const ent={},ext={},refs={},ctry={},dev={m:0,d:0},day={};
+  S.forEach(a=>{ent[a[0].path]=(ent[a[0].path]||0)+1;ext[a[a.length-1].path]=(ext[a[a.length-1].path]||0)+1;const rf=a[0].ref||'Direct / unknown';refs[rf]=(refs[rf]||0)+1;const c=a[0].country||'?';ctry[c]=(ctry[c]||0)+1;dev[a[0].dev]++;const d=new Date(a[0].ts),k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');day[k]=(day[k]||0)+1});
+  const keys=[];for(let i=Math.min(A.days,90)-1;i>=0;i--){const d=new Date(Date.now()-i*864e5);keys.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'))}
+  const mx=Math.max(1,...keys.map(k=>day[k]||0)),bw=900/keys.length,chart=`<svg viewBox="0 0 900 120" class="sk">${keys.map((k,i)=>{const h=(day[k]||0)/mx*96;return `<rect x="${i*bw+1}" y="${108-h}" width="${Math.max(2,bw-2)}" height="${Math.max(h,day[k]?2:0)}" rx="2" fill="#222"><title>${k}: ${day[k]||0} visits</title></rect>`}).join('')}<text x="0" y="119" fill="#888">${keys[0]}</text><text x="900" y="119" text-anchor="end" fill="#888">${keys[keys.length-1]}</text></svg>`;
+  const tips=[];
+  P.filter(p=>p.v>=3).forEach(p=>{const ex=pct(p.x,p.v),av=p.d/p.v,sc=p.s/p.v;
+    if(ex>=55&&p.key!=='contact')tips.push(['',`<b>${esc(label(p.key))}</b>: ${ex}% of visits end here after about ${fmt(av)}. Add a clear next step (a link or button to related work or contact).`]);
+    if(sc<35)tips.push(['',`<b>${esc(label(p.key))}</b>: visitors reach only ${Math.round(sc)}% of the page on average. Move the strongest content higher.`]);
+    if(av<8&&p.key!=='contact')tips.push(['',`<b>${esc(label(p.key))}</b>: holds attention for only ${fmt(av)}. The top of the page may not be hooking people.`])});
+  const e1=top(ent,1)[0];if(e1)tips.push(['g',`Most visitors first land on <b>${esc(label(e1[0]))}</b> (${pct(e1[1],S.length)}%). Make that page your strongest first impression.`]);
+  if(pct(bounce,S.length)>=60)tips.push(['',`${pct(bounce,S.length)}% of visits view only one page. Stronger links between pages would help.`]);
+  const lowSet=[];const seen={};tips.filter(t=>{const k=t[1];if(seen[k])return 0;seen[k]=1;return 1}).slice(0,8).forEach(t=>lowSet.push(t));
+  B.innerHTML=`<div class="kp"><div><b>${vis}</b><span>Visitors</span></div><div><b>${S.length}</b><span>Visits</span></div><div><b>${R.length}</b><span>Page views</span></div><div><b>${fmt(tot/S.length)}</b><span>Avg time per visit</span></div><div><b>${(R.length/S.length).toFixed(1)}</b><span>Pages per visit</span></div><div><b>${pct(bounce,S.length)}%</b><span>Left after 1 page</span></div></div>
+  <div class="card"><h3>Visits per day</h3>${chart}</div>
+  <div class="card"><h3>What to fix first</h3>${lowSet.map(t=>`<div class="tip ${t[0]}">${t[1]}</div>`).join('')||'<p class="hint">Not enough data yet for suggestions (needs a few visits per page).</p>'}</div>
+  <div class="g2"><div class="card"><h3>Where visitors start</h3>${bars(top(ent,8),S.length,label)}</div><div class="card"><h3>Where visitors leave</h3>${bars(top(ext,8),S.length,label)}</div></div>
+  <div class="card"><h3>Pages: views, time and exits</h3><div style="overflow:auto"><table><tr><th>Page</th><th class="n">Views</th><th class="n">Avg time</th><th class="n">Avg scroll</th><th class="n">Started here</th><th class="n">Left here</th><th class="n">Exit rate</th></tr>${P.map(p=>`<tr><td>${esc(label(p.key))}</td><td class="n">${p.v}</td><td class="n">${fmt(p.d/p.v)}</td><td class="n">${Math.round(p.s/p.v)}%</td><td class="n">${p.e}</td><td class="n">${p.x}</td><td class="n">${pct(p.x,p.v)}%</td></tr>`).join('')}</table></div></div>
+  <div class="card"><h3>User journey map</h3><p class="hint" style="margin:0 0 8px">Each column is a step of the visit. Thick bands are popular paths; red is where visitors left.</p><div id="anJ"></div></div>
+  <div class="g2"><div class="card"><h3>Where they come from</h3>${bars(top(refs,6),S.length)}</div><div class="card"><h3>Countries &amp; devices</h3>${bars(top(ctry,6),S.length)}<div class="bar2" style="margin-top:12px"><u>Phones</u><s><i style="width:${pct(dev.m,S.length)}%"></i></s><em>${pct(dev.m,S.length)}%</em></div><div class="bar2"><u>Computers</u><s><i style="width:${pct(dev.d,S.length)}%"></i></s><em>${pct(dev.d,S.length)}%</em></div></div></div>
+  <div class="card"><h3>Heatmap: clicks and where people stay</h3><div class="tb2"><select id="hmP">${P.map(p=>`<option value="${esc(p.key)}"${p.key===A.hp?' selected':''}>${esc(label(p.key))} (${p.v})</option>`).join('')}</select><span class="seg" id="hmD"><button data-v="d">Computer</button><button data-v="m">Phone</button></span><span class="seg" id="hmM"><button data-v="both">Both</button><button data-v="clicks">Clicks</button><button data-v="att">Time spent</button></span></div><p class="hint" style="margin:0 0 10px">Red = most clicks / most time. Dashed lines show how many visitors scrolled that far. Scroll inside the preview.</p><div id="hmW"></div><div id="hmL"></div></div>`;
+  journey(S);A.hp=A.hp||P[0].key;$('#hmP').value=A.hp;$('#hmP').onchange=()=>{A.hp=$('#hmP').value;heat()};
+  document.querySelectorAll('#hmD button').forEach(b=>{b.classList.toggle('on',b.dataset.v===A.hd);b.onclick=()=>{A.hd=b.dataset.v;document.querySelectorAll('#hmD button').forEach(x=>x.classList.toggle('on',x.dataset.v===A.hd));heat()}});
+  document.querySelectorAll('#hmM button').forEach(b=>{b.classList.toggle('on',b.dataset.v===A.hm);b.onclick=()=>{A.hm=b.dataset.v;document.querySelectorAll('#hmM button').forEach(x=>x.classList.toggle('on',x.dataset.v===A.hm));draw()}});
+  heat()}
+/* ---------- journey (sankey) ---------- */
+const PAL=['#2563eb','#0d9488','#7c3aed','#d97706','#db2777','#4b5563','#65a30d','#0891b2'];
+function journey(S){const STEPS=4,W=1000,H=Math.min(460,150+S.length*10),NW=14,GAP=10,box=$('#anJ');
+  const seqs=S.map(a=>{const q=[];a.forEach(r=>{if(q[q.length-1]!==r.path)q.push(r.path)});return q});
+  const cnt=Array.from({length:STEPS},()=>({}));seqs.forEach(q=>{for(let i=0;i<STEPS&&i<q.length;i++)cnt[i][q[i]]=(cnt[i][q[i]]||0)+1});
+  const keep=cnt.map(c=>new Set(Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,6).map(x=>x[0])));
+  const nm=(i,p)=>p==null?'__left':keep[i].has(p)?p:'__other';
+  const nodes=Array.from({length:STEPS},()=>({})),links={};
+  const addN=(i,k)=>{nodes[i][k]=(nodes[i][k]||0)+1};
+  seqs.forEach(q=>{for(let i=0;i<STEPS;i++){if(i>=q.length){if(i>0&&i===q.length){addN(i,'__left');const a=nm(i-1,q[i-1]),k=(i-1)+'|'+a+'>'+i+'|__left';links[k]=(links[k]||0)+1}break}addN(i,nm(i,q[i]));if(i>0){const k=(i-1)+'|'+nm(i-1,q[i-1])+'>'+i+'|'+nm(i,q[i]);links[k]=(links[k]||0)+1}}});
+  const col=(k)=>k==='__left'?'#d64545':k==='__other'?'#9aa1ab':PAL[Math.abs([...k].reduce((a,c)=>a*31+c.charCodeAt(0),7))%PAL.length],lab=k=>k==='__left'?'Left the site':k==='__other'?'Other pages':label(k);
+  const pos={},colX=i=>20+i*(W-40-NW-150)/(STEPS-1);
+  nodes.forEach((n,i)=>{const ks=Object.keys(n).sort((a,b)=>(a==='__left')-(b==='__left')||n[b]-n[a]),tot=ks.reduce((a,k)=>a+n[k],0),sc=(H-GAP*(ks.length-1))/tot;let y=0;ks.forEach(k=>{const h=Math.max(14,n[k]*sc);pos[i+'|'+k]={x:colX(i),y,h,v:n[k],so:0,to:0,sc:h/n[k],k,i};y+=h+GAP})});
+  const L=Object.entries(links).map(([k,v])=>{const [a,b]=k.split('>');return{a:pos[a],b:pos[b],v}}).filter(l=>l.a&&l.b).sort((x,y)=>x.a.y-y.a.y||x.b.y-y.b.y);
+  let svg='';L.forEach(l=>{const w=l.v*l.a.sc,w2=l.v*l.b.sc,y1=l.a.y+l.a.so,y2=l.b.y+l.b.to;l.a.so+=w;l.b.to+=w2;const x1=l.a.x+NW,x2=l.b.x,mx=(x1+x2)/2;svg+=`<path d="M${x1},${y1+w/2}C${mx},${y1+w/2} ${mx},${y2+w2/2} ${x2},${y2+w2/2}" fill="none" stroke="${l.b.k==='__left'?'#d64545':col(l.a.k)}" stroke-opacity=".28" stroke-width="${Math.max(1.5,(w+w2)/2)}"><title>${esc(lab(l.a.k))} → ${esc(lab(l.b.k))}: ${l.v}</title></path>`});
+  Object.values(pos).forEach(p=>{svg+=`<rect x="${p.x}" y="${p.y}" width="${NW}" height="${p.h}" rx="3" fill="${col(p.k)}"><title>${esc(lab(p.k))}: ${p.v}</title></rect><text x="${p.x+NW+6}" y="${p.y+Math.min(p.h/2+4,p.h-2)}" fill="#222">${esc(lab(p.k).slice(0,24))} <tspan fill="#888">${p.v}</tspan></text>`});
+  svg=`<svg viewBox="0 -24 ${W} ${H+30}" class="sk">${nodes.map((_,i)=>`<text x="${colX(i)}" y="-8" fill="#888" font-weight="600">${i===0?'Entry':'Step '+(i+1)}</text>`).join('')}${svg}</svg>`;box.innerHTML=svg}
+/* ---------- heatmap ---------- */
+let HM=null;
+async function heat(){const W=$('#hmW'),Lg=$('#hmL');if(!W)return;document.querySelectorAll('#hmD button').forEach(x=>x.classList.toggle('on',x.dataset.v===A.hd));W.innerHTML='<p class="hint">Loading heatmap…</p>';Lg.innerHTML='';
+  const j=await api('days='+A.days+'&path='+encodeURIComponent(A.hp)),rows=(j.rows||[]).filter(r=>r.dev===A.hd);
+  if(!rows.length){W.innerHTML='<p class="hint">No '+(A.hd==='m'?'phone':'computer')+' visits on this page yet.</p>';HM=null;return}
+  const clicks=[],att=new Array(100).fill(0),reach=new Array(101).fill(0),lbl={};let n=0;
+  rows.forEach(r=>{let c=[],b={};try{c=JSON.parse(r.clicks||'[]');b=JSON.parse(r.bands||'{}')}catch(e){}const ph=r.ph||1;c.forEach(x=>{clicks.push([x[0]/1000,Math.min(1,x[1]/ph)]);lbl[x[2]]=(lbl[x[2]]||0)+1});for(const k in b){const s=Math.min(99,Math.floor((+k*100+50)/ph*100));att[s]+=b[k]}n++;for(let i=0;i<=r.scroll;i++)reach[i]++});
+  HM={clicks,att,reach,n,lbl};
+  const w=A.hd==='m'?412:1180;W.innerHTML=`<div class="hmw" style="width:min(100%,${w}px);height:${A.hd==='m'?720:640}px"><iframe id="hmF" src="${url(A.hp)}"></iframe></div>`;
+  const f=$('#hmF');f.onload=()=>{setTimeout(draw,900);setTimeout(draw,2800);try{f.contentWindow.addEventListener('resize',draw)}catch(e){}};
+  Lg.innerHTML=`<div class="g2" style="margin-top:14px"><div><b style="font-size:13px">Most clicked</b>${Object.entries(lbl).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([k,v])=>`<div class="bar2"><u title="${esc(k)}">${esc(k)}</u><s><i style="width:${pct(v,clicks.length)}%"></i></s><em>${v}</em></div>`).join('')||'<p class="hint">No clicks recorded.</p>'}</div><div><b style="font-size:13px">Based on</b><p class="hint" style="margin:6px 0">${n} visits, ${clicks.length} clicks on this page.</p></div></div>`}
+function draw(){const f=$('#hmF');if(!f||!HM)return;let d;try{d=f.contentDocument;if(!d||!d.body)return}catch(e){return}
+  const dw=Math.max(d.documentElement.scrollWidth,f.clientWidth),dh=Math.min(Math.max(d.documentElement.scrollHeight,d.body.scrollHeight),12000);let o=d.getElementById('__hm');if(o)o.remove();
+  o=d.createElement('div');o.id='__hm';o.style.cssText='position:absolute;left:0;top:0;width:'+dw+'px;height:'+dh+'px;pointer-events:none;z-index:2147483000';d.body.style.position=d.body.style.position||'relative';d.body.appendChild(o);
+  const show=A.hm;
+  if(show!=='clicks'){const mx=Math.max(1,...HM.att);let h='';HM.att.forEach((v,i)=>{if(!v)return;const t=v/mx;h+=`<div style="position:absolute;left:0;right:0;top:${i}%;height:1%;background:${ramp(t)};opacity:${.12+t*.38}"></div>`});o.insertAdjacentHTML('beforeend',h)}
+  [25,50,75,100].forEach(p=>{const r=HM.reach[p]||0,y=p===100?dh-2:p/100*dh;o.insertAdjacentHTML('beforeend',`<div style="position:absolute;left:0;right:0;top:${y}px;border-top:2px dashed rgba(0,0,0,.45)"></div><div style="position:absolute;right:8px;top:${Math.max(0,y-24)}px;background:#111;color:#fff;font:600 12px system-ui;padding:3px 8px;border-radius:4px">${Math.round(r/HM.n*100)}% scrolled to ${p}%</div>`)});
+  if(show!=='att'&&HM.clicks.length){const cv=d.createElement('canvas');cv.width=dw;cv.height=dh;cv.style.cssText='position:absolute;left:0;top:0';o.appendChild(cv);paintHeat(cv,HM.clicks.map(c=>[c[0]*dw,c[1]*dh]),A.hd==='m'?26:34)}}
+function ramp(t){const s=[[0,[37,99,235]],[.35,[6,182,212]],[.55,[34,197,94]],[.75,[250,204,21]],[1,[239,68,68]]];for(let i=1;i<s.length;i++)if(t<=s[i][0]){const a=s[i-1],b=s[i],k=(t-a[0])/(b[0]-a[0]);return `rgb(${[0,1,2].map(j=>Math.round(a[1][j]+(b[1][j]-a[1][j])*k)).join(',')})`}return 'rgb(239,68,68)'}
+function paintHeat(cv,pts,r){const x=cv.getContext('2d');x.globalAlpha=1;pts.forEach(p=>{const g=x.createRadialGradient(p[0],p[1],0,p[0],p[1],r);g.addColorStop(0,'rgba(0,0,0,.22)');g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(p[0]-r,p[1]-r,r*2,r*2)});
+  const im=x.getImageData(0,0,cv.width,cv.height),D2=im.data,pal=[];for(let i=0;i<256;i++){const m=ramp(i/255).match(/\d+/g);pal.push(m.map(Number))}
+  for(let i=0;i<D2.length;i+=4){const a=D2[i+3];if(!a)continue;const c=pal[Math.min(255,Math.round(a*2.6))];D2[i]=c[0];D2[i+1]=c[1];D2[i+2]=c[2];D2[i+3]=Math.min(235,a*3.2)}x.putImageData(im,0,0)}
+})();
