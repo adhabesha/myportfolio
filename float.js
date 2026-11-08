@@ -20,7 +20,7 @@ mail:'M3 5h18a1 1 0 011 1v.4l-10 6.6L2 6.4V6a1 1 0 011-1zm-1 3.8l10 6.6 10-6.6V1
 li:'M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.9 2.6 4.9 6V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z',
 fb:'M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.8v8z'};
 var svg=function(d){return '<svg viewBox="0 0 24 24"><path d="'+d+'"/></svg>'};
-fetch('data.json?v='+Date.now()).then(function(r){return r.json()}).then(function(D){
+(window.DJ?DJ():fetch('data.json').then(function(r){return r.json()})).then(function(D){
   var S=D.site||{},c=S.contact||{},so=S.social||{},tel=String(c.phone||'').replace(/[^\d+]/g,''),wa=String(c.whatsapp||c.phone||'').replace(/[^\d]/g,''),
   fb=so.facebook&&so.facebook!=='#'?so.facebook:'https://web.facebook.com/sikettc',li=so.linkedin&&so.linkedin!=='#'?so.linkedin:'https://www.linkedin.com/in/aceaddiss/',L=[];
   if(wa)L.push(['WhatsApp','https://wa.me/'+wa,'#25D366',I.wa,1]);if(tel)L.push(['Call','tel:'+tel,'#1e88e5',I.tel]);if(c.email)L.push(['Email','mailto:'+c.email,'#d93025',I.mail]);
