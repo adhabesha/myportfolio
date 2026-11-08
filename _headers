@@ -1,0 +1,45 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/
+  Link: </theme.css>; rel=preload; as=style
+  Link: </fonts/metropolis-latin-300-normal.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
+  Link: </swiper/swiper-bundle.min.css>; rel=preload; as=style
+  Link: </swiper/swiper-bundle.min.js>; rel=preload; as=script
+  Link: </slider.js>; rel=preload; as=script
+
+/index.html
+  Link: </theme.css>; rel=preload; as=style
+  Link: </fonts/metropolis-latin-300-normal.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
+  Link: </swiper/swiper-bundle.min.css>; rel=preload; as=style
+  Link: </swiper/swiper-bundle.min.js>; rel=preload; as=script
+  Link: </slider.js>; rel=preload; as=script
+
+/page.html
+  Link: </theme.css>; rel=preload; as=style
+  Link: </fonts/metropolis-latin-300-normal.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
+  Link: </swiper/swiper-bundle.min.css>; rel=preload; as=style
+  Link: </swiper/swiper-bundle.min.js>; rel=preload; as=script
+  Link: </slider.js>; rel=preload; as=script
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/swiper/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/*.css
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/data.json
+  Cache-Control: no-cache
+
+/sw.js
+  Cache-Control: no-cache

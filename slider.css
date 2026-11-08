@@ -61,3 +61,13 @@ html{overflow-x:clip}
 .cfbox.d3 .st.flip>*{box-shadow:0 30px 80px rgba(0,0,0,.6);animation:cf3d .7s cubic-bezier(.2,.7,.2,1) both;transform-origin:50% 50%}
 @keyframes cf3d{from{opacity:0;transform:translateX(calc(var(--dir,1)*140px)) rotateY(calc(var(--dir,1)*-62deg)) scale(.78)}60%{opacity:1}to{opacity:1;transform:none}}
 @media(max-width:700px){.cf-g .gl-more button{padding:11px 28px}}
+
+/* fast-loading look: blurred preview + shimmer, picture fades in when ready */
+.cf-fx .swiper-slide img{position:relative;z-index:1;opacity:0;transition:opacity .45s ease}
+.cf-fx .swiper-slide img.ld{opacity:1}
+.cf .swiper-slide .lq{position:absolute;inset:-8%;background-size:cover;background-position:center;filter:blur(14px);transform:scale(1.1);transition:opacity .6s ease}
+.cf .swiper-slide.ldd .lq{opacity:0}
+.cf .swiper-slide .cf-play,.cf .swiper-slide .cf-cap{z-index:2}
+.cf-fx .swiper-slide:not(.ldd){background:linear-gradient(110deg,#1d1f23 30%,#2b2e34 50%,#1d1f23 70%) 0 0/220% 100%;animation:cfsh 1.4s linear infinite}
+@keyframes cfsh{to{background-position:-220% 0}}
+@media(prefers-reduced-motion:reduce){.cf-fx .swiper-slide:not(.ldd){animation:none}}
