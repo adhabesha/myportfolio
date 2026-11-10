@@ -81,6 +81,16 @@ footer nav{display:flex;gap:24px}
 .ph b{font-size:18px}.ph small{font-size:12px;font-weight:400}
 .vthumb .ph{border:0}
 
+/* section jump bar (phones): tap to reach any part of the page */
+.jump{display:none}
+@media(max-width:700px){
+  .jump{display:flex;position:sticky;top:var(--hh,62px);z-index:40;background:#fff;border-bottom:1px solid #e3e5e8;box-shadow:0 4px 12px rgba(0,0,0,.06);transition:top .35s var(--ease);overflow-x:auto;scrollbar-width:none}
+  .jump::-webkit-scrollbar{display:none}
+  html:has(header.hide) .jump{top:0}
+  .jump a{flex:1 0 auto;text-align:center;padding:13px 14px 11px;font:600 11.5px/1 Metropolis,Helvetica,Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#777;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+  .jump a.on{color:#111;border-color:#111}
+  #about,#previous,#videos,#industries,#contact{scroll-margin-top:60px}
+}
 /* tablet + mobile */
 @media(max-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -98,10 +108,11 @@ footer nav{display:flex;gap:24px}
 @media(max-width:600px){
   header{height:76px}#menu{top:76px}
   .logo img,.logo .ph{width:52px;height:52px}
-  .grid{grid-template-columns:1fr;gap:22px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}
+  .grid .card{padding:6px 6px 10px}.grid .card .thumb{padding:4px;margin-bottom:8px}.grid .card h3{font-size:12.5px;line-height:1.3;padding:0 6px}
   .vid{flex-basis:82%}
   .arrow{display:none}
-  .work{padding:50px 0 70px}
+  .work{padding:38px 0 46px}
   .title{gap:14px}.title h2{font-size:13px;letter-spacing:.1em}
   footer .wrap{flex-direction:column;align-items:flex-start}
 }
@@ -143,7 +154,7 @@ u.slice(0,4).forEach(function(a,i){var l=document.createElement('link');l.rel='p
       </div>
     </div>
   </div>
-</header><div data-slot="home.header"></div>
+</header><nav class="jump" id="jump" aria-label="Sections"><a href="#about">About</a><a href="#previous">Work</a><a href="#videos">Videos</a><a href="#industries">Industries</a><a href="#contact">Contact</a></nav><div data-slot="home.header"></div>
 
 <section class="hero" id="about">
   <div class="hero-in">
@@ -173,7 +184,7 @@ u.slice(0,4).forEach(function(a,i){var l=document.createElement('link');l.rel='p
   </div>
 </section><div data-slot="home.afterPrevious"></div>
 
-<section class="videos" aria-label="Motion graphics designs">
+<section class="videos" id="videos" aria-label="Motion graphics designs">
   <div class="wrap">
     <h2>Motion Graphics Designs</h2>
     <div class="vwrap">
@@ -251,5 +262,10 @@ tr.addEventListener('click',function(e){var li=e.target.closest('.vid');if(!li||
 setInterval(function(){if(document.querySelector('.cfbox')||document.hidden)return;var f=tr.querySelector('.vid');if(!f)return;var r=tr.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
 if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4)tr.scrollTo({left:0,behavior:'smooth'});else tr.scrollBy({left:f.offsetWidth+20,behavior:'smooth'})},3000)})();
 </script>
-<script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script></body>
+<script>(function(){var j=document.getElementById('jump'),h=document.querySelector('header');if(!j)return;
+var ids=['about','previous','videos','industries','contact'],as=[].slice.call(j.querySelectorAll('a')),tk=0;
+function hh(){document.documentElement.style.setProperty('--hh',(h?h.offsetHeight:62)+'px')}
+function act(){tk=0;if(innerWidth>700)return;var y=(h&&!h.classList.contains('hide')?h.offsetHeight:0)+j.offsetHeight+40,cur=0;ids.forEach(function(id,i){var e=document.getElementById(id);if(e&&e.getBoundingClientRect().top<=y)cur=i});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=ids.length-1;
+  as.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=as[cur];if(on&&j.scrollWidth>j.clientWidth)j.scrollLeft=on.offsetLeft-(j.clientWidth-on.offsetWidth)/2}
+addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(act)}},{passive:true});addEventListener('resize',function(){hh();act()});hh();act()})();</script><script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script></body>
 </html>
