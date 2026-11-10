@@ -120,6 +120,16 @@ footer nav{display:flex;gap:24px}
 .prail{--acc:#222;position:sticky;top:104px;align-self:start;max-height:calc(100vh - 130px);overflow-y:auto;overflow-x:hidden;padding:4px 16px 14px 46px;scrollbar-width:none;transition:top .35s var(--ease)}
 .prail::-webkit-scrollbar{display:none}
 html:has(header.hide) .prail{top:22px;max-height:calc(100vh - 44px)}
+/* section strip (phones) */
+.jump{display:none}
+@media(max-width:700px){
+  .jump{display:flex;position:sticky;top:var(--hh,62px);z-index:41;background:#fff;border-bottom:1px solid #e3e5e8;box-shadow:0 4px 12px rgba(0,0,0,.06);transition:top .35s var(--ease);overflow-x:auto;scrollbar-width:none}
+  .jump::-webkit-scrollbar{display:none}
+  html:has(header.hide) .jump{top:0}
+  .jump a{flex:1 0 auto;display:flex;align-items:center;justify-content:center;text-align:center;padding:13px 11px 11px;font:600 11px/1 Metropolis,Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#777;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+  .jump a svg{display:block}
+  .jump a.on{color:#111;border-color:#111}
+}
 @keyframes pin{from{opacity:0;transform:translateX(-38px)}to{opacity:1;transform:none}}
 @keyframes pinm{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
 @keyframes hsin{from{opacity:0}to{opacity:1}}
@@ -153,8 +163,9 @@ html:has(header.hide) .prail{top:22px;max-height:calc(100vh - 44px)}
 @media(max-width:900px){
   .pj{display:block}
   .prail{position:static;max-height:none;overflow:visible;margin:0;padding:0}
-  #pr:not(:empty){display:block;position:sticky;top:62px;z-index:40;background:#fff;overflow-anchor:none;transition:top .35s var(--ease)}
+  #pr:not(:empty){display:block;position:sticky;top:calc(var(--hh,62px) + var(--jh,0px));z-index:40;background:#fff;overflow-anchor:none;transition:top .35s var(--ease)}
   html:has(#pr:not(:empty)) header.ready.hide{transform:none}
+  html:has(#pr:not(:empty)) .jump{top:var(--hh,62px)}
   #pr .wrap{padding-top:14px;padding-bottom:16px}
   #pr.cmp .wrap{padding-top:8px;padding-bottom:9px}
   #pr.cmp{box-shadow:0 1px 0 #e3e5e8,0 6px 14px rgba(0,0,0,.06)}
@@ -216,7 +227,7 @@ u.slice(0,4).forEach(function(a,i){var l=document.createElement('link');l.rel='p
       </div>
     </div>
   </div>
-</header><div id="pr"></div><div id="hs"></div><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
+</header><nav class="jump" id="jump" aria-label="Sections"><a href="index.html" aria-label="Home" data-s="top"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg></a><a href="about.html">About</a><a href="index.html#previous" data-s="previous" data-g="previous">Work</a><a href="index.html#videos" data-s="videos">Videos</a><a href="index.html#industries" data-s="industries" data-g="industry">Industries</a><a href="contact.html" data-s="contact">Contact</a></nav><div id="pr"></div><div id="hs"></div><main class="work cs"><div class="wrap" id="main"></div></main><footer id="contact">
   <a class="top" href="#top" aria-label="Back to top"></a>
   <div class="wrap">
     <span>&copy; 2026 Addis Alemayehu</span>
@@ -242,6 +253,7 @@ if(!D.__r){D.__r=1;var byId={};D.categories.forEach(function(c){c.projects.forEa
   var lk=function(p,i,cid){return 'page.html?c='+(p&&p._c||cid)+'&amp;p='+(p&&p._i||i+1)};
   var q=new URLSearchParams(location.search),cat=D.categories.find(function(c){return c.id===q.get('c')}),n=+q.get('p')||0;
   if(!cat){main.innerHTML='<h1>Page not found</h1><p><a href="index.html">Back to home</a></p>';return}
+  var jg=document.querySelector('#jump a[data-g="'+cat.group+'"]');document.querySelectorAll('#jump a').forEach(function(x){x.classList.toggle('on',x===jg)});
   var base=function(i){return 'images/'+cat.id+'/'+i+'-'};
   var card=function(p,i){return '<li><a class="card" href="'+lk(p,i,cat.id)+'"><div class="thumb">'+IML(p.cover||base(i+1)+'cover.jpg',1600,900,p.title)+'</div><h3>'+E(p.title)+'</h3></a></li>'};
   var h='';
@@ -298,4 +310,4 @@ if(!D.__r){D.__r=1;var byId={};D.categories.forEach(function(c){c.projects.forEa
     e.preventDefault();e.stopPropagation();if(u.search===location.search)return;history.pushState({},'',location.pathname+u.search);go(GD,1);if(scrollY>0)scrollTo({top:0,behavior:'smooth'})},true);
   addEventListener('popstate',function(){if(location.hash==='#zoom'||location.search===window.__cur)return;go(GD,1)})
 }).catch(function(){main.innerHTML='<h1>Could not load data.json</h1><p>Open the site through a web server (or the live Cloudflare address), not by double-clicking the file.</p>'});
-</script><script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script></body></html>
+</script><script>(function(){var j=document.getElementById('jump'),h=document.querySelector('header');if(!j)return;function m(){var r=document.documentElement.style;r.setProperty('--hh',(h?h.offsetHeight:62)+'px');r.setProperty('--jh',(innerWidth<=700?j.offsetHeight:0)+'px')}m();addEventListener('resize',m);addEventListener('load',m)})();</script><script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script></body></html>

@@ -81,15 +81,16 @@ footer nav{display:flex;gap:24px}
 .ph b{font-size:18px}.ph small{font-size:12px;font-weight:400}
 .vthumb .ph{border:0}
 
-/* section jump bar (phones): tap to reach any part of the page */
+/* section jump bar (phones) */
 .jump{display:none}
 @media(max-width:700px){
-  .jump{display:flex;position:sticky;top:var(--hh,62px);z-index:40;background:#fff;border-bottom:1px solid #e3e5e8;box-shadow:0 4px 12px rgba(0,0,0,.06);transition:top .35s var(--ease);overflow-x:auto;scrollbar-width:none}
+  .jump{display:flex;position:sticky;top:var(--hh,62px);z-index:41;background:#fff;border-bottom:1px solid #e3e5e8;box-shadow:0 4px 12px rgba(0,0,0,.06);transition:top .35s var(--ease);overflow-x:auto;scrollbar-width:none}
   .jump::-webkit-scrollbar{display:none}
   html:has(header.hide) .jump{top:0}
-  .jump a{flex:1 0 auto;text-align:center;padding:13px 14px 11px;font:600 11.5px/1 Metropolis,Helvetica,Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#777;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+  .jump a{flex:1 0 auto;display:flex;align-items:center;justify-content:center;text-align:center;padding:13px 11px 11px;font:600 11px/1 Metropolis,Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#777;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+  .jump a svg{display:block}
   .jump a.on{color:#111;border-color:#111}
-  #about,#previous,#videos,#industries,#contact{scroll-margin-top:60px}
+  #previous,#videos,#industries,#contact{scroll-margin-top:100px}
 }
 /* tablet + mobile */
 @media(max-width:900px){
@@ -154,7 +155,7 @@ u.slice(0,4).forEach(function(a,i){var l=document.createElement('link');l.rel='p
       </div>
     </div>
   </div>
-</header><nav class="jump" id="jump" aria-label="Sections"><a href="#about">About</a><a href="#previous">Work</a><a href="#videos">Videos</a><a href="#industries">Industries</a><a href="#contact">Contact</a></nav><div data-slot="home.header"></div>
+</header><nav class="jump" id="jump" aria-label="Sections"><a href="#top" aria-label="Home" data-s="top"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg></a><a href="about.html">About</a><a href="#previous" data-s="previous" data-g="previous">Work</a><a href="#videos" data-s="videos">Videos</a><a href="#industries" data-s="industries" data-g="industry">Industries</a><a href="#contact" data-s="contact">Contact</a></nav><div data-slot="home.header"></div>
 
 <section class="hero" id="about">
   <div class="hero-in">
@@ -263,9 +264,9 @@ setInterval(function(){if(document.querySelector('.cfbox')||document.hidden)retu
 if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4)tr.scrollTo({left:0,behavior:'smooth'});else tr.scrollBy({left:f.offsetWidth+20,behavior:'smooth'})},3000)})();
 </script>
 <script>(function(){var j=document.getElementById('jump'),h=document.querySelector('header');if(!j)return;
-var ids=['about','previous','videos','industries','contact'],as=[].slice.call(j.querySelectorAll('a')),tk=0;
+var as=[].slice.call(j.querySelectorAll('a[data-s]')),tk=0;
 function hh(){document.documentElement.style.setProperty('--hh',(h?h.offsetHeight:62)+'px')}
-function act(){tk=0;if(innerWidth>700)return;var y=(h&&!h.classList.contains('hide')?h.offsetHeight:0)+j.offsetHeight+40,cur=0;ids.forEach(function(id,i){var e=document.getElementById(id);if(e&&e.getBoundingClientRect().top<=y)cur=i});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=ids.length-1;
+function act(){tk=0;if(innerWidth>700)return;var y=(h&&!h.classList.contains('hide')?h.offsetHeight:0)+j.offsetHeight+40,cur=0;as.forEach(function(a,i){var e=document.getElementById(a.getAttribute('data-s'));if(i&&e&&e.getBoundingClientRect().top<=y)cur=i});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=as.length-1;
   as.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=as[cur];if(on&&j.scrollWidth>j.clientWidth)j.scrollLeft=on.offsetLeft-(j.clientWidth-on.offsetWidth)/2}
 addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(act)}},{passive:true});addEventListener('resize',function(){hh();act()});hh();act()})();</script><script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script></body>
 </html>
