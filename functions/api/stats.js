@@ -9,8 +9,9 @@ export async function onRequest({request,env}){
   if(!env.DB)return J({error:'no-db'},503);
   await ensure(env);
   const u=new URL(request.url);
+  if(request.method==='POST'&&u.searchParams.get('delvid')){await env.DB.prepare('DELETE FROM pv WHERE vid=?').bind(u.searchParams.get('delvid').slice(0,40)).run();return J({ok:1})}
   if(request.method==='POST'&&u.searchParams.get('clear')){await env.DB.prepare('DELETE FROM pv').run();return J({ok:1})}
   const days=Math.max(1,Math.min(365,+u.searchParams.get('days')||30)),since=Date.now()-days*864e5,path=u.searchParams.get('path');
   const r=path?await env.DB.prepare('SELECT pid,ts,sid,vid,n,path,dev,vw,ph,dwell,scroll,bands,clicks FROM pv WHERE ts>? AND path=? ORDER BY ts LIMIT 5000').bind(since,path).all()
-    :await env.DB.prepare('SELECT pid,ts,sid,vid,n,path,title,ref,dev,country,vw,ph,dwell,scroll FROM pv WHERE ts>? ORDER BY ts LIMIT 30000').bind(since).all();
+    :await env.DB.prepare('SELECT pid,ts,sid,vid,n,path,title,ref,dev,country,vw,ph,dwell,scroll,who FROM pv WHERE ts>? ORDER BY ts LIMIT 30000').bind(since).all();
   return J({rows:r.results||[],now:Date.now()})}
