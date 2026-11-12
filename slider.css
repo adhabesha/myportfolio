@@ -99,3 +99,9 @@ html{overflow-x:clip}
   html body main.cs #main:has(.pj){max-width:1640px;padding-left:clamp(24px,4.2vw,84px);padding-right:clamp(24px,4.2vw,84px)}
   html body main.cs #main .pj{grid-template-columns:250px minmax(0,1fr);gap:clamp(30px,3.2vw,60px)}
 }
+
+/* share button always visible (v2) */
+html body .pintro .rl p:has(.shr),html body main p:has(.shr){position:relative;z-index:3;overflow:visible;height:auto;margin:16px 0 6px}
+html body .shr{display:inline-flex!important;align-items:center;gap:8px;height:auto!important;min-height:38px;line-height:1.2!important;padding:8px 18px!important;color:#222!important;background:#fff!important;border:1px solid #222!important;border-radius:30px!important;opacity:1!important;visibility:visible!important;clip-path:none!important;transform:none!important;font-size:14px;cursor:pointer;white-space:nowrap}
+html body .shr svg{width:16px!important;height:16px!important;flex:none;fill:none!important;stroke:currentColor!important;stroke-width:2}
+html body .shr:hover{background:#222!important;color:#fff!important;border-color:#222!important}
