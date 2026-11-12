@@ -20,7 +20,7 @@ function openBox(list,i,R,tall,sw,d3){if(sw&&sw.autoplay&&sw.autoplay.running)sw
   function show(k){dir=k<i?-1:1;i=(k+list.length)%list.length;var s=list[i];o.style.setProperty('--dir',dir);stg.classList.remove('flip');void stg.offsetWidth;stg.classList.add('flip');
     stg.innerHTML=s.type==='yt'?'<iframe src="https://www.youtube-nocookie.com/embed/'+E(s.id)+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+E(s.caption||'Video')+'"></iframe>':
       s.type==='video'?'<video src="'+E(R(s.src))+'" controls autoplay playsinline></video>':'<img src="'+E(R(s.src))+'" alt="'+E(s.caption||'')+'">';
-    ct.textContent=(s.caption?s.caption+'  ·  ':'')+(i+1)+' / '+list.length}
+    ct.innerHTML='<b>'+(i+1)+' / '+list.length+'</b><span>'+E(s.caption||'')+'</span>'}
   var hist=1;try{if(location.hash==='#zoom')hist=0;else location.hash='zoom'}catch(e){hist=0}
   function pop(){if(!o.isConnected||location.hash==='#zoom')return;hist=0;close()}window.addEventListener('popstate',pop);window.addEventListener('hashchange',pop);
   function close(){window.removeEventListener('popstate',pop);window.removeEventListener('hashchange',pop);if(hist&&location.hash==='#zoom'){hist=0;try{history.back()}catch(e){}}stg.innerHTML='';o.remove();document.removeEventListener('keydown',key);document.documentElement.style.overflow='';if(sw&&sw.params.autoplay&&sw.autoplay&&!sw.autoplay.running)sw.autoplay.start();if(prevFocus&&prevFocus.focus)prevFocus.focus()}

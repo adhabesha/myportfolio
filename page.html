@@ -211,7 +211,12 @@ if(/page(\.html)?$/.test(path)){var c=(D.categories||[]).find(function(x){return
 else{var nm=/about/.test(path)?'about':/contact/.test(path)?'contact':'home',sx=((D.site||{}).slots||{})[nm+'.header'];sid=sx&&sx[0];if(nm==='home'&&D.site&&D.site.hero&&D.site.hero.image)u.push(D.site.hero.image)}
 var s=sl.find(function(x){return x.id===sid});
 if(s&&s.kind!=='gallery'){var m=Math.floor(s.slides.length/2);[m,m-1,m+1].forEach(function(i){var z=s.slides[i];if(z&&z.type==='image')u.unshift(z.poster||z.src)});var f=u.splice(0,3);u=f.concat(u)}
-u.slice(0,4).forEach(function(a,i){var l=document.createElement('link');l.rel='preload';l.as='image';l.href=a;if(i===0)l.fetchPriority='high';h.appendChild(l)})}catch(e){}}).catch(function(){})})();</script><link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script><link rel="stylesheet" href="swiper/swiper-bundle.min.css"><script src="swiper/swiper-bundle.min.js" defer></script><link rel="stylesheet" href="slider.css"><script src="slider.js" defer></script></head><body id="top"><header>
+u.slice(0,4).forEach(function(a,i){var l=document.createElement('link');l.rel='preload';l.as='image';l.href=a;if(i===0)l.fetchPriority='high';h.appendChild(l)})}catch(e){}}).catch(function(){})})();</script><link rel="preload" href="fonts/metropolis-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="theme.css"><script src="theme.js" defer></script><link rel="stylesheet" href="swiper/swiper-bundle.min.css"><script src="swiper/swiper-bundle.min.js" defer></script><link rel="stylesheet" href="slider.css"><script src="slider.js" defer></script><style>/* project pages: selector at the far left, content uses the full width */
+@media(min-width:901px){
+main.cs #main:has(.pj){max-width:1640px;padding:0 clamp(24px,4.2vw,84px)}
+.pj{grid-template-columns:250px minmax(0,1fr);gap:clamp(30px,3.2vw,60px)}
+}
+</style></head><body id="top"><header>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Home"><img src="images/logo.png" width="128" height="128" alt="Logo" onerror="ph(this)"></a>
     <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
