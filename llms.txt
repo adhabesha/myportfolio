@@ -1,0 +1,7 @@
+# Addis Alemayehu | Graphic Designer & Developer Portfolio
+> Explore the professional portfolio of Addis Alemayehu, expert graphic designer and front-end developer specializing in branding, UI/UX, and motion graphics. View work now!
+
+## Main pages
+- [Home](https://addisalemayehuportfolio.pages.dev/): Addis Alemayehu | Graphic Designer & Developer Portfolio
+- [About](https://addisalemayehuportfolio.pages.dev/about): Who we are
+- [Contact](https://addisalemayehuportfolio.pages.dev/contact): How to reach us
