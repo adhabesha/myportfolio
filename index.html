@@ -287,5 +287,5 @@ var as=[].slice.call(j.querySelectorAll('a[data-s]')),tk=0;
 function hh(){document.documentElement.style.setProperty('--hh',(h?h.offsetHeight:62)+'px')}
 function act(){tk=0;if(innerWidth>700)return;var y=(h&&!h.classList.contains('hide')?h.offsetHeight:0)+j.offsetHeight+40,cur=0;as.forEach(function(a,i){var e=document.getElementById(a.getAttribute('data-s'));if(i&&e&&e.getBoundingClientRect().top<=y)cur=i});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=as.length-1;
   as.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=as[cur];if(on&&j.scrollWidth>j.clientWidth)j.scrollLeft=on.offsetLeft-(j.clientWidth-on.offsetWidth)/2}
-addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(act)}},{passive:true});addEventListener('resize',function(){hh();act()});hh();act()})();</script><script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script><script src="videos.js" defer></script></body>
+addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(act)}},{passive:true});addEventListener('resize',function(){hh();act()});hh();act()})();</script><script src="share.js" defer></script><script src="float.js" defer></script><script src="track.js" defer></script><script src="videos.js" defer></script><script src="dock.js" defer></script></body>
 </html>
