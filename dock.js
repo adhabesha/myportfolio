@@ -9,6 +9,8 @@ var css='.dock{display:none}'
 +'.dock a:active{transform:scale(.92);background:#111;color:#fff}'
 +'.dock svg{width:24px;height:24px;fill:currentColor}'
 +'footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}'
++'html body nav.jump{background:linear-gradient(rgba(214,214,214,.86),rgba(190,190,190,.9))!important;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border-bottom:0!important;border-radius:0 0 18px 18px;padding:0 12px;box-shadow:0 8px 24px rgba(0,0,0,.2),inset 0 -1px 0 rgba(255,255,255,.55)!important}'
++'html body nav.jump a{color:#555!important}html body nav.jump a{border-bottom:0!important;border-radius:12px}html body nav.jump a.on{color:#111!important;background:rgba(255,255,255,.5);box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}'
 +'body:has(.cfbox) .dock{transform:translateY(110%)}'
 +'}@media print{.dock{display:none!important}}@media(prefers-reduced-motion:reduce){.dock{transition:none}}';
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
