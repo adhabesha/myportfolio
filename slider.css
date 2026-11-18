@@ -105,3 +105,13 @@ html body .pintro .rl p:has(.shr),html body main p:has(.shr){position:relative;z
 html body .shr{display:inline-flex!important;align-items:center;gap:8px;height:auto!important;min-height:38px;line-height:1.2!important;padding:8px 18px!important;color:#222!important;background:#fff!important;border:1px solid #222!important;border-radius:30px!important;opacity:1!important;visibility:visible!important;clip-path:none!important;transform:none!important;font-size:14px;cursor:pointer;white-space:nowrap}
 html body .shr svg{width:16px!important;height:16px!important;flex:none;fill:none!important;stroke:currentColor!important;stroke-width:2}
 html body .shr:hover{background:#222!important;color:#fff!important;border-color:#222!important}
+
+/* inline hero video (v1) */
+.cf.cf-playing{padding-bottom:30px}
+.cf-inl{position:relative;width:min(1280px,calc(100% - 40px),calc((100vh - 230px) * var(--iar,1.7778)));aspect-ratio:var(--iar,16/9);margin:6px auto 0;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 16px 50px rgba(0,0,0,.5);animation:cfinl .45s cubic-bezier(.2,.9,.25,1) both}
+@keyframes cfinl{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.cf-inl iframe,.cf-inl video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+.cf-inl-x{position:absolute;top:8px;right:8px;z-index:3;width:34px;height:34px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font:400 22px/1 Helvetica,Arial,sans-serif;cursor:pointer;display:grid;place-items:center;padding:0 0 3px;opacity:.85;transition:opacity .2s,background .2s}
+.cf-inl-x:hover{opacity:1;background:rgba(0,0,0,.8)}
+@media(max-width:700px){.cf-inl{width:calc(100% - 24px);border-radius:8px}}
+@media(prefers-reduced-motion:reduce){.cf-inl{animation:none}}
